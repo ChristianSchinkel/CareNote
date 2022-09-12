@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <attribute name="timestamp_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Journal" representedClassName="Journal" syncable="YES" codeGenerationType="class">
+        <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="text_" optional="YES" attributeType="String"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="journal" inverseEntity="Patient"/>
+    </entity>
+    <entity name="Law" representedClassName="Law" syncable="YES" codeGenerationType="class">
+        <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <attribute name="paragraph_" optional="YES" attributeType="String"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="law" inverseEntity="Patient"/>
+    </entity>
+    <entity name="MedicalTask" representedClassName="MedicalTask" syncable="YES" codeGenerationType="class">
+        <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="medicalTask" inverseEntity="Patient"/>
+    </entity>
+    <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
+        <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="medicine" inverseEntity="Patient"/>
+    </entity>
+    <entity name="Patient" representedClassName="Patient" syncable="YES" codeGenerationType="class">
+        <attribute name="familyName_" optional="YES" attributeType="String"/>
+        <attribute name="id_" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <attribute name="swedishSocialSecurityNumber_" optional="YES" attributeType="String"/>
+        <relationship name="journal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Journal" inverseName="patient" inverseEntity="Journal"/>
+        <relationship name="law" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Law" inverseName="patient" inverseEntity="Law"/>
+        <relationship name="medicalTask" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedicalTask" inverseName="patient" inverseEntity="MedicalTask"/>
+        <relationship name="medicine" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="patient" inverseEntity="Medicine"/>
+        <relationship name="reading" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reading" inverseName="patient" inverseEntity="Reading"/>
+    </entity>
+    <entity name="Reading" representedClassName="Reading" syncable="YES" codeGenerationType="class">
+        <attribute name="amount_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="unit_" optional="YES" attributeType="String"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="reading" inverseEntity="Patient"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="Journal" positionX="-63" positionY="18" width="128" height="74"/>
+        <element name="Law" positionX="-54" positionY="36" width="128" height="89"/>
+        <element name="Medicine" positionX="-45" positionY="54" width="128" height="74"/>
+        <element name="Patient" positionX="-63" positionY="0" width="128" height="164"/>
+        <element name="Reading" positionX="-36" positionY="72" width="128" height="89"/>
+        <element name="MedicalTask" positionX="-54" positionY="63" width="128" height="74"/>
+    </elements>
+</model>
