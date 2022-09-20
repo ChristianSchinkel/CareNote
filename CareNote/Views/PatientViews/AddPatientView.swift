@@ -17,6 +17,34 @@ struct AddPatientView: View {
     @State private var familyName = ""
     @State private var swedishSocialSecurityNumber = ""
     
+    static let care = Care()
+    
+    static let laws = care.laws
+    @State private var law = laws[0]
+    @State private var date = Date.now
+    
+    static let arrivings = care.howPatientComeIn
+    @State private var arriving = arrivings[0]
+    @State private var details = ""
+    
+    @State private var anamnes = ""
+    @State private var diagnosis = ""
+    
+    @State private var now = ""
+    
+    static let sRisks = care.suicidalRiskNiveau
+    @State private var sRisk = sRisks[0]
+    
+    static let vRisks = care.violenceRiskNiveau
+    @State private var vRisk = vRisks[0]
+    
+    static let types = care.typesOfObservation
+    @State private var type = types[0]
+    
+    @State private var drug = ""
+    
+    @State private var medicine = ""
+    
     var body: some View {
         NavigationView {
             Form {
@@ -26,6 +54,28 @@ struct AddPatientView: View {
                     TextField("ÅÅÅÅMMDDNNNN", text: $swedishSocialSecurityNumber)
                         .keyboardType(.numberPad)
                 }
+                Section("Law, When?") {
+                    LawPickerView(
+                        law: self.$law, date: self.$date) // Picker for Type of care and time patient arrived att hospital.
+                    HowPatientComeInView(arriving: self.$arriving, details: self.$details) // Picker OR TextEditor.
+                }
+                Section("Anamnes") {
+                    TextEditor(text: $anamnes) // ("PLACEHOLDER FOR What has happened") // TextEditor
+                    TextField("Diagnose", text: $diagnosis) // ("PLACEHOLDER FOR Body- and mental-health issues") // TextEditor
+                }
+                Section("Whats´s important now?") {
+                    TextEditor(text: $now) // ("PLACEHOLDER FOR What is important now?") // TextEditor
+                    SuicidalRiskPickerView(sRisk: self.$sRisk) // Picker
+                    ViolenceRiskPickerView(vRisk: self.$vRisk) // Picker
+                    TypeOfObservationView(type: self.$type) // Picker
+                }
+                Section("Readings") {
+                    TextEditor(text: $drug) // Text("PLACEHOLDER FOR Drug-test") // TextEditor OR Multiplychoice-Picker
+                }
+                Section("Medicine") {
+                    TextEditor(text: $medicine) // Text("PLACEHOLDER FOR Medicines") // TextEditor
+                }
+                
             }
             .navigationTitle("Add Patient")
             .toolbar {
@@ -49,7 +99,11 @@ struct AddPatientView: View {
 // MARK: - Functions for this View
     private func addPatient() {
         withAnimation {
-            _ = Patient(familyName: familyName, name: name, swedishSocialSecurityNumber: swedishSocialSecurityNumber, context: viewContext)
+            // let patient <-- insert this instead of "_" in line 103.
+            _ = Patient(familyName: familyName, name: name, swedishSocialSecurityNumber: swedishSocialSecurityNumber, context: viewContext) // Make an Instance of PatientEntity; vill Instance will be used by the folloing code.
+//TODO: - Adding properties to the PatientEntity
+            // Add more properties to the Instance of PatientEntity.
+                // patient.addToJournal(Journal(date: date, text: law, context: viewContext))
             PersistenceController.shared.save() // Saves the patient.
             print("Patient: \(name) \(familyName) \(swedishSocialSecurityNumber) adds on the list.")
             dismiss()

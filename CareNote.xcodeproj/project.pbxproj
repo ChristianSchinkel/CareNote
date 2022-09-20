@@ -13,10 +13,16 @@
 		AA2A2DFE28CB80C300C2D8DB /* LawDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A2DFD28CB80C300C2D8DB /* LawDetailView.swift */; };
 		AA37C200288000E000F86E5E /* Patient+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37C1FF288000E000F86E5E /* Patient+Extension.swift */; };
 		AA37C20228801A5000F86E5E /* PatientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37C20128801A5000F86E5E /* PatientListView.swift */; };
+		AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBBE28D6D9D700B6BC92 /* CareData.swift */; };
+		AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */; };
 		AA76B6AA287F00A20084D61F /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76B6A9287F00A20084D61F /* ItemView.swift */; };
 		AA8FD59128CBA5140045FC95 /* AddLawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8FD59028CBA5140045FC95 /* AddLawView.swift */; };
 		AA8FD59328CBE3570045FC95 /* Reading+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8FD59228CBE3570045FC95 /* Reading+Extension.swift */; };
 		AA8FD59528CBE99E0045FC95 /* ReadingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8FD59428CBE99E0045FC95 /* ReadingListView.swift */; };
+		AA94768028D718B900BCB990 /* SuicidalRiskPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94767F28D718B900BCB990 /* SuicidalRiskPickerView.swift */; };
+		AA94768228D71B0900BCB990 /* ViolenceRiskPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94768128D71B0900BCB990 /* ViolenceRiskPickerView.swift */; };
+		AA94768428D71C6600BCB990 /* TypeOfObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94768328D71C6600BCB990 /* TypeOfObservationView.swift */; };
+		AAD59F7F28CF9AAA00F8C5C7 /* LawPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD59F7E28CF9AAA00F8C5C7 /* LawPickerView.swift */; };
 		AAD69B9B28CD2CCA00F63AD6 /* MedicalTask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD69B9A28CD2CCA00F63AD6 /* MedicalTask+Extension.swift */; };
 		AAD69B9D28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD69B9C28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift */; };
 		AAD69B9F28CD2E5000F63AD6 /* MedicalTaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD69B9E28CD2E5000F63AD6 /* MedicalTaskListView.swift */; };
@@ -76,10 +82,16 @@
 		AA2A2DFD28CB80C300C2D8DB /* LawDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawDetailView.swift; sourceTree = "<group>"; };
 		AA37C1FF288000E000F86E5E /* Patient+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+Extension.swift"; sourceTree = "<group>"; };
 		AA37C20128801A5000F86E5E /* PatientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListView.swift; sourceTree = "<group>"; };
+		AA53FBBE28D6D9D700B6BC92 /* CareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareData.swift; sourceTree = "<group>"; };
+		AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPatientComeInView.swift; sourceTree = "<group>"; };
 		AA76B6A9287F00A20084D61F /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		AA8FD59028CBA5140045FC95 /* AddLawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLawView.swift; sourceTree = "<group>"; };
 		AA8FD59228CBE3570045FC95 /* Reading+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reading+Extension.swift"; sourceTree = "<group>"; };
 		AA8FD59428CBE99E0045FC95 /* ReadingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListView.swift; sourceTree = "<group>"; };
+		AA94767F28D718B900BCB990 /* SuicidalRiskPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuicidalRiskPickerView.swift; sourceTree = "<group>"; };
+		AA94768128D71B0900BCB990 /* ViolenceRiskPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolenceRiskPickerView.swift; sourceTree = "<group>"; };
+		AA94768328D71C6600BCB990 /* TypeOfObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfObservationView.swift; sourceTree = "<group>"; };
+		AAD59F7E28CF9AAA00F8C5C7 /* LawPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawPickerView.swift; sourceTree = "<group>"; };
 		AAD69B9A28CD2CCA00F63AD6 /* MedicalTask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicalTask+Extension.swift"; sourceTree = "<group>"; };
 		AAD69B9C28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalTaskDetailView.swift; sourceTree = "<group>"; };
 		AAD69B9E28CD2E5000F63AD6 /* MedicalTaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalTaskListView.swift; sourceTree = "<group>"; };
@@ -173,6 +185,26 @@
 			path = ReadingViews;
 			sourceTree = "<group>";
 		};
+		AA53FBBD28D6D03B00B6BC92 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AA53FBBE28D6D9D700B6BC92 /* CareData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		AAD59F7D28CF9A3300F8C5C7 /* HelperViews */ = {
+			isa = PBXGroup;
+			children = (
+				AAD59F7E28CF9AAA00F8C5C7 /* LawPickerView.swift */,
+				AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */,
+				AA94767F28D718B900BCB990 /* SuicidalRiskPickerView.swift */,
+				AA94768128D71B0900BCB990 /* ViolenceRiskPickerView.swift */,
+				AA94768328D71C6600BCB990 /* TypeOfObservationView.swift */,
+			);
+			path = HelperViews;
+			sourceTree = "<group>";
+		};
 		AAD69BA428CD2E7E00F63AD6 /* MedicalTaskViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +295,7 @@
 		AAE7432C287AC9BB003F68A8 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				AA53FBBD28D6D03B00B6BC92 /* Data */,
 				AAE74330287ACE1D003F68A8 /* CoreDataExtensions */,
 				AAE74306287AC833003F68A8 /* Persistence.swift */,
 				AAE74308287AC833003F68A8 /* CareNote.xcdatamodeld */,
@@ -273,6 +306,7 @@
 		AAE7432D287AC9FC003F68A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AAD59F7D28CF9A3300F8C5C7 /* HelperViews */,
 				AAE742FF287AC831003F68A8 /* ContentView.swift */,
 				AAE00819288053FB00378ABA /* MainMenuTabView.swift */,
 				AA76B6A9287F00A20084D61F /* ItemView.swift */,
@@ -447,7 +481,9 @@
 			files = (
 				AAE74337287AD20A003F68A8 /* ItemDetailView.swift in Sources */,
 				AAF0508728CD1C7000DA286E /* Medicine+Extension.swift in Sources */,
+				AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */,
 				AAE0081A288053FB00378ABA /* MainMenuTabView.swift in Sources */,
+				AA94768428D71C6600BCB990 /* TypeOfObservationView.swift in Sources */,
 				AA8FD59528CBE99E0045FC95 /* ReadingListView.swift in Sources */,
 				AAE00818288040CC00378ABA /* PatientRowView.swift in Sources */,
 				AAE74334287ACF01003F68A8 /* Item+Extension.swift in Sources */,
@@ -455,6 +491,7 @@
 				AAE74307287AC833003F68A8 /* Persistence.swift in Sources */,
 				AAF0507D28CD0F8A00DA286E /* ReadingDetailView.swift in Sources */,
 				AAE008212881B11B00378ABA /* Journal+Extension.swift in Sources */,
+				AA94768028D718B900BCB990 /* SuicidalRiskPickerView.swift in Sources */,
 				AAD69BA128CD2E6000F63AD6 /* MedicalTaskRowView.swift in Sources */,
 				AA2A2DFA28CB77C200C2D8DB /* LawRowView.swift in Sources */,
 				AAE008232881B88100378ABA /* JournalListView.swift in Sources */,
@@ -473,11 +510,14 @@
 				AA2A2DFE28CB80C300C2D8DB /* LawDetailView.swift in Sources */,
 				AAE742FE287AC831003F68A8 /* CareNoteApp.swift in Sources */,
 				AA2A2DF828CB778600C2D8DB /* LawListView.swift in Sources */,
+				AAD59F7F28CF9AAA00F8C5C7 /* LawPickerView.swift in Sources */,
 				AAE008262881C33600378ABA /* JournalRowView.swift in Sources */,
+				AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */,
 				AA37C20228801A5000F86E5E /* PatientListView.swift in Sources */,
 				AA8FD59128CBA5140045FC95 /* AddLawView.swift in Sources */,
 				AA8FD59328CBE3570045FC95 /* Reading+Extension.swift in Sources */,
 				AAF0507B28CD0D3500DA286E /* AddReadingView.swift in Sources */,
+				AA94768228D71B0900BCB990 /* ViolenceRiskPickerView.swift in Sources */,
 				AA37C200288000E000F86E5E /* Patient+Extension.swift in Sources */,
 				AAE0082A2881C98B00378ABA /* JournalDetailView.swift in Sources */,
 				AAF0507928CD0D1500DA286E /* ReadingRowView.swift in Sources */,
