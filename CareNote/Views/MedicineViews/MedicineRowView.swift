@@ -13,7 +13,7 @@ struct MedicineRowView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(medicine.name)")
+            Text("\(medicine.name) \(medicine.strength, format: .number) \(medicine.unit) x \(medicine.amount, format: .number) \(medicine.form)")
                 .font(.headline)
                 .padding(.trailing)
             

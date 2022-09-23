@@ -45,4 +45,64 @@ struct Care {
         "X-VAK",
         "X-VAK/X-OBS"
     ]
+    
+    struct Medicine {
+        let form = [
+        "Capsule",
+        "Tablet",
+        "Liquid",
+        "Topical",
+        "Cream",
+        "Device",
+        "Drops",
+        "Foam",
+        "Gel",
+        "Inhaler",
+        "Injection",
+        "Lotion",
+        "Ointment",
+        "Patch",
+        "Powder",
+        "Spray",
+        "Suppository"
+        ]
+        
+        let unit = [
+        "mg",
+        "µg",
+        "g",
+        "ml",
+        "%"
+        ]
+        
+        let frequency = [
+        "At Regular Intervals",
+        "On Specific Days of the Week",
+        "As Needed"
+        ]
+        
+        let chosenInterval = [
+        "Day",
+        "Other Day",
+        "3 Days",
+        "4 Days",
+        "99 Days"
+        ]
+        
+        let chosenDay = [
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S",
+        "S"
+        ]
+        
+        let startDate = Date.now
+    }
+    
+    enum medicineForm {
+    case capsule
+    }
 }

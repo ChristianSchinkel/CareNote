@@ -17,7 +17,7 @@ struct MainMenuTabView: View {
                     Label("Patients", systemImage: "list.bullet") }.tag(1)
             Text("Tab Content 2")
                 .tabItem {
-                    Label("Overview", systemImage: "checklist") }.tag(2)
+                    Label("Checklist", systemImage: "checklist") }.tag(2)
             Text("Tab Content 3")
                 .tabItem {
                     Label("Browse", systemImage: "square.grid.2x2.fill") }.tag(3)

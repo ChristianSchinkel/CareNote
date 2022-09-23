@@ -15,7 +15,10 @@ struct AddPatientView: View {
 // MARK: - local state properties for the sheet
     @State private var name = ""
     @State private var familyName = ""
-    @State private var swedishSocialSecurityNumber = ""
+    
+    @State private var yearMonthDay = ""
+    @State private var controlNumbers = ""
+    // @State private var swedishSocialSecurityNumber = ""
     
     static let care = Care()
     
@@ -51,8 +54,13 @@ struct AddPatientView: View {
                 Section("ID") {
                     TextField("Name", text: $name)
                     TextField("Family Name", text: $familyName)
-                    TextField("ÅÅÅÅMMDDNNNN", text: $swedishSocialSecurityNumber)
-                        .keyboardType(.numberPad)
+                    HStack {
+                        TextField("ÅÅÅÅMMDD", text: $yearMonthDay)
+                            .keyboardType(.numberPad)
+                        Image(systemName: "minus")
+                        TextField("NNNN", text: $controlNumbers)
+                            .keyboardType(.numberPad)
+                    }
                 }
                 Section("Law, When?") {
                     LawPickerView(
@@ -90,7 +98,7 @@ struct AddPatientView: View {
                     Button("Save") {
                         addPatient() // Calls the addPatient function.
                     }
-                    .disabled(name.isEmpty || familyName.isEmpty || swedishSocialSecurityNumber.isEmpty)
+                    .disabled(name.isEmpty || familyName.isEmpty || yearMonthDay.isEmpty || controlNumbers.isEmpty)
                     
                 }
             }
@@ -100,12 +108,12 @@ struct AddPatientView: View {
     private func addPatient() {
         withAnimation {
             // let patient <-- insert this instead of "_" in line 103.
-            _ = Patient(familyName: familyName, name: name, swedishSocialSecurityNumber: swedishSocialSecurityNumber, context: viewContext) // Make an Instance of PatientEntity; vill Instance will be used by the folloing code.
+            _ = Patient(familyName: familyName, name: name, swedishSocialSecurityNumber: "\(yearMonthDay)-\(controlNumbers)", context: viewContext) // Make an Instance of PatientEntity; vill Instance will be used by the folloing code.
 //TODO: - Adding properties to the PatientEntity
             // Add more properties to the Instance of PatientEntity.
                 // patient.addToJournal(Journal(date: date, text: law, context: viewContext))
             PersistenceController.shared.save() // Saves the patient.
-            print("Patient: \(name) \(familyName) \(swedishSocialSecurityNumber) adds on the list.")
+            print("Patient: \(name) \(familyName) \(yearMonthDay)-\(controlNumbers) adds on the list.")
             dismiss()
             print("The AddPatientView (.sheet) has been dismissed by pressing the 'Save'-button.")
         }
