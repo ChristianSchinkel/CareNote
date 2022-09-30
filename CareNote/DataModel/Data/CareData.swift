@@ -8,13 +8,9 @@
 import Foundation
 
 struct Care {
-    
-    
     enum Laws: String, CaseIterable {
         case HSL, LPT, LVM, LVU, LRV
     }
-    
-    
     
     enum HowPatientComeIn: String, CaseIterable {
         case police = "Police"
@@ -26,8 +22,6 @@ struct Care {
         case remissFrom = "Remiss from"
     }
     
-    
-    
     enum SuicidalRiskNiveau: String, CaseIterable {
         case low, little, medium, high
         
@@ -35,8 +29,6 @@ struct Care {
             return rawValue.capitalized
         }
     }
-    
-    
     
     enum ViolenceRiskNiveau: String, CaseIterable {
         case low, medium, high
@@ -46,13 +38,13 @@ struct Care {
         }
     }
     
-    
     enum TypesOfObservation: String, CaseIterable {
         case normal = "normal"
         case xobs = "X-OBS"
         case xvak = "X-VAK"
         case xvakXobs = "X-VAK/X-OBS"
     }
+    
     
     struct Medicine {
         let form = [
@@ -75,6 +67,14 @@ struct Care {
         "Suppository"
         ]
         
+        enum Form: String, CaseIterable {
+            case capsule, tablet, liquid, topical, cream, device, drops, foam, gel, inhaler, injection, lotion, ointment, patch, powder, spray, suppository
+            
+            var name: String {
+                return rawValue.capitalized
+            }
+        }
+        
         let unit = [
         "mg",
         "µg",
@@ -83,11 +83,25 @@ struct Care {
         "%"
         ]
         
+        enum Unit: String, CaseIterable {
+            case milliGram = "mg"
+            case mikroGram = "µg"
+            case gram = "g"
+            case milliLiter = "ml"
+            case procent = "%"
+        }
+        
         let frequency = [
         "At Regular Intervals",
         "On Specific Days of the Week",
         "As Needed"
         ]
+        
+        enum Frequency: String, CaseIterable {
+            case atRegularIntervals = "At Regular Intervals"
+            case onSpecificDaysOfTheWeek = "On Specific Days of the Week"
+            case asNeeded = "As Needed"
+        }
         
         let chosenInterval = [
         "Day",
@@ -96,6 +110,14 @@ struct Care {
         "4 Days",
         "99 Days"
         ]
+        
+        enum ChosenInterval: String, CaseIterable {
+            case day = "Day"
+            case otherDay = "Other Day"
+            case threeDays = "3 Days"
+            case fourDays = "4 Days"
+            case ninetyNineDays = "99 Days"
+        }
         
         let chosenDay = [
         "M",
@@ -107,47 +129,16 @@ struct Care {
         "S"
         ]
         
+        enum ChosenDay: String, CaseIterable {
+            case Monday = "Mon"
+            case Tuesday = "Tue"
+            case Wednesday = "Wed"
+            case Thursday = "Thu"
+            case Friday = "Fri"
+            case Saturday = "Sat"
+            case Sunday = "Sun"
+        }
+        
         let startDate = Date.now
     }
-    
-    enum MedicineForm: String, CaseIterable {
-        case capsule, tablet, liquid, topical, cream, device, drops, foam, gel, inhaler, injection, lotion, ointment, patch, powder, spray, suppository
-        
-        var name: String {
-            return rawValue.capitalized
-        }
-    }
-    
-    enum MedicineUnit: String, CaseIterable {
-        case milliGram = "mg"
-        case mikroGram = "µg"
-        case gram = "g"
-        case milliLiter = "ml"
-        case procent = "%"
-    }
-    
-    enum MedicineFrequency: String, CaseIterable {
-        case atRegularIntervals = "At Regular Intervals"
-        case onSpecificDaysOfTheWeek = "On Specific Days of the Week"
-        case asNeeded = "As Needed"
-    }
-    
-    enum MedicineChosenInterval: String, CaseIterable {
-        case day = "Day"
-        case otherDay = "Other Day"
-        case threeDays = "3 Days"
-        case fourDays = "4 Days"
-        case ninetyNineDays = "99 Days"
-    }
-    
-    enum MedicineChosenDay: String, CaseIterable {
-        case Monday = "Mon"
-        case Tuesday = "Tue"
-        case Wednesday = "Wed"
-        case Thursday = "Thu"
-        case Friday = "Fri"
-        case Saturday = "Sat"
-        case Sunday = "Sun"
-    }
-    
 }

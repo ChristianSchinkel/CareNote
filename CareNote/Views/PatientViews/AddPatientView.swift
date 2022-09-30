@@ -18,7 +18,9 @@ struct AddPatientView: View {
     
     @State private var yearMonthDay = ""
     @State private var controlNumbers = ""
-    // @State private var swedishSocialSecurityNumber = ""
+    private var swedishSocialSecurityNumber: String {
+        return "\(yearMonthDay)-\(controlNumbers)"
+    }
     
     
 
@@ -103,7 +105,7 @@ struct AddPatientView: View {
     private func addPatient() {
         withAnimation {
             // let patient <-- insert this instead of "_" in line 103.
-            _ = Patient(familyName: familyName, name: name, swedishSocialSecurityNumber: "\(yearMonthDay)-\(controlNumbers)", context: viewContext) // Make an Instance of PatientEntity; vill Instance will be used by the folloing code.
+            _ = Patient(familyName: familyName, name: name, swedishSocialSecurityNumber: swedishSocialSecurityNumber, context: viewContext) // Make an Instance of PatientEntity; vill Instance will be used by the folloing code.
 //TODO: - Adding properties to the PatientEntity
             // Add more properties to the Instance of PatientEntity.
                 // patient.addToJournal(Journal(date: date, text: law, context: viewContext))
