@@ -16,7 +16,7 @@ struct Care {
         "LRV"
     ]
     
-    enum LawsEnumserDeklarerad: String {
+    enum Laws: String,CaseIterable {
         case HSL, LPT, LVM, LVU, LRV
     }
     
@@ -30,7 +30,7 @@ struct Care {
         "Remiss from"
     ]
     
-    enum HowPatientComeInEnumserDeklarerad: String {
+    enum HowPatientComeIn: String,CaseIterable {
         case police = "Police"
         case lob = "LOB"
         case lptParagraph47 = "LPT §47"
@@ -45,10 +45,16 @@ struct Care {
         "little",
         "medium",
         "high"
+
+        
     ]
     
-    enum SuicidalRiskNiveauEnumserDeklarerad: String {
+    enum SuicidalRiskNiveau: String, CaseIterable {
         case low, little, medium, high
+        
+        var nivea: String {
+            return rawValue.capitalized
+        }
     }
     
     let violenceRiskNiveau = [
@@ -57,8 +63,12 @@ struct Care {
         "high"
     ]
     
-    enum ViolenceRiskNiveauEnumserDeklarerad: String {
+    enum ViolenceRiskNiveau: String,CaseIterable {
         case low, medium, high
+        
+        var nivea: String {
+            return rawValue.capitalized
+        }
     }
     
     let typesOfObservation = [
@@ -68,7 +78,7 @@ struct Care {
         "X-VAK/X-OBS"
     ]
     
-    enum TypesOfObservationEnumserDeklarerad: String {
+    enum TypesOfObservation: String,CaseIterable {
         case normal = "normal"
         case xobs = "X-OBS"
         case xvak = "X-VAK"
@@ -131,11 +141,15 @@ struct Care {
         let startDate = Date.now
     }
     
-    enum MedicineForm: String {
+    enum MedicineForm: String, CaseIterable {
         case capsule, tablet, liquid, topical, cream, device, drops, foam, gel, inhaler, injection, lotion, ointment, patch, powder, spray, suppository
+        
+        var name: String {
+            return rawValue.capitalized
+        }
     }
     
-    enum MedicineUnit: String {
+    enum MedicineUnit: String, CaseIterable {
         case milliGram = "mg"
         case mikroGram = "µg"
         case gram = "g"
@@ -143,13 +157,13 @@ struct Care {
         case procent = "%"
     }
     
-    enum MedicineFrequency: String {
+    enum MedicineFrequency: String, CaseIterable {
         case atRegularIntervals = "At Regular Intervals"
         case onSpecificDaysOfTheWeek = "On Specific Days of the Week"
         case asNeeded = "As Needed"
     }
     
-    enum MedicineChosenInterval: String {
+    enum MedicineChosenInterval: String, CaseIterable {
         case day = "Day"
         case otherDay = "Other Day"
         case threeDays = "3 Days"
@@ -157,7 +171,7 @@ struct Care {
         case ninetyNineDays = "99 Days"
     }
     
-    enum MedicineChosenDay: String {
+    enum MedicineChosenDay: String, CaseIterable {
         case Monday = "Mon"
         case Tuesday = "Tue"
         case Wednesday = "Wed"

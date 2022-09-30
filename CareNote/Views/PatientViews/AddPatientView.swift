@@ -20,14 +20,12 @@ struct AddPatientView: View {
     @State private var controlNumbers = ""
     // @State private var swedishSocialSecurityNumber = ""
     
-    static let care = Care()
     
-    static let laws = care.laws
-    @State private var law = laws[0]
+
+    @State private var law: Care.Laws = .HSL
     @State private var date = Date.now
     
-    static let arrivings = care.howPatientComeIn
-    @State private var arriving = arrivings[0]
+    @State private var arriving: Care.HowPatientComeIn = .police
     @State private var details = ""
     
     @State private var anamnes = ""
@@ -35,14 +33,11 @@ struct AddPatientView: View {
     
     @State private var now = ""
     
-    static let sRisks = care.suicidalRiskNiveau
-    @State private var sRisk = sRisks[0]
+    @State private var sRisk: Care.SuicidalRiskNiveau = .low
     
-    static let vRisks = care.violenceRiskNiveau
-    @State private var vRisk = vRisks[0]
+    @State private var vRisk: Care.ViolenceRiskNiveau = .low
     
-    static let types = care.typesOfObservation
-    @State private var type = types[0]
+    @State private var type: Care.TypesOfObservation = .normal
     
     @State private var drug = ""
     
@@ -64,7 +59,7 @@ struct AddPatientView: View {
                 }
                 Section("Law, When?") {
                     LawPickerView(
-                        law: self.$law, date: self.$date) // Picker for Type of care and time patient arrived att hospital.
+                        law: $law, date: self.$date) // Picker for Type of care and time patient arrived att hospital.
                     HowPatientComeInView(arriving: self.$arriving, details: self.$details) // Picker OR TextEditor.
                 }
                 Section("Anamnes") {

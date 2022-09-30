@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SuicidalRiskPickerView: View {
     
-    @Binding var sRisk: String // '@Binding' sents back its information to the relevant parent's '@State'-property (can be 'private', but doesn't need to).
+    @Binding var sRisk: Care.SuicidalRiskNiveau // '@Binding' sents back its information to the relevant parent's '@State'-property (can be 'private', but doesn't need to).
     
     var body: some View {
         Picker(selection: $sRisk, label: Text("Suicidal riskniveau")) {
-            ForEach(AddPatientView.sRisks, id: \.self) { sRisk in
-                Text(sRisk)
+            ForEach(Care.SuicidalRiskNiveau.allCases, id: \.self) { sRisk in
+                Text(sRisk.rawValue)
             }
         }
     }
@@ -22,7 +22,7 @@ struct SuicidalRiskPickerView: View {
 
 struct SuicidalRiskPickerView_Previews: PreviewProvider {
     static let sRisks = Care().suicidalRiskNiveau
-    @State static private var sRisk = sRisks[0]
+    @State static private var sRisk = Care.SuicidalRiskNiveau.low
     
     static var previews: some View {
         SuicidalRiskPickerView(sRisk: self.$sRisk)
