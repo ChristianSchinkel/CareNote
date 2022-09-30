@@ -47,26 +47,6 @@ struct Care {
     
     
     struct Medicine {
-        let form = [
-        "Capsule",
-        "Tablet",
-        "Liquid",
-        "Topical",
-        "Cream",
-        "Device",
-        "Drops",
-        "Foam",
-        "Gel",
-        "Inhaler",
-        "Injection",
-        "Lotion",
-        "Ointment",
-        "Patch",
-        "Powder",
-        "Spray",
-        "Suppository"
-        ]
-        
         enum Form: String, CaseIterable {
             case capsule, tablet, liquid, topical, cream, device, drops, foam, gel, inhaler, injection, lotion, ointment, patch, powder, spray, suppository
             
@@ -74,14 +54,6 @@ struct Care {
                 return rawValue.capitalized
             }
         }
-        
-        let unit = [
-        "mg",
-        "µg",
-        "g",
-        "ml",
-        "%"
-        ]
         
         enum Unit: String, CaseIterable {
             case milliGram = "mg"
@@ -91,25 +63,11 @@ struct Care {
             case procent = "%"
         }
         
-        let frequency = [
-        "At Regular Intervals",
-        "On Specific Days of the Week",
-        "As Needed"
-        ]
-        
         enum Frequency: String, CaseIterable {
             case atRegularIntervals = "At Regular Intervals"
             case onSpecificDaysOfTheWeek = "On Specific Days of the Week"
             case asNeeded = "As Needed"
         }
-        
-        let chosenInterval = [
-        "Day",
-        "Other Day",
-        "3 Days",
-        "4 Days",
-        "99 Days"
-        ]
         
         enum ChosenInterval: String, CaseIterable {
             case day = "Day"
@@ -118,16 +76,6 @@ struct Care {
             case fourDays = "4 Days"
             case ninetyNineDays = "99 Days"
         }
-        
-        let chosenDay = [
-        "M",
-        "T",
-        "W",
-        "T",
-        "F",
-        "S",
-        "S"
-        ]
         
         enum ChosenDay: String, CaseIterable {
             case Monday = "Mon"
