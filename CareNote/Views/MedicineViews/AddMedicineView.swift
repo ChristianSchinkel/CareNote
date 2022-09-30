@@ -15,14 +15,14 @@ struct AddMedicineView: View {
     @ObservedObject var patient: Patient
     
 // MARK: - local state properties for the sheet
-    static let careMedicine = Care.Medicine()
+    // static let careMedicine = Care.Medicine()
     
     @State private var date = Date.now
     @State private var name = ""
-    @State private var form = careMedicine.form[0]
+    @State private var form: Care.Medicine.Form = .tablet
     @State private var frequency = ""
     @State private var strength = 1.0
-    @State private var unit = careMedicine.unit[0]
+    @State private var unit: Care.Medicine.Unit = .milliGram
     @State private var amount = 1.0
     @State private var instructrion = ""
     @State private var isPrescripted = false
@@ -40,8 +40,8 @@ struct AddMedicineView: View {
                     }
                     TextField("Medication name", text: $name)
                     Picker(selection: $form, label: Text("Medication form")) {
-                        ForEach(AddMedicineView.careMedicine.form, id: \.self) { form in
-                            Text(form)
+                        ForEach(Care.Medicine.Form.allCases, id: \.self) { form in
+                            Text(form.name)
                         }
                     }
                     TextField("Medication frequency", text: $frequency)
@@ -51,8 +51,8 @@ struct AddMedicineView: View {
                         
                         //TextField("Unit", text: $unit)
                         Picker(selection: $unit, label: Text("Unit")) {
-                            ForEach(AddMedicineView.careMedicine.unit, id: \.self) { unit in
-                                Text(unit)
+                            ForEach(Care.Medicine.Unit.allCases, id: \.self) { unit in
+                                Text(unit.rawValue)
                             }
                         }
                         .labelsHidden()
@@ -64,7 +64,7 @@ struct AddMedicineView: View {
                         
                         Image(systemName: "equal")
                         
-                        Text("\(strength * amount, format: .number) \(unit)")
+                        Text("\(strength * amount, format: .number) \(unit.rawValue)")
                         
                     }
                     
@@ -94,7 +94,7 @@ struct AddMedicineView: View {
 // MARK: - Functions for this View
     private func addMedicine() {
         withAnimation {
-            patient.addToMedicine(Medicine(date: date, name: name, form: form, frequency: frequency, strength: strength, unit: unit, amount: 1.0, context: viewContext)) //_ = Medicine(date: date, name: name, context: viewContext)
+            patient.addToMedicine(Medicine(date: date, name: name, form: form.name, frequency: frequency, strength: strength, unit: unit.rawValue, amount: 1.0, context: viewContext)) //_ = Medicine(date: date, name: name, context: viewContext)
             PersistenceController.shared.save() // Saves the patient.
            // print("Patient: \(name) \(familyName) \(swedishSocialSecurityNumber) adds on the list.")
            dismiss()
