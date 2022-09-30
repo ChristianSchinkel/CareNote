@@ -21,7 +21,6 @@ struct SuicidalRiskPickerView: View {
 }
 
 struct SuicidalRiskPickerView_Previews: PreviewProvider {
-    static let sRisks = Care().suicidalRiskNiveau
     @State static private var sRisk = Care.SuicidalRiskNiveau.low
     
     static var previews: some View {

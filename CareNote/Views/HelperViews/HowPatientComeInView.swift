@@ -25,7 +25,6 @@ struct HowPatientComeInView: View {
 }
 
 struct HowPatientComeInView_Previews: PreviewProvider {
-    static private let arrivings = Care().howPatientComeIn
     @State static private var arriving = Care.HowPatientComeIn.police
     @State static private var details = ""
     

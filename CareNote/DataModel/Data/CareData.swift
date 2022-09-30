@@ -8,29 +8,15 @@
 import Foundation
 
 struct Care {
-    let laws = [
-        "HSL",
-        "LPT",
-        "LVM",
-        "LVU",
-        "LRV"
-    ]
     
-    enum Laws: String,CaseIterable {
+    
+    enum Laws: String, CaseIterable {
         case HSL, LPT, LVM, LVU, LRV
     }
     
-    let howPatientComeIn = [
-        "Police",
-        "LOB",
-        "LPT §47",
-        "SS",
-        "AMB",
-        "PAM",
-        "Remiss from"
-    ]
     
-    enum HowPatientComeIn: String,CaseIterable {
+    
+    enum HowPatientComeIn: String, CaseIterable {
         case police = "Police"
         case lob = "LOB"
         case lptParagraph47 = "LPT §47"
@@ -40,14 +26,7 @@ struct Care {
         case remissFrom = "Remiss from"
     }
     
-    let suicidalRiskNiveau = [
-        "low",
-        "little",
-        "medium",
-        "high"
-
-        
-    ]
+    
     
     enum SuicidalRiskNiveau: String, CaseIterable {
         case low, little, medium, high
@@ -57,13 +36,9 @@ struct Care {
         }
     }
     
-    let violenceRiskNiveau = [
-        "low",
-        "medium",
-        "high"
-    ]
     
-    enum ViolenceRiskNiveau: String,CaseIterable {
+    
+    enum ViolenceRiskNiveau: String, CaseIterable {
         case low, medium, high
         
         var nivea: String {
@@ -71,14 +46,8 @@ struct Care {
         }
     }
     
-    let typesOfObservation = [
-        "normal",
-        "X-OBS",
-        "X-VAK",
-        "X-VAK/X-OBS"
-    ]
     
-    enum TypesOfObservation: String,CaseIterable {
+    enum TypesOfObservation: String, CaseIterable {
         case normal = "normal"
         case xobs = "X-OBS"
         case xvak = "X-VAK"

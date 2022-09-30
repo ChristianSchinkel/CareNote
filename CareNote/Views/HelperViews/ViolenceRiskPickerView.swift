@@ -20,7 +20,6 @@ struct ViolenceRiskPickerView: View {
 }
 
 struct ViolenceRiskPickerView_Previews: PreviewProvider {
-    static private let vRisks = Care().violenceRiskNiveau
     @State static private var vRisk = Care.ViolenceRiskNiveau.low
     
     static var previews: some View {

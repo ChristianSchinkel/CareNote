@@ -21,7 +21,6 @@ struct TypeOfObservationView: View {
 }
 
 struct TypeOfObservationView_Previews: PreviewProvider {
-    static private let types = Care().typesOfObservation
     @State static private var type = Care.TypesOfObservation.normal
     
     static var previews: some View {
