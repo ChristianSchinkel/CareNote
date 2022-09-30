@@ -15,7 +15,7 @@ struct AddMedicineView: View {
     @ObservedObject var patient: Patient
     
 // MARK: - local state properties for the sheet
-    // static let careMedicine = Care.Medicine()
+    
     
     @State private var date = Date.now
     @State private var name = ""
@@ -24,7 +24,7 @@ struct AddMedicineView: View {
     @State private var strength = 1.0
     @State private var unit: Care.Medicine.Unit = .milliGram
     @State private var amount = 1.0
-    @State private var instructrion = ""
+    @State private var instruction = ""
     @State private var isPrescripted = false
     @State private var isTaken = false
     @State private var isSkipped = false
