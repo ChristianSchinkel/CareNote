@@ -14,7 +14,6 @@ struct LawListView: View {
     @State private var showingAddLawView = false // by default the AddLawView isn't presented.
     
     var body: some View {
-        NavigationView {
             List {
                 ForEach(patient.lawArray) { law in
                     NavigationLink {
@@ -40,7 +39,6 @@ struct LawListView: View {
             }
             .sheet(isPresented: $showingAddLawView) {
                 AddLawView(patient: patient)
-        }
         }
     }
 // MARK: - Funktions for this View

@@ -14,7 +14,6 @@ struct MedicineListView: View {
     @State private var showingAddMedicineView = false // by default the AddMedicineView isn't presented.
     
     var body: some View {
-        NavigationView {
             List {
                 ForEach(patient.medicineArray) { medicine in
                     NavigationLink {
@@ -40,7 +39,6 @@ struct MedicineListView: View {
             }
             .sheet(isPresented: $showingAddMedicineView) {
                 AddMedicineView(patient: patient)
-        }
         }
     }
 // MARK: - Functions for this View

@@ -14,7 +14,6 @@ struct MedicalTaskListView: View {
     @State private var showingAddMedicalTaskView = false // by default the AddMedicalTaskView isn't presented.
     
     var body: some View {
-        NavigationView {
             List {
                 ForEach(patient.medicalTaskArray) { medicalTask in
                     NavigationLink {
@@ -40,7 +39,6 @@ struct MedicalTaskListView: View {
             }
             .sheet(isPresented: $showingAddMedicalTaskView) {
                 AddMedicalTaskView(patient: patient)
-        }
         }
     }
 // MARK: - Functions for this View

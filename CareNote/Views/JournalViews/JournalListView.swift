@@ -14,7 +14,6 @@ struct JournalListView: View {
     @State private var showingAddJournalEntryView = false // by default the AddJournalEntryView isn't presented.
     
     var body: some View {
-        NavigationView {
             List {
                     ForEach(patient.journalArray) { journal in
                         NavigationLink {
@@ -41,7 +40,6 @@ struct JournalListView: View {
                 .sheet(isPresented: $showingAddJournalEntryView) {
                     AddJournalEntryView(patient: patient)
             }
-        }
             // Text("Select a journal-entry") // This view appears on iPads in the middle of the screen, if no journalEntry was selected.
     }
 // MARK: - Functions for this View
