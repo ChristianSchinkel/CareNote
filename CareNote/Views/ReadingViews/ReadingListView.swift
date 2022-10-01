@@ -14,31 +14,33 @@ struct ReadingListView: View {
     @State private var showingAddReadingView = false // by default the AddLawView isn't presented.
     
     var body: some View {
-        List {
-            ForEach(patient.readingArray) { reading in
-                NavigationLink {
-                    ReadingDetailView(reading: reading) // Destination
-                } label: {
-                    ReadingRowView(patient: patient, reading: reading) // Label in the List
+        NavigationView {
+            List {
+                ForEach(patient.readingArray) { reading in
+                    NavigationLink {
+                        ReadingDetailView(reading: reading) // Destination
+                    } label: {
+                        ReadingRowView(patient: patient, reading: reading) // Label in the List
+                    }
+                }
+                .onDelete(perform: deleteReading)
+            }
+            .navigationTitle("Reading")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                
+                ToolbarItem {
+                    Button(action: showAddReadingView) {
+                        Label("Add Reading", systemImage: "plus")
+                    }
                 }
             }
-            .onDelete(perform: deleteReading)
+            .sheet(isPresented: $showingAddReadingView) {
+                AddReadingView(patient: patient)
         }
-        .navigationTitle("Reading")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
-            
-            ToolbarItem {
-                Button(action: showAddReadingView) {
-                    Label("Add Reading", systemImage: "plus")
-                }
-            }
-        }
-        .sheet(isPresented: $showingAddReadingView) {
-            AddReadingView(patient: patient)
         }
     }
 // MARK: - Funktions for this View

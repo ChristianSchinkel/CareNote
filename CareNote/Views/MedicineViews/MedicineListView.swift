@@ -14,31 +14,33 @@ struct MedicineListView: View {
     @State private var showingAddMedicineView = false // by default the AddMedicineView isn't presented.
     
     var body: some View {
-        List {
-            ForEach(patient.medicineArray) { medicine in
-                NavigationLink {
-                    MedicineDetailView(medicine: medicine) // Destination
-                } label: {
-                    MedicineRowView(patient: patient, medicine: medicine) // Label in the List
+        NavigationView {
+            List {
+                ForEach(patient.medicineArray) { medicine in
+                    NavigationLink {
+                        MedicineDetailView(medicine: medicine) // Destination
+                    } label: {
+                        MedicineRowView(patient: patient, medicine: medicine) // Label in the List
+                    }
+                }
+                .onDelete(perform: deleteMedicine)
+            }
+            .navigationBarTitle("Medicine")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                
+                ToolbarItem {
+                    Button(action: showAddMedicineView) {
+                        Label("Add Medicine", systemImage: "plus")
+                    }
                 }
             }
-            .onDelete(perform: deleteMedicine)
+            .sheet(isPresented: $showingAddMedicineView) {
+                AddMedicineView(patient: patient)
         }
-        .navigationBarTitle("Medicine")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
-            
-            ToolbarItem {
-                Button(action: showAddMedicineView) {
-                    Label("Add Medicine", systemImage: "plus")
-                }
-            }
-        }
-        .sheet(isPresented: $showingAddMedicineView) {
-            AddMedicineView(patient: patient)
         }
     }
 // MARK: - Functions for this View

@@ -14,31 +14,33 @@ struct LawListView: View {
     @State private var showingAddLawView = false // by default the AddLawView isn't presented.
     
     var body: some View {
-        List {
-            ForEach(patient.lawArray) { law in
-                NavigationLink {
-                    LawDetailView(law: law) // Destination
-                } label: {
-                    LawRowView(patient: patient, law: law) // Label in the List
+        NavigationView {
+            List {
+                ForEach(patient.lawArray) { law in
+                    NavigationLink {
+                        LawDetailView(law: law) // Destination
+                    } label: {
+                        LawRowView(patient: patient, law: law) // Label in the List
+                    }
+                }
+                .onDelete(perform: deleteLaw)
+            }
+            .navigationTitle("Law")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                
+                ToolbarItem {
+                    Button(action: showAddLawView) {
+                        Label("Add Law", systemImage: "plus")
+                    }
                 }
             }
-            .onDelete(perform: deleteLaw)
+            .sheet(isPresented: $showingAddLawView) {
+                AddLawView(patient: patient)
         }
-        .navigationTitle("Law")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
-            
-            ToolbarItem {
-                Button(action: showAddLawView) {
-                    Label("Add Law", systemImage: "plus")
-                }
-            }
-        }
-        .sheet(isPresented: $showingAddLawView) {
-            AddLawView(patient: patient)
         }
     }
 // MARK: - Funktions for this View

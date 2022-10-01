@@ -14,31 +14,33 @@ struct MedicalTaskListView: View {
     @State private var showingAddMedicalTaskView = false // by default the AddMedicalTaskView isn't presented.
     
     var body: some View {
-        List {
-            ForEach(patient.medicalTaskArray) { medicalTask in
-                NavigationLink {
-                    MedicalTaskDetailView(medicalTask: medicalTask) // Destination
-                } label: {
-                    MedicalTaskRowView(patient: patient, medicalTask: medicalTask) // Label in the List
+        NavigationView {
+            List {
+                ForEach(patient.medicalTaskArray) { medicalTask in
+                    NavigationLink {
+                        MedicalTaskDetailView(medicalTask: medicalTask) // Destination
+                    } label: {
+                        MedicalTaskRowView(patient: patient, medicalTask: medicalTask) // Label in the List
+                    }
+                }
+                .onDelete(perform: deleteMedicalTask)
+            }
+            .navigationBarTitle("MedicalTask")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                
+                ToolbarItem {
+                    Button(action: showAddMedicalTaskView) {
+                        Label("Add MedicalTask", systemImage: "plus")
+                    }
                 }
             }
-            .onDelete(perform: deleteMedicalTask)
+            .sheet(isPresented: $showingAddMedicalTaskView) {
+                AddMedicalTaskView(patient: patient)
         }
-        .navigationBarTitle("MedicalTask")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
-            
-            ToolbarItem {
-                Button(action: showAddMedicalTaskView) {
-                    Label("Add MedicalTask", systemImage: "plus")
-                }
-            }
-        }
-        .sheet(isPresented: $showingAddMedicalTaskView) {
-            AddMedicalTaskView(patient: patient)
         }
     }
 // MARK: - Functions for this View

@@ -14,32 +14,34 @@ struct JournalListView: View {
     @State private var showingAddJournalEntryView = false // by default the AddJournalEntryView isn't presented.
     
     var body: some View {
+        NavigationView {
             List {
-                ForEach(patient.journalArray) { journal in
-                    NavigationLink {
-                        JournalDetailView(journal: journal) // Destination
-                    } label: {
-                        JournalRowView(patient: patient, journal: journal) // Text("\(journal.date, format: .dateTime) Journal-entry") // Label in the List
+                    ForEach(patient.journalArray) { journal in
+                        NavigationLink {
+                            JournalDetailView(journal: journal) // Destination
+                        } label: {
+                            JournalRowView(patient: patient, journal: journal) // Text("\(journal.date, format: .dateTime) Journal-entry") // Label in the List
+                        }
+                    }
+                    .onDelete(perform: deleteJournalEntry)
+                }
+                .navigationTitle("Journaltext")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+                    
+                    ToolbarItem {
+                        Button(action: showAddJournalEntryView) {
+                            Label("Add Journal-entry", systemImage: "square.and.pencil")
+                        }
                     }
                 }
-                .onDelete(perform: deleteJournalEntry)
+                .sheet(isPresented: $showingAddJournalEntryView) {
+                    AddJournalEntryView(patient: patient)
             }
-            .navigationTitle("Journaltext")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                
-                ToolbarItem {
-                    Button(action: showAddJournalEntryView) {
-                        Label("Add Journal-entry", systemImage: "square.and.pencil")
-                    }
-                }
-            }
-            .sheet(isPresented: $showingAddJournalEntryView) {
-                AddJournalEntryView(patient: patient)
-            }
+        }
             // Text("Select a journal-entry") // This view appears on iPads in the middle of the screen, if no journalEntry was selected.
     }
 // MARK: - Functions for this View
