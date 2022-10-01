@@ -135,6 +135,39 @@ extension Patient {
     }
     /// Used to create en example in the preview-canvas. Useful to create an example with an array or many relationships.
     static func example(context: NSManagedObjectContext) -> Patient {
-        Patient(familyName: "Swift", name: "Taylor", swedishSocialSecurityNumber: "89", context: context)
+        let patientForCanvas = Patient(familyName: "Swift", name: "Taylor", swedishSocialSecurityNumber: "89", context: context)
+        for _ in 0...8 {
+            patientForCanvas.addToJournal(Journal(date: Date.now, text: "ExamplePatientForCanvas", context: context))
+            
+            patientForCanvas.addToLaw(Law(date: Date.now, name: "ExampleLaw", paragraph: "ExParagraph", context: context))
+            
+            patientForCanvas.addToReading(Reading(amount: 60.0, date: Date.now, unit: "BPM", context: context))
+            
+            patientForCanvas.addToMedicine(
+                Medicine(
+                    date: Date.now,
+                    dateGiven: Date.now,
+                    datePrescriptionIsEnding: Date.distantFuture,
+                    dateSkipped: Date.now,
+                    name: "Stesolid",
+                    form: Care.Medicine.Form.tablet.rawValue,
+                    frequency: Care.Medicine.Frequency.asNeeded.rawValue,
+                    strength: 10.0,
+                    unit: Care.Medicine.Unit.milliGram.rawValue,
+                    amount: 1.0,
+                    instruction: "ExampleInstruction",
+                    isGiven: false,
+                    isPrescripted: true,
+                    isSkipped: false, context: context))
+            
+            patientForCanvas.addToMedicalTask(
+                MedicalTask(
+                    date: Date.now,
+                    name: "ExampleTask", context: context))
+        }
+        
+        
+        
+        return patientForCanvas
     }
 }
