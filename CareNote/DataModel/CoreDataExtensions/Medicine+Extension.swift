@@ -11,7 +11,7 @@ import CoreData
 extension Medicine {
     /// Is a faster way to initialise only properties that are needed. So you don't need to initialise all properties.
     convenience init(
-        date: Date,
+        datePrescriptionIsStarting: Date,
         dateGiven: Date,
         datePrescriptionIsEnding: Date,
         dateSkipped: Date,
@@ -32,7 +32,7 @@ extension Medicine {
         context: NSManagedObjectContext) {
             self.init(context: context)
             
-            self.date_ = date
+            self.datePrescriptionIsStarting_ = datePrescriptionIsStarting
             self.dateGiven_ = dateGiven
             self.datePrescriptionIsEnding_ = datePrescriptionIsEnding
             self.dateSkipped_ = dateSkipped
@@ -61,12 +61,12 @@ extension Medicine {
      */
 // MARK: Dates here
     /// Medicine's prescription-date.
-    public var date: Date {
+    public var datePrescriptionIsStarting: Date {
         get {
-            date_ ?? Date.now
+            datePrescriptionIsStarting_ ?? Date.now
         }
         set {
-            date_ = newValue
+            datePrescriptionIsStarting_ = newValue
         }
     }
     /// Medicine's given-date
@@ -191,7 +191,7 @@ extension Medicine {
     }
     /// forKey Medicine-property names to reduce typing misstakes, when using it for stringly typed names or properties.
     struct MedicineProperties {
-        static let date = "date_"
+        static let datePrescriptionIsStarting = "datePrescriptionIsStarting_"
         static let dateGiven = "dateGiven_"
         static let datePrescriptionIsEnding = "datePrescriptionIsEnding_"
         static let dateSkipped = "dateSkipped_"
@@ -212,7 +212,7 @@ extension Medicine {
     
     /// Adds a value of value-type [Date(), String(), etc ] to the property with the stringly typed name.
     public override func awakeFromInsert() {
-        setPrimitiveValue(Date.now, forKey: MedicineProperties.date)
+        setPrimitiveValue(Date.now, forKey: MedicineProperties.datePrescriptionIsStarting)
         setPrimitiveValue(Date.now, forKey: MedicineProperties.dateGiven)
         setPrimitiveValue(Date.distantFuture, forKey: MedicineProperties.datePrescriptionIsEnding)
         setPrimitiveValue(Date.now, forKey: MedicineProperties.dateSkipped)
@@ -241,14 +241,14 @@ extension Medicine {
     /// A new (modified) fetch request initialized with the Entity represented by this subclass. This property's getter is only legal to call on subclasses of NSManagedObject that represent a single entity in the model.
     static func fetch() -> NSFetchRequest<Medicine> {
         let request = NSFetchRequest<Medicine>(entityName: "Medicine")
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Medicine.date_, ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Medicine.datePrescriptionIsStarting_, ascending: false)]
         request.predicate = NSPredicate(format: "TRUEPREDICATE")
         
         return request
     }
     /// Used to create en example in the preview-canvas. Useful to create an example with an array or many relationships.
     static func example(context: NSManagedObjectContext) -> Medicine {
-        Medicine(date: Date.now, dateGiven: Date.now, datePrescriptionIsEnding: Date.distantFuture, dateSkipped: Date.now, name: "ExampleMedicine", form: "Tablet", frequency: "1", strength: 1.0, unit: "g", amount: 1.0, instruction: "ExampleInstruction", isGiven: false, isPrescripted: false, isSkipped: false, context: context)
+        Medicine(datePrescriptionIsStarting: Date.now, dateGiven: Date.now, datePrescriptionIsEnding: Date.distantFuture, dateSkipped: Date.now, name: "ExampleMedicine", form: "Tablet", frequency: "1", strength: 1.0, unit: "g", amount: 1.0, instruction: "ExampleInstruction", isGiven: false, isPrescripted: false, isSkipped: false, context: context)
     }
 
 }

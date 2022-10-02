@@ -17,7 +17,7 @@ struct AddMedicineView: View {
 // MARK: - local state properties for the sheet
     
     
-    @State private var date = Date.now // Date of Prescription.
+    @State private var datePrescriptionIsStarting = Date.now // Date of Prescription.
     @State private var datePrescriptionIsEnding = Date.distantFuture // Date Prescription is ending.
     @State private var dateGiven = Date.now // Date the medicine is given.
     @State private var dateSkipped = Date.now // Date the medicine is skipped.
@@ -42,7 +42,7 @@ struct AddMedicineView: View {
                         }
                         
                         HStack {
-                            DatePicker("Please enter a date", selection: $date) // Prescription-date.
+                            DatePicker("Please enter a date", selection: $datePrescriptionIsStarting) // Prescription-date.
                                 .labelsHidden()
                             Spacer()
                         }
@@ -149,7 +149,7 @@ struct AddMedicineView: View {
         withAnimation {
             patient.addToMedicine(
                 Medicine(
-                    date: date,
+                    datePrescriptionIsStarting: datePrescriptionIsStarting,
                     dateGiven: dateGiven,
                     datePrescriptionIsEnding: datePrescriptionIsEnding,
                     dateSkipped: dateSkipped,

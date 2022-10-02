@@ -14,7 +14,7 @@ struct MedicineDetailView: View {
     var body: some View {
         VStack {
             Text("\(medicine.name)")
-            Text("\(medicine.date, format: .dateTime)")
+            Text("\(medicine.datePrescriptionIsStarting, format: .dateTime)")
         }
     }
 }

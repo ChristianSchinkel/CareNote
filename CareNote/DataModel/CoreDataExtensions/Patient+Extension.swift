@@ -90,7 +90,7 @@ extension Patient {
     public var medicineArray: [Medicine] {
         let set = medicine as? Set<Medicine> ?? [ ]
         return set.sorted {
-            $0.date < $1.date
+            $0.datePrescriptionIsStarting < $1.datePrescriptionIsStarting
         }
     } // returns the array asking for "[Medicine]"
     
@@ -145,7 +145,7 @@ extension Patient {
             
             patientForCanvas.addToMedicine(
                 Medicine(
-                    date: Date.now,
+                    datePrescriptionIsStarting: Date.now,
                     dateGiven: Date.now,
                     datePrescriptionIsEnding: Date.distantFuture,
                     dateSkipped: Date.now,

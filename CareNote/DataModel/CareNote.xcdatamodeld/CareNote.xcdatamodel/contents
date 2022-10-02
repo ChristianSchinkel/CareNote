@@ -22,9 +22,9 @@
     </entity>
     <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
         <attribute name="amount_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateGiven_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="datePrescriptionIsEnding_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="datePrescriptionIsStarting_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateSkipped_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="form_" optional="YES" attributeType="String"/>
         <attribute name="frequency_" optional="YES" attributeType="String"/>

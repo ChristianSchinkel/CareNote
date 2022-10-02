@@ -19,7 +19,7 @@ struct PersistenceController {
             _ = Journal(date: Date.now, text: "Example for journal-entry", context: viewContext) // Journal-entryEntity.
             _ = Law(date: Date.now, name: "ExampleLaw", paragraph: "§ 19a", context: viewContext) // LawEntity.
             _ = Reading(amount: 0.0, date: Date.now, unit: "IU", context: viewContext) // ReadingEntity.
-            _ = Medicine(date: Date.now, dateGiven: Date.now, datePrescriptionIsEnding: Date.distantFuture, dateSkipped: Date.now, name: "ExampleMedicine", form: "Tablet", frequency: "1", strength: 1.0, unit: "g", amount: 1.0, instruction: "ExampleInstruction", isGiven: false, isPrescripted: false, isSkipped: false, context: viewContext) // MedicineEntity.
+            _ = Medicine(datePrescriptionIsStarting: Date.now, dateGiven: Date.now, datePrescriptionIsEnding: Date.distantFuture, dateSkipped: Date.now, name: "ExampleMedicine", form: "Tablet", frequency: "1", strength: 1.0, unit: "g", amount: 1.0, instruction: "ExampleInstruction", isGiven: false, isPrescripted: false, isSkipped: false, context: viewContext) // MedicineEntity.
             _ = MedicalTask(date: Date.now, name: "ExampleMedicalTask", context: viewContext) // MedicalTaskEntity.
             // If you have different entities, you should enter them here to have some data to preview in the preview canvas.
         }

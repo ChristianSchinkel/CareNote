@@ -17,8 +17,9 @@ struct MedicineRowView: View {
                 .font(.headline)
                 .padding(.trailing)
             
-            Text("\(medicine.date, format: .dateTime)")
+            Text("\(medicine.datePrescriptionIsStarting, format: .dateTime)")
                 .font(.caption)
+                .foregroundColor(.secondary)
                 .padding(.trailing)
         }
     }
