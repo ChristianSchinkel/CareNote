@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct PatientDetailView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var patient: Patient
+    
+    @State private var showingoOptions = false
+    @State private var patientIsAwakeOrSleeping = ""
     
     var body: some View {
         VStack {
@@ -30,6 +34,25 @@ struct PatientDetailView: View {
             Divider()
             
             Form {
+                HStack {
+                    Button("\(Care.Patient.ActivityStatus.awake.rawValue.capitalized) or \(Care.Patient.ActivityStatus.sleeping.rawValue.capitalized)?") {
+                        showingoOptions = true // Opens a menu
+                    }
+                    .confirmationDialog("Select an option", isPresented: $showingoOptions, titleVisibility: .visible) {
+                        Button(Care.Patient.ActivityStatus.awake.rawValue.capitalized) {
+                            patientIsAwakeOrSleeping = Care.Patient.ActivityStatus.awake.rawValue.capitalized
+                            addJournalPatientStatus() // Call the function declared down.. to add the chosen option.
+                            
+                        }
+                        
+                        Button(Care.Patient.ActivityStatus.sleeping.rawValue.capitalized) {
+                            patientIsAwakeOrSleeping = Care.Patient.ActivityStatus.sleeping.rawValue.capitalized
+                            addJournalPatientStatus() // Call the function declared down.. to add the chosen option.
+                        }
+                }
+                    Text("\(patientIsAwakeOrSleeping)")
+                }
+                
                 Section("Journal") {
                     NavigationLink {
                         JournalListView(patient: patient)
@@ -64,6 +87,15 @@ struct PatientDetailView: View {
                 }
             }
         }
+    }
+// MARK: - Functions for this View
+    /// Adds one of the options to the journal.
+    private func addJournalPatientStatus() {
+        // DO something
+        let text = "The patient is \(patientIsAwakeOrSleeping.lowercased())."
+        patient.addToJournal(Journal(date: Date.now, text: text, context: viewContext)) //_ = Journal(date: date, text: text, context: viewContext)
+        PersistenceController.shared.save() // Saves the patient.
+        print("Add To Patient \(patient.name) \(patient.familyName) Journal: \(text)") // Prints a message each time the content is stored.
     }
 }
 

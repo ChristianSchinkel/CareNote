@@ -8,6 +8,10 @@
 import Foundation
 /// Care-struct declared in CareData.swift is a struct that has much information and is very central in the app using it.
 struct Care {
+    /// Aimed to triage the importans of interaction to support the patient.
+    enum PriorityTriage: String {
+    case green, yellow, orange, red, blue
+    }
     /// Swedish laws associated with healthcare; often used in closed mental-health.
     enum Laws: String, CaseIterable {
         case HSL, LPT, LVM, LVU, LRV
@@ -90,5 +94,12 @@ struct Care {
         }
         /// StartDate that returns Date.now.
         let startDate = Date.now
+    }
+    /// Patients -Struct is used for texts thats are used very often.
+    struct Patient {
+        /// How is it gong for the patient.
+        enum ActivityStatus: String {
+            case awake, sleeping
+        }
     }
 }

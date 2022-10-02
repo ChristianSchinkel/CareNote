@@ -22,6 +22,9 @@
 		AA94768028D718B900BCB990 /* SuicidalRiskPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94767F28D718B900BCB990 /* SuicidalRiskPickerView.swift */; };
 		AA94768228D71B0900BCB990 /* ViolenceRiskPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94768128D71B0900BCB990 /* ViolenceRiskPickerView.swift */; };
 		AA94768428D71C6600BCB990 /* TypeOfObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94768328D71C6600BCB990 /* TypeOfObservationView.swift */; };
+		AABCC15928EA17BD00B8199C /* Hospital+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCC15828EA17BD00B8199C /* Hospital+Extension.swift */; };
+		AABCC15C28EA1AA800B8199C /* Ward+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCC15B28EA1AA800B8199C /* Ward+Extension.swift */; };
+		AABCC15E28EA1E8400B8199C /* Room+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCC15D28EA1E8400B8199C /* Room+Extension.swift */; };
 		AAD59F7F28CF9AAA00F8C5C7 /* LawPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD59F7E28CF9AAA00F8C5C7 /* LawPickerView.swift */; };
 		AAD69B9B28CD2CCA00F63AD6 /* MedicalTask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD69B9A28CD2CCA00F63AD6 /* MedicalTask+Extension.swift */; };
 		AAD69B9D28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD69B9C28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift */; };
@@ -91,6 +94,9 @@
 		AA94767F28D718B900BCB990 /* SuicidalRiskPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuicidalRiskPickerView.swift; sourceTree = "<group>"; };
 		AA94768128D71B0900BCB990 /* ViolenceRiskPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolenceRiskPickerView.swift; sourceTree = "<group>"; };
 		AA94768328D71C6600BCB990 /* TypeOfObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfObservationView.swift; sourceTree = "<group>"; };
+		AABCC15828EA17BD00B8199C /* Hospital+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hospital+Extension.swift"; sourceTree = "<group>"; };
+		AABCC15B28EA1AA800B8199C /* Ward+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ward+Extension.swift"; sourceTree = "<group>"; };
+		AABCC15D28EA1E8400B8199C /* Room+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+Extension.swift"; sourceTree = "<group>"; };
 		AAD59F7E28CF9AAA00F8C5C7 /* LawPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawPickerView.swift; sourceTree = "<group>"; };
 		AAD69B9A28CD2CCA00F63AD6 /* MedicalTask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicalTask+Extension.swift"; sourceTree = "<group>"; };
 		AAD69B9C28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalTaskDetailView.swift; sourceTree = "<group>"; };
@@ -191,6 +197,16 @@
 				AA53FBBE28D6D9D700B6BC92 /* CareData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		AABCC15A28EA1A4F00B8199C /* HospitalExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				AABCC15828EA17BD00B8199C /* Hospital+Extension.swift */,
+				AABCC15B28EA1AA800B8199C /* Ward+Extension.swift */,
+				AABCC15D28EA1E8400B8199C /* Room+Extension.swift */,
+			);
+			path = HospitalExtensions;
 			sourceTree = "<group>";
 		};
 		AAD59F7D28CF9A3300F8C5C7 /* HelperViews */ = {
@@ -331,6 +347,7 @@
 				AA8FD59228CBE3570045FC95 /* Reading+Extension.swift */,
 				AAF0508628CD1C7000DA286E /* Medicine+Extension.swift */,
 				AAD69B9A28CD2CCA00F63AD6 /* MedicalTask+Extension.swift */,
+				AABCC15A28EA1A4F00B8199C /* HospitalExtensions */,
 			);
 			path = CoreDataExtensions;
 			sourceTree = "<group>";
@@ -486,6 +503,7 @@
 				AA94768428D71C6600BCB990 /* TypeOfObservationView.swift in Sources */,
 				AA8FD59528CBE99E0045FC95 /* ReadingListView.swift in Sources */,
 				AAE00818288040CC00378ABA /* PatientRowView.swift in Sources */,
+				AABCC15928EA17BD00B8199C /* Hospital+Extension.swift in Sources */,
 				AAE74334287ACF01003F68A8 /* Item+Extension.swift in Sources */,
 				AAF0508128CD1BB500DA286E /* MedicineRowView.swift in Sources */,
 				AAE74307287AC833003F68A8 /* Persistence.swift in Sources */,
@@ -513,6 +531,8 @@
 				AAD59F7F28CF9AAA00F8C5C7 /* LawPickerView.swift in Sources */,
 				AAE008262881C33600378ABA /* JournalRowView.swift in Sources */,
 				AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */,
+				AABCC15C28EA1AA800B8199C /* Ward+Extension.swift in Sources */,
+				AABCC15E28EA1E8400B8199C /* Room+Extension.swift in Sources */,
 				AA37C20228801A5000F86E5E /* PatientListView.swift in Sources */,
 				AA8FD59128CBA5140045FC95 /* AddLawView.swift in Sources */,
 				AA8FD59328CBE3570045FC95 /* Reading+Extension.swift in Sources */,
