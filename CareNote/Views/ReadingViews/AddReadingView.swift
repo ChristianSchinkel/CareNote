@@ -20,7 +20,7 @@ struct AddReadingView: View {
     @State private var amount = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Form {
                     HStack {

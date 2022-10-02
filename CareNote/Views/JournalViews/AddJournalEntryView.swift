@@ -19,7 +19,7 @@ struct AddJournalEntryView: View {
     @State private var text = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Form {
                     HStack {

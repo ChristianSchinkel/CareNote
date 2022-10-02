@@ -33,7 +33,7 @@ struct AddMedicineView: View {
     @State private var isSkipped = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Form {
                     VStack {

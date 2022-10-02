@@ -15,7 +15,7 @@ struct ItemView: View {
     private var items: FetchedResults<Item>
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(items) { item in
                     NavigationLink {

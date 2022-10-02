@@ -18,7 +18,7 @@ struct PatientListView: View {
     
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(patients) { patient in
                     NavigationLink {

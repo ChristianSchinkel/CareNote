@@ -19,7 +19,7 @@ struct AddMedicalTaskView: View {
     @State private var name = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Form {
                     HStack {

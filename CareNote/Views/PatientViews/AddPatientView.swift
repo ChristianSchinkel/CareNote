@@ -46,7 +46,7 @@ struct AddPatientView: View {
     @State private var medicine = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section("ID") {
                     TextField("Name", text: $name)

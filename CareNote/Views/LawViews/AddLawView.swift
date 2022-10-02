@@ -21,7 +21,7 @@ struct AddLawView: View {
     @State private var paragraph = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Form {
                     HStack {
