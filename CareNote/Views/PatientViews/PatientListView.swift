@@ -15,6 +15,7 @@ struct PatientListView: View {
     private var patients: FetchedResults<Patient>
 // MARK: - Boolean: showingPatientAddView
     @State private var showingAddPatientView = false // by default the PatientAddSheet isn't presented.
+    @State private var showingAlertDeleteAllPatients = false // Showing an alert if you delete al patients.
     
     
     var body: some View {
@@ -44,7 +45,27 @@ struct PatientListView: View {
             .sheet(isPresented: $showingAddPatientView) {
                 AddPatientView()
             }
-            Text("Select a patient") // This view appears on iPads in the middle of the screen, if no patient was selected.
+            .alert("Important message", isPresented: $showingAlertDeleteAllPatients) {
+                Button("Delete", role: .destructive) { deleteAllPatients() } // Deletes all items on the list.
+                Button("Cancel", role: .cancel) { } // Cancel and hide the alert.
+            } message: {
+                Text("Please read this until you continue. \n You are going to delete all information stored in your lists.")
+            }
+            
+            ZStack {
+                Text("Select a patient")
+                
+                HStack {
+                    Button(role: .destructive) {
+                        showingAlertDeleteAllPatients = true // Showing the alert.
+                    } label: {
+                        Image(systemName: "trash")
+                    }
+                    .padding(.leading)
+                    
+                    Spacer()
+                }
+            } // This view appears on iPads in the middle of the screen, if no patient was selected.
         }
     }
 // MARK: - Functions for this View
@@ -57,6 +78,14 @@ struct PatientListView: View {
         withAnimation {
             Patient.delete(at: offsets, for: Array(patients))
             PersistenceController.shared.save()
+        }
+    }
+    
+    private func deleteAllPatients() {
+        withAnimation {
+            patients.forEach(viewContext.delete)
+            PersistenceController.shared.save()
+            print("All Patiens are removed.")
         }
     }
 }

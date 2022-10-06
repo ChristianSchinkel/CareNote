@@ -21,7 +21,7 @@ struct PatientDetailView: View {
                 .foregroundColor(Color.gray)
                 .frame(width: 100, height: 100)
             HStack {
-                // TODO: - add a button for changing name that opens a alert or a sheet there you can change name of patient OR make it a textfield instead.
+                // TODO: - add a button for changing name that opens an alert there you can change name of patient OR make it a textfield instead.
                 Text(patient.name)
                 Text(patient.familyName)
             }
