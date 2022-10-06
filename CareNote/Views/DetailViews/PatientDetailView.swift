@@ -11,8 +11,9 @@ struct PatientDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var patient: Patient
     
-    @State private var showingoOptions = false
+    @State private var showingOptions = false
     @State private var patientIsAwakeOrSleeping = ""
+    @State private var showingChangePatientName = false
     
     var body: some View {
         VStack {
@@ -26,6 +27,24 @@ struct PatientDetailView: View {
                 Text(patient.familyName)
             }
             .font(.largeTitle)
+            .onLongPressGesture() {
+                showingChangePatientName = true
+            }
+            .alert("Rename Patients Identity", isPresented: $showingChangePatientName) {
+                VStack {
+                    TextField("Name", text: $patient.name)
+                    TextField("FamilyName", text: $patient.familyName)
+                    HStack {
+                        TextField("ÅÅÅÅMMDD-NNNN", text: $patient.swedishSocialSecurityNumber)
+                    }
+                }
+                Button("Change", role: .destructive) {
+                    PersistenceController.shared.save() // Saves the viewContent.
+                }
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text("Important you are going to change patients names and identities!")
+            }
             
             Text(patient.swedishSocialSecurityNumber)
                 .font(.subheadline)
@@ -36,9 +55,9 @@ struct PatientDetailView: View {
             Form {
                 HStack {
                     Button("\(Care.Patient.ActivityStatus.awake.rawValue.capitalized) or \(Care.Patient.ActivityStatus.sleeping.rawValue.capitalized)?") {
-                        showingoOptions = true // Opens a menu
+                        showingOptions = true // Opens a menu
                     }
-                    .confirmationDialog("Select an option", isPresented: $showingoOptions, titleVisibility: .visible) {
+                    .confirmationDialog("Select an option", isPresented: $showingOptions, titleVisibility: .visible) {
                         Button(Care.Patient.ActivityStatus.awake.rawValue.capitalized) {
                             patientIsAwakeOrSleeping = Care.Patient.ActivityStatus.awake.rawValue.capitalized
                             addJournalPatientStatus() // Call the function declared down.. to add the chosen option.
