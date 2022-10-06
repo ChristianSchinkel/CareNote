@@ -16,6 +16,7 @@
 		AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBBE28D6D9D700B6BC92 /* CareData.swift */; };
 		AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */; };
 		AA76B6AA287F00A20084D61F /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76B6A9287F00A20084D61F /* ItemView.swift */; };
+		AA8E71BE28EF43EE00D02C7A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA8E71C028EF43EE00D02C7A /* Localizable.strings */; };
 		AA8FD59128CBA5140045FC95 /* AddLawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8FD59028CBA5140045FC95 /* AddLawView.swift */; };
 		AA8FD59328CBE3570045FC95 /* Reading+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8FD59228CBE3570045FC95 /* Reading+Extension.swift */; };
 		AA8FD59528CBE99E0045FC95 /* ReadingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8FD59428CBE99E0045FC95 /* ReadingListView.swift */; };
@@ -88,6 +89,9 @@
 		AA53FBBE28D6D9D700B6BC92 /* CareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareData.swift; sourceTree = "<group>"; };
 		AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPatientComeInView.swift; sourceTree = "<group>"; };
 		AA76B6A9287F00A20084D61F /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		AA8E71BF28EF43EE00D02C7A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA8E71C128EF443500D02C7A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA8E71C228EF48A300D02C7A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA8FD59028CBA5140045FC95 /* AddLawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLawView.swift; sourceTree = "<group>"; };
 		AA8FD59228CBE3570045FC95 /* Reading+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reading+Extension.swift"; sourceTree = "<group>"; };
 		AA8FD59428CBE99E0045FC95 /* ReadingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListView.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 			children = (
 				AAD59F7D28CF9A3300F8C5C7 /* HelperViews */,
 				AAE742FF287AC831003F68A8 /* ContentView.swift */,
+				AA8E71C028EF43EE00D02C7A /* Localizable.strings */,
 				AAE00819288053FB00378ABA /* MainMenuTabView.swift */,
 				AA76B6A9287F00A20084D61F /* ItemView.swift */,
 				AAD69BA428CD2E7E00F63AD6 /* MedicalTaskViews */,
@@ -452,6 +457,8 @@
 			knownRegions = (
 				en,
 				Base,
+				sv,
+				de,
 			);
 			mainGroup = AAE742F1287AC831003F68A8;
 			productRefGroup = AAE742FB287AC831003F68A8 /* Products */;
@@ -471,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE74305287AC833003F68A8 /* Preview Assets.xcassets in Resources */,
+				AA8E71BE28EF43EE00D02C7A /* Localizable.strings in Resources */,
 				AAE74302287AC833003F68A8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +585,19 @@
 			targetProxy = AAE7431A287AC833003F68A8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA8E71C028EF43EE00D02C7A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA8E71BF28EF43EE00D02C7A /* en */,
+				AA8E71C128EF443500D02C7A /* sv */,
+				AA8E71C228EF48A300D02C7A /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AAE74321287AC833003F68A8 /* Debug */ = {

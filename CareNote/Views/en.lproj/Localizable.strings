@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  CareNote
+
+  Created by Christian Schinkel on 2022-10-06.
+  
+*/
+
+
+"text1" = "Select a patient";
