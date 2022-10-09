@@ -149,7 +149,7 @@ extension Patient {
                     dateGiven: Date.now,
                     datePrescriptionIsEnding: Date.distantFuture,
                     dateSkipped: Date.now,
-                    name: "Stesolid",
+                    name: "0_Prescripted",
                     form: Care.Medicine.Form.tablet.rawValue,
                     frequency: Care.Medicine.Frequency.asNeeded.rawValue,
                     strength: 10.0,
@@ -159,6 +159,40 @@ extension Patient {
                     isGiven: false,
                     isPrescripted: true,
                     isSkipped: false, context: context))
+            
+            patientForCanvas.addToMedicine(
+                Medicine(
+                    datePrescriptionIsStarting: Date.now,
+                    dateGiven: Date.now,
+                    datePrescriptionIsEnding: Date.distantFuture,
+                    dateSkipped: Date.now,
+                    name: "1_Given",
+                    form: Care.Medicine.Form.tablet.rawValue,
+                    frequency: Care.Medicine.Frequency.asNeeded.rawValue,
+                    strength: 10.0,
+                    unit: Care.Medicine.Unit.milliGram.rawValue,
+                    amount: 1.0,
+                    instruction: "ExampleInstruction",
+                    isGiven: true,
+                    isPrescripted: false,
+                    isSkipped: false, context: context))
+            
+            patientForCanvas.addToMedicine(
+                Medicine(
+                    datePrescriptionIsStarting: Date.now,
+                    dateGiven: Date.now,
+                    datePrescriptionIsEnding: Date.distantFuture,
+                    dateSkipped: Date.now,
+                    name: "3_Skipped",
+                    form: Care.Medicine.Form.tablet.rawValue,
+                    frequency: Care.Medicine.Frequency.asNeeded.rawValue,
+                    strength: 10.0,
+                    unit: Care.Medicine.Unit.milliGram.rawValue,
+                    amount: 1.0,
+                    instruction: "ExampleInstruction",
+                    isGiven: false,
+                    isPrescripted: false,
+                    isSkipped: true, context: context))
             
             patientForCanvas.addToMedicalTask(
                 MedicalTask(

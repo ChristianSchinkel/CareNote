@@ -15,6 +15,7 @@
 		AA37C20228801A5000F86E5E /* PatientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37C20128801A5000F86E5E /* PatientListView.swift */; };
 		AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBBE28D6D9D700B6BC92 /* CareData.swift */; };
 		AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */; };
+		AA707D2828F21F1F009C124E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA707D2728F21F1F009C124E /* SettingsView.swift */; };
 		AA76B6AA287F00A20084D61F /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76B6A9287F00A20084D61F /* ItemView.swift */; };
 		AA8E71BE28EF43EE00D02C7A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA8E71C028EF43EE00D02C7A /* Localizable.strings */; };
 		AA8FD59128CBA5140045FC95 /* AddLawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8FD59028CBA5140045FC95 /* AddLawView.swift */; };
@@ -88,6 +89,7 @@
 		AA37C20128801A5000F86E5E /* PatientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListView.swift; sourceTree = "<group>"; };
 		AA53FBBE28D6D9D700B6BC92 /* CareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareData.swift; sourceTree = "<group>"; };
 		AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPatientComeInView.swift; sourceTree = "<group>"; };
+		AA707D2728F21F1F009C124E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AA76B6A9287F00A20084D61F /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		AA8E71BF28EF43EE00D02C7A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA8E71C128EF443500D02C7A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				AAE008242881B89000378ABA /* JournalViews */,
 				AAE0081B2880738400378ABA /* PatientViews */,
 				AAE74335287AD1E5003F68A8 /* DetailViews */,
+				AA707D2728F21F1F009C124E /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				AAE00818288040CC00378ABA /* PatientRowView.swift in Sources */,
 				AABCC15928EA17BD00B8199C /* Hospital+Extension.swift in Sources */,
 				AAE74334287ACF01003F68A8 /* Item+Extension.swift in Sources */,
+				AA707D2828F21F1F009C124E /* SettingsView.swift in Sources */,
 				AAF0508128CD1BB500DA286E /* MedicineRowView.swift in Sources */,
 				AAE74307287AC833003F68A8 /* Persistence.swift in Sources */,
 				AAF0507D28CD0F8A00DA286E /* ReadingDetailView.swift in Sources */,

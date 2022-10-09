@@ -92,10 +92,14 @@ struct Care {
             case Saturday = "Sat"
             case Sunday = "Sun"
         }
+        /// AdministrationStatus returns a value that represents if the medicine is prescripted, given or skipped.
+        enum AdministrationStatus: String {
+        case prescripted, given, skipped, taken, none
+        }
         /// StartDate that returns Date.now.
         let startDate = Date.now
     }
-    /// Patients -Struct is used for texts thats are used very often.
+    /// Patients -Struct is used for texts that are used very often.
     struct Patient {
         /// How is it gong for the patient.
         enum ActivityStatus: String {

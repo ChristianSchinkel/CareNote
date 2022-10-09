@@ -21,6 +21,9 @@ struct MainMenuTabView: View {
             Text("Tab Content 3")
                 .tabItem {
                     Label("Browse", systemImage: "square.grid.2x2.fill") }.tag(3)
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear.circle") }.tag(3)
         }
     }
 }

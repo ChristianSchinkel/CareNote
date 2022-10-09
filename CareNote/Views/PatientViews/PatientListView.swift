@@ -14,7 +14,7 @@ struct PatientListView: View {
     @FetchRequest(fetchRequest: Patient.fetch(), animation: .default)
     private var patients: FetchedResults<Patient>
     
-    private let SelectAPatient: LocalizedStringKey = "SelectAPatient"
+    private let SelectAPatient: LocalizedStringKey = "SelectAPatient" // localized string.
 // MARK: - Boolean: showingPatientAddView
     @State private var showingAddPatientView = false // by default the PatientAddSheet isn't presented.
     @State private var showingAlertDeleteAllPatients = false // Showing an alert if you delete al patients.
