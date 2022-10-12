@@ -23,7 +23,6 @@ struct MedicineDetailView: View {
                     Text("\(selectedForm)")
                     Text("\(selectedUnit)")
                     Picker(selection: $selectedForm, label: Text("MedicinForm")) {
-//                        if let selectedForm
                         ForEach(Care.Medicine.Form.allCases) { form in
                             Text(form.rawValue.capitalized).tag(form.rawValue.capitalized)
                         }
