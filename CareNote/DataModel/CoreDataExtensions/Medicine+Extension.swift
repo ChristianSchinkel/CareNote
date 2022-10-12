@@ -115,6 +115,15 @@ extension Medicine {
             form_ = newValue
         }
     }
+    /// MedicinePropertyForm as computed returned enum.
+    var medicinePropertyComputedEnumForm: Care.Medicine.Form {
+        get {
+            return Care.Medicine.Form(rawValue: form_!) ?? .none
+        }
+        set {
+            form_ = newValue.rawValue
+        }
+    }
     /// The frequency for intake of medicine.
     public var frequency: String {
         get {
@@ -140,6 +149,15 @@ extension Medicine {
         }
         set {
             unit_ = newValue
+        }
+    }
+    /// MedicinePropertyUnit as computed returned enum.
+    var medicinePropertyComputedEnumUnit: Care.Medicine.Unit {
+        get {
+            return Care.Medicine.Unit(rawValue: unit) ?? .none
+        }
+        set {
+            unit = newValue.rawValue
         }
     }
     /// The amount for medicine.

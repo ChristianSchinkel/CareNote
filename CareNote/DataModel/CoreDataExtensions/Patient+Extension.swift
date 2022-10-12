@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 extension Patient {
-    /// Is a faster way to initialise only properties that are needed. So you don't need to initialise all properties.
+    /// Is a faster way to initialise only properties that are needed. So you don't need to initialise all properties - only those you really want to be initialized by creating an instance of Patient.
     convenience init(familyName: String, name: String, swedishSocialSecurityNumber: String, context: NSManagedObjectContext) {
         self.init(context: context)
         self.familyName_ = familyName

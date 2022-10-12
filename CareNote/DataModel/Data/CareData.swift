@@ -53,20 +53,25 @@ struct Care {
     /// Medicine-Struct with information to create a prescription of a medicine.
     struct Medicine {
         /// Form of a medicine.
-        enum Form: String, CaseIterable {
-            case capsule, tablet, liquid, topical, cream, device, drops, foam, gel, inhaler, injection, lotion, ointment, patch, powder, spray, suppository
+        enum Form: String, CaseIterable, Identifiable {
+            case capsule, tablet, liquid, topical, cream, device, drops, foam, gel, inhaler, injection, lotion, ointment, patch, powder, spray, suppository, none
+            
+            var id: Self { self } // --> (id: \.self )
             
             var name: String {
                 return rawValue.capitalized
             }
         }
         /// Unit of a medicine.
-        enum Unit: String, CaseIterable {
+        enum Unit: String, CaseIterable, Identifiable {
             case milliGram = "mg"
             case mikroGram = "µg"
             case gram = "g"
             case milliLiter = "ml"
             case procent = "%"
+            case none = "-"
+            
+            var id: Self { self } // --> (id: \.self )
         }
         /// Frequency.
         enum Frequency: String, CaseIterable {
