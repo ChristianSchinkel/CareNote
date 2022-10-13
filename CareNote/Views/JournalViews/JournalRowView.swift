@@ -26,6 +26,7 @@ struct JournalRowView: View {
             }
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct JournalRowView_Previews: PreviewProvider {

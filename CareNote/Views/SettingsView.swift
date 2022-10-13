@@ -18,6 +18,7 @@ struct SettingsView: View {
             Text("SettingsPLACEHOLDER")
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct SettingsView_Previews: PreviewProvider {

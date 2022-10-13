@@ -22,6 +22,7 @@ struct HowPatientComeInView: View {
             TextField("Detail", text: $details)
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct HowPatientComeInView_Previews: PreviewProvider {

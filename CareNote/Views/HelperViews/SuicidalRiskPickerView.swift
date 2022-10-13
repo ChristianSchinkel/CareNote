@@ -18,6 +18,7 @@ struct SuicidalRiskPickerView: View {
             }
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct SuicidalRiskPickerView_Previews: PreviewProvider {

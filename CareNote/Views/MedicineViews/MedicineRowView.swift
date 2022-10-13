@@ -23,6 +23,7 @@ struct MedicineRowView: View {
                 .padding(.trailing)
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct MedicineRowView_Previews: PreviewProvider {

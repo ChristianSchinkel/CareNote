@@ -107,7 +107,7 @@ struct PatientDetailView: View {
             }
         }
     }
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     /// Adds one of the options to the journal.
     private func addJournalPatientStatus() {
         // DO something

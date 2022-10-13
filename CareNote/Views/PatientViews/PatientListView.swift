@@ -90,6 +90,7 @@ struct PatientListView: View {
             print("All Patiens are removed.")
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct PatientListView_Previews: PreviewProvider {

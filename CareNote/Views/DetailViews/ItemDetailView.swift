@@ -22,6 +22,7 @@ struct ItemDetailView: View {
         }
         .padding()
     }
+// MARK: - Functions for this View:
 }
 
 struct ItemDetailView_Previews: PreviewProvider {

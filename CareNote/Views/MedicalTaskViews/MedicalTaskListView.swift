@@ -41,7 +41,7 @@ struct MedicalTaskListView: View {
                 AddMedicalTaskView(patient: patient)
         }
     }
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     private func showAddMedicalTaskView() {
         showingAddMedicalTaskView = true
         print("plus-Button was pressed and boolean changed")

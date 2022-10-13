@@ -25,6 +25,7 @@ struct ReadingRowView: View {
             }
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct ReadingRowView_Previews: PreviewProvider {

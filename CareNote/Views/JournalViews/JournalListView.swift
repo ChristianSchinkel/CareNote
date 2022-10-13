@@ -42,7 +42,7 @@ struct JournalListView: View {
             }
             // Text("Select a journal-entry") // This view appears on iPads in the middle of the screen, if no journalEntry was selected.
     }
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     private func showAddJournalEntryView() {
         showingAddJournalEntryView = true
         print("squareAndPencil-Button was pressed and boolean changed")

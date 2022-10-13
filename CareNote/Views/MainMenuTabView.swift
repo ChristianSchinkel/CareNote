@@ -26,6 +26,7 @@ struct MainMenuTabView: View {
                     Label("Settings", systemImage: "gear.circle") }.tag(3)
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct MainMenuTabView_Previews: PreviewProvider {

@@ -23,6 +23,7 @@ struct LawPickerView: View {
             DatePicker(selection: $date, label: { Text("Arrived:").foregroundColor(.secondary) })
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct LawPickerView_Previews: PreviewProvider {

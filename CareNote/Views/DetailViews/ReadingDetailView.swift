@@ -17,6 +17,7 @@ struct ReadingDetailView: View {
             Text("\(reading.date, format: .dateTime)")
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct ReadingDetailView_Previews: PreviewProvider {

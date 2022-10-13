@@ -18,6 +18,7 @@ struct TypeOfObservationView: View {
             }
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct TypeOfObservationView_Previews: PreviewProvider {

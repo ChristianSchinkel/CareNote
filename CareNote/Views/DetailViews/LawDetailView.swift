@@ -17,6 +17,7 @@ struct LawDetailView: View {
             Text("\(law.date, format: .dateTime)")
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct LawDetailView_Previews: PreviewProvider {

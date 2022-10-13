@@ -56,7 +56,7 @@ struct AddReadingView: View {
             }
         }
     }
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     private func addReading() {
         withAnimation {
             patient.addToReading(Reading(amount: Double(amount) ?? 0.0, date: date, unit: unit, context: viewContext)) //_ = Reading(amount: amount, date: date, unit: unit, context: viewContext)

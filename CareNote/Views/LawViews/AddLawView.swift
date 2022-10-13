@@ -57,7 +57,7 @@ struct AddLawView: View {
             }
         }
     }
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     private func addLaw() {
         withAnimation {
             patient.addToLaw(Law(date: date, name: name, paragraph: paragraph, context: viewContext)) //_ = Law(date: date, name: name, paragraph: paragraph, context: viewContext)

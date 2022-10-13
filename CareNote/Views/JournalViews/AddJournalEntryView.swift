@@ -50,7 +50,7 @@ struct AddJournalEntryView: View {
         }
     }
     
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     private func addJournal() {
         withAnimation {
             patient.addToJournal(Journal(date: date, text: text, context: viewContext)) //_ = Journal(date: date, text: text, context: viewContext)

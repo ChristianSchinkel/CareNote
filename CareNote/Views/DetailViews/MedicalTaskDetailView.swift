@@ -17,6 +17,7 @@ struct MedicalTaskDetailView: View {
             Text("\(medicalTask.date, format: .dateTime)")
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct MedicalTaskDetailView_Previews: PreviewProvider {

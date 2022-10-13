@@ -133,7 +133,7 @@ struct AddMedicineView: View {
             }
         }
     }
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     /// Toggles the bolean of the toggles "isSkipped" and "isGiven"
     private func changeToggle() {
         if isSkipped == false {

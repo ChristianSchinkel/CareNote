@@ -101,7 +101,7 @@ struct AddPatientView: View {
             }
         }
     }
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     private func addPatient() {
         withAnimation {
             // let patient <-- insert this instead of "_" in line 103.

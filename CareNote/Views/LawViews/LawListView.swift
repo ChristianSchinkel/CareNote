@@ -41,7 +41,7 @@ struct LawListView: View {
                 AddLawView(patient: patient)
         }
     }
-// MARK: - Funktions for this View
+// MARK: - Functions for this View:
     private func showAddLawView() {
         showingAddLawView = true
         print("plus-Button was pressed and boolean changed")

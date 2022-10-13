@@ -17,6 +17,7 @@ struct ViolenceRiskPickerView: View {
             }
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct ViolenceRiskPickerView_Previews: PreviewProvider {

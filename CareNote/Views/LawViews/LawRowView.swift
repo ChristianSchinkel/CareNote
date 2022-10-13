@@ -25,6 +25,7 @@ struct LawRowView: View {
             }
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct LawRowView_Previews: PreviewProvider {

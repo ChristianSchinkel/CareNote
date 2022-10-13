@@ -12,6 +12,7 @@ struct ContentView: View {
     var body: some View {
         MainMenuTabView()
     }
+// MARK: - Functions for this View:
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -41,7 +41,7 @@ struct ReadingListView: View {
                 AddReadingView(patient: patient)
         }
     }
-// MARK: - Funktions for this View
+// MARK: - Functions for this View:
     private func showAddReadingView() {
         showingAddReadingView = true
         print("plus-Button was pressed and boolean changed")

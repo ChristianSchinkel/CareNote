@@ -51,7 +51,7 @@ struct AddMedicalTaskView: View {
             }
         }
     }
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     private func addMedicalTask() {
         withAnimation {
             patient.addToMedicalTask(MedicalTask(date: date, name: name, context: viewContext)) //_ = MedicalTask(date: date, name: name, context: viewContext)

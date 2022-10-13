@@ -17,6 +17,7 @@ struct PatientRowView: View {
             Text(patient.swedishSocialSecurityNumber)
         }
     }
+// MARK: - Functions for this View:
 }
 
 struct PatientRowView_Previews: PreviewProvider {

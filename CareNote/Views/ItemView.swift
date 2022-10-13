@@ -39,7 +39,7 @@ struct ItemView: View {
             Text("Select an item") // This view appears on iPads in the middle of the screen, if no item was selected.
         }
     }
-// MARK: - Functions for this View
+// MARK: - Functions for this View:
     private func addItem() {
         withAnimation {
             _ = Item(name: "name", context: viewContext) // Creates the item the item (Item+helper; extension!).
