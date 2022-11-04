@@ -13,6 +13,9 @@
 		AA2A2DFE28CB80C300C2D8DB /* LawDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A2DFD28CB80C300C2D8DB /* LawDetailView.swift */; };
 		AA37C200288000E000F86E5E /* Patient+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37C1FF288000E000F86E5E /* Patient+Extension.swift */; };
 		AA37C20228801A5000F86E5E /* PatientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37C20128801A5000F86E5E /* PatientListView.swift */; };
+		AA3AB2E02915353A006952CB /* MedicineDosageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB2DF2915353A006952CB /* MedicineDosageView.swift */; };
+		AA3AB2E2291548CA006952CB /* PreScriptionDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB2E1291548CA006952CB /* PreScriptionDurationView.swift */; };
+		AA3AB2E429156BAA006952CB /* PreScriptionAsNeededView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB2E329156BAA006952CB /* PreScriptionAsNeededView.swift */; };
 		AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBBE28D6D9D700B6BC92 /* CareData.swift */; };
 		AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */; };
 		AA707D2828F21F1F009C124E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA707D2728F21F1F009C124E /* SettingsView.swift */; };
@@ -42,6 +45,7 @@
 		AAE008262881C33600378ABA /* JournalRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE008252881C33600378ABA /* JournalRowView.swift */; };
 		AAE008282881C66A00378ABA /* AddJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE008272881C66A00378ABA /* AddJournalEntryView.swift */; };
 		AAE0082A2881C98B00378ABA /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE008292881C98B00378ABA /* JournalDetailView.swift */; };
+		AAE159B6290449E300364E5E /* PreScription+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE159B5290449E300364E5E /* PreScription+Extension.swift */; };
 		AAE742FE287AC831003F68A8 /* CareNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE742FD287AC831003F68A8 /* CareNoteApp.swift */; };
 		AAE74300287AC831003F68A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE742FF287AC831003F68A8 /* ContentView.swift */; };
 		AAE74302287AC833003F68A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE74301287AC833003F68A8 /* Assets.xcassets */; };
@@ -56,10 +60,10 @@
 		AAF0507928CD0D1500DA286E /* ReadingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0507828CD0D1500DA286E /* ReadingRowView.swift */; };
 		AAF0507B28CD0D3500DA286E /* AddReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0507A28CD0D3500DA286E /* AddReadingView.swift */; };
 		AAF0507D28CD0F8A00DA286E /* ReadingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0507C28CD0F8A00DA286E /* ReadingDetailView.swift */; };
-		AAF0507F28CD1B9200DA286E /* MedicineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0507E28CD1B9200DA286E /* MedicineListView.swift */; };
-		AAF0508128CD1BB500DA286E /* MedicineRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0508028CD1BB500DA286E /* MedicineRowView.swift */; };
-		AAF0508328CD1BD400DA286E /* AddMedicineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0508228CD1BD400DA286E /* AddMedicineView.swift */; };
-		AAF0508528CD1BF500DA286E /* MedicineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0508428CD1BF500DA286E /* MedicineDetailView.swift */; };
+		AAF0507F28CD1B9200DA286E /* PreScriptionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0507E28CD1B9200DA286E /* PreScriptionListView.swift */; };
+		AAF0508128CD1BB500DA286E /* PreScriptionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0508028CD1BB500DA286E /* PreScriptionRowView.swift */; };
+		AAF0508328CD1BD400DA286E /* AddPreScriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0508228CD1BD400DA286E /* AddPreScriptionView.swift */; };
+		AAF0508528CD1BF500DA286E /* PreScriptionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0508428CD1BF500DA286E /* PreScriptionDetailView.swift */; };
 		AAF0508728CD1C7000DA286E /* Medicine+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0508628CD1C7000DA286E /* Medicine+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +91,9 @@
 		AA2A2DFD28CB80C300C2D8DB /* LawDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawDetailView.swift; sourceTree = "<group>"; };
 		AA37C1FF288000E000F86E5E /* Patient+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patient+Extension.swift"; sourceTree = "<group>"; };
 		AA37C20128801A5000F86E5E /* PatientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListView.swift; sourceTree = "<group>"; };
+		AA3AB2DF2915353A006952CB /* MedicineDosageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDosageView.swift; sourceTree = "<group>"; };
+		AA3AB2E1291548CA006952CB /* PreScriptionDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreScriptionDurationView.swift; sourceTree = "<group>"; };
+		AA3AB2E329156BAA006952CB /* PreScriptionAsNeededView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreScriptionAsNeededView.swift; sourceTree = "<group>"; };
 		AA53FBBE28D6D9D700B6BC92 /* CareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareData.swift; sourceTree = "<group>"; };
 		AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPatientComeInView.swift; sourceTree = "<group>"; };
 		AA707D2728F21F1F009C124E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -118,6 +125,7 @@
 		AAE008252881C33600378ABA /* JournalRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalRowView.swift; sourceTree = "<group>"; };
 		AAE008272881C66A00378ABA /* AddJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryView.swift; sourceTree = "<group>"; };
 		AAE008292881C98B00378ABA /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
+		AAE159B5290449E300364E5E /* PreScription+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreScription+Extension.swift"; sourceTree = "<group>"; };
 		AAE742FA287AC831003F68A8 /* CareNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE742FD287AC831003F68A8 /* CareNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareNoteApp.swift; sourceTree = "<group>"; };
 		AAE742FF287AC831003F68A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,10 +143,10 @@
 		AAF0507828CD0D1500DA286E /* ReadingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingRowView.swift; sourceTree = "<group>"; };
 		AAF0507A28CD0D3500DA286E /* AddReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReadingView.swift; sourceTree = "<group>"; };
 		AAF0507C28CD0F8A00DA286E /* ReadingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingDetailView.swift; sourceTree = "<group>"; };
-		AAF0507E28CD1B9200DA286E /* MedicineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListView.swift; sourceTree = "<group>"; };
-		AAF0508028CD1BB500DA286E /* MedicineRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineRowView.swift; sourceTree = "<group>"; };
-		AAF0508228CD1BD400DA286E /* AddMedicineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicineView.swift; sourceTree = "<group>"; };
-		AAF0508428CD1BF500DA286E /* MedicineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDetailView.swift; sourceTree = "<group>"; };
+		AAF0507E28CD1B9200DA286E /* PreScriptionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreScriptionListView.swift; sourceTree = "<group>"; };
+		AAF0508028CD1BB500DA286E /* PreScriptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreScriptionRowView.swift; sourceTree = "<group>"; };
+		AAF0508228CD1BD400DA286E /* AddPreScriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPreScriptionView.swift; sourceTree = "<group>"; };
+		AAF0508428CD1BF500DA286E /* PreScriptionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreScriptionDetailView.swift; sourceTree = "<group>"; };
 		AAF0508628CD1C7000DA286E /* Medicine+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,14 +175,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA2A2DF428CB70D000C2D8DB /* MedicineViews */ = {
+		AA2A2DF428CB70D000C2D8DB /* PreScriptionViews */ = {
 			isa = PBXGroup;
 			children = (
-				AAF0507E28CD1B9200DA286E /* MedicineListView.swift */,
-				AAF0508028CD1BB500DA286E /* MedicineRowView.swift */,
-				AAF0508228CD1BD400DA286E /* AddMedicineView.swift */,
+				AA3AB2DE291534C0006952CB /* PreScriptionHelpers */,
+				AAF0507E28CD1B9200DA286E /* PreScriptionListView.swift */,
+				AAF0508028CD1BB500DA286E /* PreScriptionRowView.swift */,
+				AAF0508228CD1BD400DA286E /* AddPreScriptionView.swift */,
 			);
-			path = MedicineViews;
+			path = PreScriptionViews;
 			sourceTree = "<group>";
 		};
 		AA2A2DF528CB711800C2D8DB /* LawViews */ = {
@@ -195,6 +204,16 @@
 				AAF0507A28CD0D3500DA286E /* AddReadingView.swift */,
 			);
 			path = ReadingViews;
+			sourceTree = "<group>";
+		};
+		AA3AB2DE291534C0006952CB /* PreScriptionHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				AA3AB2DF2915353A006952CB /* MedicineDosageView.swift */,
+				AA3AB2E1291548CA006952CB /* PreScriptionDurationView.swift */,
+				AA3AB2E329156BAA006952CB /* PreScriptionAsNeededView.swift */,
+			);
+			path = PreScriptionHelpers;
 			sourceTree = "<group>";
 		};
 		AA53FBBD28D6D03B00B6BC92 /* Data */ = {
@@ -334,7 +353,7 @@
 				AAE00819288053FB00378ABA /* MainMenuTabView.swift */,
 				AA76B6A9287F00A20084D61F /* ItemView.swift */,
 				AAD69BA428CD2E7E00F63AD6 /* MedicalTaskViews */,
-				AA2A2DF428CB70D000C2D8DB /* MedicineViews */,
+				AA2A2DF428CB70D000C2D8DB /* PreScriptionViews */,
 				AA2A2DF628CB715400C2D8DB /* ReadingViews */,
 				AA2A2DF528CB711800C2D8DB /* LawViews */,
 				AAE008242881B89000378ABA /* JournalViews */,
@@ -350,6 +369,7 @@
 			children = (
 				AAE74333287ACF01003F68A8 /* Item+Extension.swift */,
 				AA37C1FF288000E000F86E5E /* Patient+Extension.swift */,
+				AAE159B5290449E300364E5E /* PreScription+Extension.swift */,
 				AAE008202881B11B00378ABA /* Journal+Extension.swift */,
 				AA2A2DFB28CB782E00C2D8DB /* Law+Extension.swift */,
 				AA8FD59228CBE3570045FC95 /* Reading+Extension.swift */,
@@ -368,7 +388,7 @@
 				AAE008292881C98B00378ABA /* JournalDetailView.swift */,
 				AA2A2DFD28CB80C300C2D8DB /* LawDetailView.swift */,
 				AAF0507C28CD0F8A00DA286E /* ReadingDetailView.swift */,
-				AAF0508428CD1BF500DA286E /* MedicineDetailView.swift */,
+				AAF0508428CD1BF500DA286E /* PreScriptionDetailView.swift */,
 				AAD69B9C28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift */,
 			);
 			path = DetailViews;
@@ -516,23 +536,26 @@
 				AAE00818288040CC00378ABA /* PatientRowView.swift in Sources */,
 				AABCC15928EA17BD00B8199C /* Hospital+Extension.swift in Sources */,
 				AAE74334287ACF01003F68A8 /* Item+Extension.swift in Sources */,
+				AAE159B6290449E300364E5E /* PreScription+Extension.swift in Sources */,
 				AA707D2828F21F1F009C124E /* SettingsView.swift in Sources */,
-				AAF0508128CD1BB500DA286E /* MedicineRowView.swift in Sources */,
+				AAF0508128CD1BB500DA286E /* PreScriptionRowView.swift in Sources */,
 				AAE74307287AC833003F68A8 /* Persistence.swift in Sources */,
 				AAF0507D28CD0F8A00DA286E /* ReadingDetailView.swift in Sources */,
 				AAE008212881B11B00378ABA /* Journal+Extension.swift in Sources */,
+				AA3AB2E429156BAA006952CB /* PreScriptionAsNeededView.swift in Sources */,
 				AA94768028D718B900BCB990 /* SuicidalRiskPickerView.swift in Sources */,
 				AAD69BA128CD2E6000F63AD6 /* MedicalTaskRowView.swift in Sources */,
 				AA2A2DFA28CB77C200C2D8DB /* LawRowView.swift in Sources */,
 				AAE008232881B88100378ABA /* JournalListView.swift in Sources */,
-				AAF0507F28CD1B9200DA286E /* MedicineListView.swift in Sources */,
+				AAF0507F28CD1B9200DA286E /* PreScriptionListView.swift in Sources */,
+				AA3AB2E2291548CA006952CB /* PreScriptionDurationView.swift in Sources */,
 				AAD69B9F28CD2E5000F63AD6 /* MedicalTaskListView.swift in Sources */,
 				AAE74300287AC831003F68A8 /* ContentView.swift in Sources */,
 				AAD69B9B28CD2CCA00F63AD6 /* MedicalTask+Extension.swift in Sources */,
 				AA76B6AA287F00A20084D61F /* ItemView.swift in Sources */,
 				AAE0081F2881A50400378ABA /* PatientDetailView.swift in Sources */,
 				AAE7430A287AC833003F68A8 /* CareNote.xcdatamodeld in Sources */,
-				AAF0508328CD1BD400DA286E /* AddMedicineView.swift in Sources */,
+				AAF0508328CD1BD400DA286E /* AddPreScriptionView.swift in Sources */,
 				AAD69BA328CD2E7100F63AD6 /* AddMedicalTaskView.swift in Sources */,
 				AAE0081D288074C100378ABA /* AddPatientView.swift in Sources */,
 				AAE008282881C66A00378ABA /* AddJournalEntryView.swift in Sources */,
@@ -543,6 +566,7 @@
 				AAD59F7F28CF9AAA00F8C5C7 /* LawPickerView.swift in Sources */,
 				AAE008262881C33600378ABA /* JournalRowView.swift in Sources */,
 				AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */,
+				AA3AB2E02915353A006952CB /* MedicineDosageView.swift in Sources */,
 				AABCC15C28EA1AA800B8199C /* Ward+Extension.swift in Sources */,
 				AABCC15E28EA1E8400B8199C /* Room+Extension.swift in Sources */,
 				AA37C20228801A5000F86E5E /* PatientListView.swift in Sources */,
@@ -554,7 +578,7 @@
 				AAE0082A2881C98B00378ABA /* JournalDetailView.swift in Sources */,
 				AAF0507928CD0D1500DA286E /* ReadingRowView.swift in Sources */,
 				AA2A2DFC28CB782E00C2D8DB /* Law+Extension.swift in Sources */,
-				AAF0508528CD1BF500DA286E /* MedicineDetailView.swift in Sources */,
+				AAF0508528CD1BF500DA286E /* PreScriptionDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

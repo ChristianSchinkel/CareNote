@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Building" representedClassName="Building" syncable="YES" codeGenerationType="class">
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="building" inverseEntity="Department"/>
+    </entity>
+    <entity name="Department" representedClassName="Department" syncable="YES" codeGenerationType="class">
+        <attribute name="city_" optional="YES" attributeType="String"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <attribute name="state_" optional="YES" attributeType="String"/>
+        <attribute name="street_" optional="YES" attributeType="String"/>
+        <attribute name="zipCode_" optional="YES" attributeType="String"/>
+        <relationship name="building" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Building" inverseName="department" inverseEntity="Building"/>
+    </entity>
     <entity name="Hospital" representedClassName="Hospital" syncable="YES" codeGenerationType="class">
         <attribute name="name_" optional="YES" attributeType="String"/>
     </entity>
@@ -24,21 +36,10 @@
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="medicalTask" inverseEntity="Patient"/>
     </entity>
     <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
-        <attribute name="amount_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="dateGiven_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="datePrescriptionIsEnding_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="datePrescriptionIsStarting_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="dateSkipped_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="activeSubstance_" optional="YES" attributeType="String"/>
         <attribute name="form_" optional="YES" attributeType="String"/>
-        <attribute name="frequency_" optional="YES" attributeType="String"/>
-        <attribute name="instruction_" optional="YES" attributeType="String"/>
-        <attribute name="isGiven_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="isPrescripted_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="isSkipped_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
-        <attribute name="strength_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="unit_" optional="YES" attributeType="String"/>
-        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="medicine" inverseEntity="Patient"/>
+        <relationship name="preScription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PreScription" inverseName="medicine" inverseEntity="PreScription"/>
     </entity>
     <entity name="Patient" representedClassName="Patient" syncable="YES" codeGenerationType="class">
         <attribute name="familyName_" optional="YES" attributeType="String"/>
@@ -48,8 +49,38 @@
         <relationship name="journal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Journal" inverseName="patient" inverseEntity="Journal"/>
         <relationship name="law" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Law" inverseName="patient" inverseEntity="Law"/>
         <relationship name="medicalTask" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedicalTask" inverseName="patient" inverseEntity="MedicalTask"/>
-        <relationship name="medicine" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="patient" inverseEntity="Medicine"/>
+        <relationship name="preScription" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PreScription" inverseName="patient" inverseEntity="PreScription"/>
         <relationship name="reading" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reading" inverseName="patient" inverseEntity="Reading"/>
+    </entity>
+    <entity name="PreScription" representedClassName="PreScription" syncable="YES" codeGenerationType="class">
+        <attribute name="asNeeded_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="asNeededMaxDoseAmount_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="asNeededMaxDosePerDayDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="asNeededMaxDoseStrengthValue_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="asNeededMaxDoseStrengthValueUnit_" optional="YES" attributeType="String"/>
+        <attribute name="datesForAdministration_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="frequency_" optional="YES" attributeType="String"/>
+        <attribute name="givenDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="instruction_" optional="YES" attributeType="String"/>
+        <attribute name="isGiven_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isPrescripted_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSkipped_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="medicineActiveSubstance_" optional="YES" attributeType="String"/>
+        <attribute name="medicineDoseAmount_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="medicineForm_" optional="YES" attributeType="String"/>
+        <attribute name="medicineName_" optional="YES" attributeType="String"/>
+        <attribute name="medicineStrengthValue_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="medicineStrengthValueUnit_" optional="YES" attributeType="String"/>
+        <attribute name="modeOfAdministration_" optional="YES" attributeType="String"/>
+        <attribute name="reasonOfPrescribing_" optional="YES" attributeType="String"/>
+        <attribute name="shouldNotBeReplaced_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="shouldNotBeReplacedReason_" optional="YES" attributeType="String"/>
+        <attribute name="skippedDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="treatmentDurationEndDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="treatmentDurationEndReason_" optional="YES" attributeType="String"/>
+        <attribute name="treatmentDurationStartDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="medicine" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="preScription" inverseEntity="Medicine"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="preScription" inverseEntity="Patient"/>
     </entity>
     <entity name="Reading" representedClassName="Reading" syncable="YES" codeGenerationType="class">
         <attribute name="amount_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

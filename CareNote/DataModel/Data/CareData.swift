@@ -52,6 +52,7 @@ struct Care {
     
     /// Medicine-Struct with information to create a prescription of a medicine.
     struct Medicine {
+//        var name: String
         /// Form of a medicine.
         enum Form: String, CaseIterable, Identifiable {
             case capsule, tablet, liquid, topical, cream, device, drops, foam, gel, inhaler, injection, lotion, ointment, patch, powder, spray, suppository, none
@@ -70,6 +71,24 @@ struct Care {
             case milliLiter = "ml"
             case procent = "%"
             case none = "-"
+            
+            var id: Self { self } // --> (id: \.self )
+        }
+        /// Mode of administration
+        enum ModeOfAdministration: String, CaseIterable, Identifiable {
+            case oral, im, iv, sc
+            
+            var id: Self { self } // --> (id: \.self )
+        }
+        /// Reason of prescribing
+        enum ReasonOfPrescribing: String, CaseIterable, Identifiable {
+        case sleep, other
+            
+            var id: Self { self } // --> (id: \.self )
+        }
+        /// The reason why the treatment ends
+        enum TreatmentDurationEndReason: String, CaseIterable, Identifiable {
+            case plannedStop
             
             var id: Self { self } // --> (id: \.self )
         }

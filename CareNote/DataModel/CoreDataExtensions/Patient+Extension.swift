@@ -20,7 +20,7 @@ extension Patient {
     
     
     
-// MARK: - Properties for easier coding
+    // MARK: - Properties for easier coding
     /*
      familyName
      id
@@ -65,7 +65,7 @@ extension Patient {
             swedishSocialSecurityNumber_ = newValue
         }
     }
-// MARK: - Convert Properties with NSSet to an Swift-array
+    // MARK: - Convert Properties with NSSet to an Swift-array
     public var journalArray: [Journal] { // will return an Array
         let set = journal as? Set<Journal> ?? [ ] // make a set called journal and store Journals in it otherwise make it empty.
         return set.sorted { // Sort the set to make i an array.
@@ -87,12 +87,19 @@ extension Patient {
         }
     } // returns the array asking for "[Reading]"
     
-    public var medicineArray: [Medicine] {
-        let set = medicine as? Set<Medicine> ?? [ ]
+    public var preScriptionArray: [PreScription] {
+        let set = preScription as? Set<PreScription> ?? [ ]
         return set.sorted {
-            $0.datePrescriptionIsStarting < $1.datePrescriptionIsStarting
+            $0.treatmentDurationStartDate < $1.treatmentDurationStartDate
         }
-    } // returns the array asking for "[Medicine]"
+    }
+    
+    //    public var medicineArray: [Medicine] {
+    //        let set = medicine as? Set<Medicine> ?? [ ]
+    //        return set.sorted {
+    //            $0.datePrescriptionIsStarting < $1.datePrescriptionIsStarting
+    //        }
+    //    } // returns the array asking for "[Medicine]"
     
     public var medicalTaskArray: [MedicalTask] {
         let set = medicalTask as? Set<MedicalTask> ?? [ ]
@@ -143,56 +150,93 @@ extension Patient {
             
             patientForCanvas.addToReading(Reading(amount: 60.0, date: Date.now, unit: "BPM", context: context))
             
-            patientForCanvas.addToMedicine(
-                Medicine(
-                    datePrescriptionIsStarting: Date.now,
-                    dateGiven: Date.now,
-                    datePrescriptionIsEnding: Date.distantFuture,
-                    dateSkipped: Date.now,
-                    name: "0_Prescripted",
-                    form: Care.Medicine.Form.tablet.rawValue,
-                    frequency: Care.Medicine.Frequency.asNeeded.rawValue,
-                    strength: 10.0,
-                    unit: Care.Medicine.Unit.milliGram.rawValue,
-                    amount: 1.0,
-                    instruction: "ExampleInstruction",
-                    isGiven: false,
-                    isPrescripted: true,
-                    isSkipped: false, context: context))
+            let medForCanvasCandesartan = Medicine(activeSubstance: "Candesartan", form: "Tablet", name: "Candesartan", context: context) // Medicine for CanvasExample.
+            let medForCanvasSertraline = Medicine(activeSubstance: "Sertraline", form: "Tablet", name: "Sertraline", context: context) // Medicine for CanvasExample.
+            let medForCanvasMelatonin = Medicine(activeSubstance: "Melatonin", form: "Tablet", name: "Melatonin", context: context) // Medicine for CanvasExample.
             
-            patientForCanvas.addToMedicine(
-                Medicine(
-                    datePrescriptionIsStarting: Date.now,
-                    dateGiven: Date.now,
-                    datePrescriptionIsEnding: Date.distantFuture,
-                    dateSkipped: Date.now,
-                    name: "1_Given",
-                    form: Care.Medicine.Form.tablet.rawValue,
-                    frequency: Care.Medicine.Frequency.asNeeded.rawValue,
-                    strength: 10.0,
-                    unit: Care.Medicine.Unit.milliGram.rawValue,
-                    amount: 1.0,
-                    instruction: "ExampleInstruction",
-                    isGiven: true,
-                    isPrescripted: false,
-                    isSkipped: false, context: context))
+            let preScriptionForCanvas = PreScription(
+                asNeeded: false,
+                asNeededMaxDoseAmount: 1.0,
+                asNeededMaxDosePerDayDate: Date.now,
+                asNeededMaxDoseStrengthValue: 2.0,
+                asNeededMaxDoseStrengthValueUnit: Care.Medicine.Unit.milliGram.rawValue,
+                datesForAdministration: Date.now,
+                frequency: "ExFrequency",
+                givenDate: Date.now,
+                instruction: "ExInstruct",
+                isGiven: false,
+                isPrescripted: false,
+                isSkipped: false,
+                medicineActiveSubstance: "Melatonin",
+                medicineDoseAmount: 1.0,
+                medicineForm: Care.Medicine.Form.tablet.rawValue,
+                medicineName: "Melatonin",
+                medicineStrengthValue: 2.00,
+                medicineStrengthValueUnit: Care.Medicine.Unit.milliGram.rawValue,
+                modeOfAdministration: "Oral",
+                reasonOfPrescribing: "Good Nigth sleep",
+                shouldNotBeReplaced: false,
+                shouldNotBeReplacedReason: "ExReason",
+                skippedDate: Date.now,
+                treatmentDurationEndDate: Date.now,
+                treatmentDurationEndReason: "ExReason",
+                treatmentDurationStartDate: Date.now, context: context)
             
-            patientForCanvas.addToMedicine(
-                Medicine(
-                    datePrescriptionIsStarting: Date.now,
-                    dateGiven: Date.now,
-                    datePrescriptionIsEnding: Date.distantFuture,
-                    dateSkipped: Date.now,
-                    name: "3_Skipped",
-                    form: Care.Medicine.Form.tablet.rawValue,
-                    frequency: Care.Medicine.Frequency.asNeeded.rawValue,
-                    strength: 10.0,
-                    unit: Care.Medicine.Unit.milliGram.rawValue,
-                    amount: 1.0,
-                    instruction: "ExampleInstruction",
-                    isGiven: false,
-                    isPrescripted: false,
-                    isSkipped: true, context: context))
+            preScriptionForCanvas.addToMedicine(medForCanvasCandesartan)
+            preScriptionForCanvas.addToMedicine(medForCanvasSertraline)
+            preScriptionForCanvas.addToMedicine(medForCanvasMelatonin)
+            
+            patientForCanvas.addToPreScription(preScriptionForCanvas)
+            //            patientForCanvas.addToMedicine(
+            //                Medicine(
+            //                    datePrescriptionIsStarting: Date.now,
+            //                    dateGiven: Date.now,
+            //                    datePrescriptionIsEnding: Date.distantFuture,
+            //                    dateSkipped: Date.now,
+            //                    name: "0_Prescripted",
+            //                    form: Care.Medicine.Form.tablet.rawValue,
+            //                    frequency: Care.Medicine.Frequency.asNeeded.rawValue,
+            //                    strength: 10.0,
+            //                    unit: Care.Medicine.Unit.milliGram.rawValue,
+            //                    amount: 1.0,
+            //                    instruction: "ExampleInstruction",
+            //                    isGiven: false,
+            //                    isPrescripted: true,
+            //                    isSkipped: false, context: context))
+            //
+            //            patientForCanvas.addToMedicine(
+            //                Medicine(
+            //                    datePrescriptionIsStarting: Date.now,
+            //                    dateGiven: Date.now,
+            //                    datePrescriptionIsEnding: Date.distantFuture,
+            //                    dateSkipped: Date.now,
+            //                    name: "1_Given",
+            //                    form: Care.Medicine.Form.tablet.rawValue,
+            //                    frequency: Care.Medicine.Frequency.asNeeded.rawValue,
+            //                    strength: 10.0,
+            //                    unit: Care.Medicine.Unit.milliGram.rawValue,
+            //                    amount: 1.0,
+            //                    instruction: "ExampleInstruction",
+            //                    isGiven: true,
+            //                    isPrescripted: false,
+            //                    isSkipped: false, context: context))
+            //
+            //            patientForCanvas.addToMedicine(
+            //                Medicine(
+            //                    datePrescriptionIsStarting: Date.now,
+            //                    dateGiven: Date.now,
+            //                    datePrescriptionIsEnding: Date.distantFuture,
+            //                    dateSkipped: Date.now,
+            //                    name: "3_Skipped",
+            //                    form: Care.Medicine.Form.tablet.rawValue,
+            //                    frequency: Care.Medicine.Frequency.asNeeded.rawValue,
+            //                    strength: 10.0,
+            //                    unit: Care.Medicine.Unit.milliGram.rawValue,
+            //                    amount: 1.0,
+            //                    instruction: "ExampleInstruction",
+            //                    isGiven: false,
+            //                    isPrescripted: false,
+            //                    isSkipped: true, context: context))
             
             patientForCanvas.addToMedicalTask(
                 MedicalTask(

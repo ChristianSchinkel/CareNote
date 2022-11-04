@@ -19,7 +19,34 @@ struct PersistenceController {
             _ = Journal(date: Date.now, text: "Example for journal-entry", context: viewContext) // Journal-entryEntity.
             _ = Law(date: Date.now, name: "ExampleLaw", paragraph: "§ 19a", context: viewContext) // LawEntity.
             _ = Reading(amount: 0.0, date: Date.now, unit: "IU", context: viewContext) // ReadingEntity.
-            _ = Medicine(datePrescriptionIsStarting: Date.now, dateGiven: Date.now, datePrescriptionIsEnding: Date.distantFuture, dateSkipped: Date.now, name: "ExampleMedicine", form: "Tablet", frequency: "1", strength: 1.0, unit: "g", amount: 1.0, instruction: "ExampleInstruction", isGiven: false, isPrescripted: false, isSkipped: false, context: viewContext) // MedicineEntity.
+            _ = Medicine(activeSubstance: "Diazepam", form: "Tablet", name: "Stesolid", context: viewContext) // MedicineEntity.
+            _ = PreScription(
+                asNeeded: false,
+                asNeededMaxDoseAmount: 1.0,
+                asNeededMaxDosePerDayDate: Date.now,
+                asNeededMaxDoseStrengthValue: 2.0,
+                asNeededMaxDoseStrengthValueUnit: Care.Medicine.Unit.milliGram.rawValue,
+                datesForAdministration: Date.now,
+                frequency: "ExFrequency",
+                givenDate: Date.now,
+                instruction: "ExInstruct",
+                isGiven: false,
+                isPrescripted: false,
+                isSkipped: false,
+                medicineActiveSubstance: "Melatonin",
+                medicineDoseAmount: 1.0,
+                medicineForm: Care.Medicine.Form.tablet.rawValue,
+                medicineName: "Melatonin",
+                medicineStrengthValue: 2.00,
+                medicineStrengthValueUnit: Care.Medicine.Unit.milliGram.rawValue,
+                modeOfAdministration: "Oral",
+                reasonOfPrescribing: "Good Nigth sleep",
+                shouldNotBeReplaced: false,
+                shouldNotBeReplacedReason: "ExReason",
+                skippedDate: Date.now,
+                treatmentDurationEndDate: Date.now,
+                treatmentDurationEndReason: "ExReason",
+                treatmentDurationStartDate: Date.now, context: viewContext) // PreScription-Entity.
             _ = MedicalTask(date: Date.now, name: "ExampleMedicalTask", context: viewContext) // MedicalTaskEntity.
             // If you have different entities, you should enter them here to have some data to preview in the preview canvas.
         }

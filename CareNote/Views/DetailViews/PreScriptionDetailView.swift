@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct MedicineDetailView: View {
+struct PreScriptionDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var medicine: Medicine
+    @ObservedObject var preScription: PreScription
     
     @State private var selectedDatePrescriptionIsStarting = Date.now // Date of Prescription.
     @State private var selectedDatePrescriptionIsEnding = Date.distantFuture // Date Prescription is ending.
@@ -104,41 +104,41 @@ struct MedicineDetailView: View {
                     }
                 }
                 .onAppear {
-                    selectedDatePrescriptionIsStarting = medicine.datePrescriptionIsStarting
-                    selectedDatePrescriptionIsEnding = medicine.datePrescriptionIsEnding
-                    selectedDateGiven = medicine.dateGiven
-                    selectedDateSkipped = medicine.dateSkipped
-                    selectedName = medicine.name
-                    selectedForm = medicine.form
-                    selectedFrequency = medicine.frequency
-                    selectedStrength = medicine.strength
-                    selectedUnit = medicine.unit
-                    selectedAmount = medicine.amount
-                    selectedInstruction = medicine.instruction
-                    selectedIsPrescripted = medicine.isPrescripted
-                    selectedIsGiven = medicine.isGiven
-                    selectedIsSkipped = medicine.isSkipped
+//                    selectedDatePrescriptionIsStarting = medicine.datePrescriptionIsStarting
+//                    selectedDatePrescriptionIsEnding = medicine.datePrescriptionIsEnding
+//                    selectedDateGiven = medicine.dateGiven
+//                    selectedDateSkipped = medicine.dateSkipped
+//                    selectedName = medicine.name
+//                    selectedForm = medicine.form
+//                    selectedFrequency = medicine.frequency
+//                    selectedStrength = medicine.strength
+//                    selectedUnit = medicine.unit
+//                    selectedAmount = medicine.amount
+//                    selectedInstruction = medicine.instruction
+//                    selectedIsPrescripted = medicine.isPrescripted
+//                    selectedIsGiven = medicine.isGiven
+//                    selectedIsSkipped = medicine.isSkipped
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        medicine.datePrescriptionIsStarting = selectedDatePrescriptionIsStarting
-                        medicine.datePrescriptionIsEnding = selectedDatePrescriptionIsEnding
-                        medicine.dateGiven = selectedDateGiven
-                        medicine.dateSkipped = selectedDateSkipped
-                        medicine.name = selectedName
-                        medicine.form = selectedForm.capitalized // TODO: update-funktion behöver skapas.
-                        medicine.frequency = selectedFrequency
-                        medicine.strength = selectedStrength
-                        medicine.unit = selectedUnit
-                        medicine.amount = selectedStrength
-                        medicine.instruction = selectedInstruction
-                        medicine.isPrescripted = selectedIsPrescripted
-                        medicine.isGiven = selectedIsGiven
-                        medicine.isSkipped = selectedIsSkipped
+//                        medicine.datePrescriptionIsStarting = selectedDatePrescriptionIsStarting
+//                        medicine.datePrescriptionIsEnding = selectedDatePrescriptionIsEnding
+//                        medicine.dateGiven = selectedDateGiven
+//                        medicine.dateSkipped = selectedDateSkipped
+//                        medicine.name = selectedName
+//                        medicine.form = selectedForm.capitalized // TODO: update-funktion behöver skapas.
+//                        medicine.frequency = selectedFrequency
+//                        medicine.strength = selectedStrength
+//                        medicine.unit = selectedUnit
+//                        medicine.amount = selectedStrength
+//                        medicine.instruction = selectedInstruction
+//                        medicine.isPrescripted = selectedIsPrescripted
+//                        medicine.isGiven = selectedIsGiven
+//                        medicine.isSkipped = selectedIsSkipped
                         
-                        print("Edited medicine to \(medicine.form)")
+                        print("Edited medicine to \(preScription.medicineForm)")
 //                        PersistenceController.shared.save()
                         
                         dismiss()
@@ -161,8 +161,8 @@ struct MedicineDetailView: View {
     }
 }
 
-struct MedicineDetailView_Previews: PreviewProvider {
+struct PreScriptionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MedicineDetailView(medicine: Medicine.example(context: PersistenceController.preview.container.viewContext))
+        PreScriptionDetailView(preScription: PreScription.example(context: PersistenceController.preview.container.viewContext))
     }
 }

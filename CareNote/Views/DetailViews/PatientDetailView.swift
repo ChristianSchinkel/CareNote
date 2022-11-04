@@ -80,7 +80,7 @@ struct PatientDetailView: View {
                     }
                     
                     NavigationLink {
-                        MedicineListView(patient: patient)
+                        PreScriptionListView(patient: patient)
                     } label: {
                         Text("Medicine-list")
                     }
