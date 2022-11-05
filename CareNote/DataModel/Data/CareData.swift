@@ -93,21 +93,25 @@ struct Care {
             var id: Self { self } // --> (id: \.self )
         }
         /// Frequency.
-        enum Frequency: String, CaseIterable {
+        enum Frequency: String, CaseIterable, Identifiable {
             case atRegularIntervals = "At Regular Intervals"
             case onSpecificDaysOfTheWeek = "On Specific Days of the Week"
             case asNeeded = "As Needed"
+            
+            var id: Self { self } // --> (id: \.self )
         }
         /// Interval.
-        enum ChosenInterval: String, CaseIterable {
+        enum ChosenInterval: String, CaseIterable, Identifiable {
             case day = "Day"
             case otherDay = "Other Day"
             case threeDays = "3 Days"
             case fourDays = "4 Days"
             case ninetyNineDays = "99 Days"
+            
+            var id: Self { self } // --> (id: \.self )
         }
         /// WeekDay.
-        enum ChosenDay: String, CaseIterable {
+        enum ChosenDay: String, CaseIterable, Identifiable {
             case Monday = "Mon"
             case Tuesday = "Tue"
             case Wednesday = "Wed"
@@ -115,6 +119,8 @@ struct Care {
             case Friday = "Fri"
             case Saturday = "Sat"
             case Sunday = "Sun"
+            
+            var id: Self { self } // --> (id: \.self )
         }
         /// AdministrationStatus returns a value that represents if the medicine is prescripted, given or skipped.
         enum AdministrationStatus: String {

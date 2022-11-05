@@ -48,7 +48,8 @@ struct AddPreScriptionView: View {
     
     @State private var skippedDate: Date = Date.now // When the medicine marks as skipped.
 // MARK: Duration
-    @State private var treatmentDurationEndDate: Date = Date.distantFuture // When prescription ends.*
+    @State private var isRepeating: Bool = false // Reminders-list
+    @State private var treatmentDurationEndDate: Date = Date.TwoWeeksLater(from: Date.now) // When prescription ends.*
     @State private var treatmentDurationEndReason: Care.Medicine.TreatmentDurationEndReason = .plannedStop // Why treatment stops. *
     @State private var treatmentDurationStartDate: Date = Date.now // When prescription starts.*
     /* These are the properties in the the entity */
@@ -63,34 +64,7 @@ struct AddPreScriptionView: View {
                     
                     PreScriptionAsNeededView(asNeeded: $asNeeded, asNeededMaxDoseAmount: $asNeededMaxDoseAmount, asNeededMaxDosePerDayDate: $asNeededMaxDosePerDayDate, asNeededMaxDoseStrengthValue: $asNeededMaxDoseStrengthValue, asNeededMaxDoseStrengthValueUnit: $asNeededMaxDoseStrengthValueUnit)
                     
-                    Section {
-                        VStack {
-                            Toggle(isOn: $isGiven) {
-                                Text("Given on:")
-                            }
-                            .onTapGesture(perform: changeToggle)
-                            
-                            HStack {
-                                DatePicker("Please enter a date", selection: $givenDate) // Date medicine is given.
-                                    .labelsHidden()
-                                Spacer()
-                            }
-                        }
-                        
-                        
-                        VStack {
-                            Toggle(isOn: $isSkipped) {
-                                Text("Skipped On:")
-                            }
-                            .onTapGesture(perform: changeToggle)
-                            
-                            HStack {
-                                DatePicker("Please enter a date", selection: $skippedDate) // Date medicine is skipped.
-                                    .labelsHidden()
-                                Spacer()
-                            }
-                        }
-                    }
+                    RemindersView(asNeeded: $asNeeded, isRepeating: $isRepeating)
                     
                     TextField("Instructions", text: $instruction)
                 }

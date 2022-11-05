@@ -20,19 +20,20 @@ struct PreScriptionDurationView: View {
             Toggle(isOn: $isPrescripted) {
                 Text("Prescription") // is prescripted? Yes/No.
             }
-            
-            DatePicker("Treatment starts on:", selection: $treatmentDurationStartDate) // when to start.
-            Picker(selection: $reasonOfPrescribing, label: Text("Reason of treatment")) {
-                ForEach(Care.Medicine.ReasonOfPrescribing.allCases) { reason in
-                    Text(reason.rawValue) // Why chosen treatment?
+            if isPrescripted == true {
+                DatePicker("Treatment starts on:", selection: $treatmentDurationStartDate) // when to start.
+                Picker(selection: $reasonOfPrescribing, label: Text("Reason of treatment")) {
+                    ForEach(Care.Medicine.ReasonOfPrescribing.allCases) { reason in
+                        Text(reason.rawValue) // Why chosen treatment?
+                    }
                 }
-            }
-            
-            
-            DatePicker("Treatment ends on:", selection: $treatmentDurationEndDate) // when to stop.
-            Picker(selection: $treatmentDurationEndReason, label: Text("Reason to for stopping")) {
-                ForEach(Care.Medicine.TreatmentDurationEndReason.allCases) { reason in
-                    Text(reason.rawValue)
+                
+                
+                DatePicker("Treatment ends on:", selection: $treatmentDurationEndDate) // when to stop.
+                Picker(selection: $treatmentDurationEndReason, label: Text("Reason to for stopping")) {
+                    ForEach(Care.Medicine.TreatmentDurationEndReason.allCases) { reason in
+                        Text(reason.rawValue)
+                    }
                 }
             }
             

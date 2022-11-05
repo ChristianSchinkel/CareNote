@@ -16,6 +16,8 @@
 		AA3AB2E02915353A006952CB /* MedicineDosageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB2DF2915353A006952CB /* MedicineDosageView.swift */; };
 		AA3AB2E2291548CA006952CB /* PreScriptionDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB2E1291548CA006952CB /* PreScriptionDurationView.swift */; };
 		AA3AB2E429156BAA006952CB /* PreScriptionAsNeededView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB2E329156BAA006952CB /* PreScriptionAsNeededView.swift */; };
+		AA3AB2E72915A76A006952CB /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB2E62915A76A006952CB /* Date+Extension.swift */; };
+		AA3AB2E92915BCD3006952CB /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB2E82915BCD3006952CB /* RemindersView.swift */; };
 		AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBBE28D6D9D700B6BC92 /* CareData.swift */; };
 		AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */; };
 		AA707D2828F21F1F009C124E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA707D2728F21F1F009C124E /* SettingsView.swift */; };
@@ -94,6 +96,8 @@
 		AA3AB2DF2915353A006952CB /* MedicineDosageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDosageView.swift; sourceTree = "<group>"; };
 		AA3AB2E1291548CA006952CB /* PreScriptionDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreScriptionDurationView.swift; sourceTree = "<group>"; };
 		AA3AB2E329156BAA006952CB /* PreScriptionAsNeededView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreScriptionAsNeededView.swift; sourceTree = "<group>"; };
+		AA3AB2E62915A76A006952CB /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		AA3AB2E82915BCD3006952CB /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
 		AA53FBBE28D6D9D700B6BC92 /* CareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareData.swift; sourceTree = "<group>"; };
 		AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPatientComeInView.swift; sourceTree = "<group>"; };
 		AA707D2728F21F1F009C124E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -212,8 +216,17 @@
 				AA3AB2DF2915353A006952CB /* MedicineDosageView.swift */,
 				AA3AB2E1291548CA006952CB /* PreScriptionDurationView.swift */,
 				AA3AB2E329156BAA006952CB /* PreScriptionAsNeededView.swift */,
+				AA3AB2E82915BCD3006952CB /* RemindersView.swift */,
 			);
 			path = PreScriptionHelpers;
+			sourceTree = "<group>";
+		};
+		AA3AB2E52915A731006952CB /* DateExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA3AB2E62915A76A006952CB /* Date+Extension.swift */,
+			);
+			path = DateExtensions;
 			sourceTree = "<group>";
 		};
 		AA53FBBD28D6D03B00B6BC92 /* Data */ = {
@@ -336,6 +349,7 @@
 		AAE7432C287AC9BB003F68A8 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				AA3AB2E52915A731006952CB /* DateExtensions */,
 				AA53FBBD28D6D03B00B6BC92 /* Data */,
 				AAE74330287ACE1D003F68A8 /* CoreDataExtensions */,
 				AAE74306287AC833003F68A8 /* Persistence.swift */,
@@ -458,7 +472,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					AAE742F9287AC831003F68A8 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -536,6 +550,7 @@
 				AAE00818288040CC00378ABA /* PatientRowView.swift in Sources */,
 				AABCC15928EA17BD00B8199C /* Hospital+Extension.swift in Sources */,
 				AAE74334287ACF01003F68A8 /* Item+Extension.swift in Sources */,
+				AA3AB2E72915A76A006952CB /* Date+Extension.swift in Sources */,
 				AAE159B6290449E300364E5E /* PreScription+Extension.swift in Sources */,
 				AA707D2828F21F1F009C124E /* SettingsView.swift in Sources */,
 				AAF0508128CD1BB500DA286E /* PreScriptionRowView.swift in Sources */,
@@ -552,6 +567,7 @@
 				AAD69B9F28CD2E5000F63AD6 /* MedicalTaskListView.swift in Sources */,
 				AAE74300287AC831003F68A8 /* ContentView.swift in Sources */,
 				AAD69B9B28CD2CCA00F63AD6 /* MedicalTask+Extension.swift in Sources */,
+				AA3AB2E92915BCD3006952CB /* RemindersView.swift in Sources */,
 				AA76B6AA287F00A20084D61F /* ItemView.swift in Sources */,
 				AAE0081F2881A50400378ABA /* PatientDetailView.swift in Sources */,
 				AAE7430A287AC833003F68A8 /* CareNote.xcdatamodeld in Sources */,
@@ -632,6 +648,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -692,6 +709,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
