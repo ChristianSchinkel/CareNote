@@ -35,6 +35,8 @@ struct AddPreScriptionView: View {
 // MARK: Medicine dosage
     @State private var medicineActiveSubstance: String = "" // Name of the medicine's aktive substance.*
     @State private var medicineDoseAmount: Double = 1.0 // Amount of t ex tablets.*
+    @State private var medicineAmountValue: Double = 1.0
+    @State private var medicineAmountValueUnit: String = "st"
     @State private var medicineForm: Care.Medicine.Form = .tablet // Form of the medicine.*
     @State private var medicineName: String = "" // Name of the medicine.*
     @State private var medicineStrengthValue: Double = 1.0 // strength value.*
@@ -44,11 +46,12 @@ struct AddPreScriptionView: View {
     @State private var reasonOfPrescribing: Care.Medicine.ReasonOfPrescribing = .other // Why the medicine i used. *
     
     @State private var shouldNotBeReplaced: Bool = false
-    @State private var shouldNotBeReplacedReason: String?
+    @State private var shouldNotBeReplacedReason: String = ""
     
     @State private var skippedDate: Date = Date.now // When the medicine marks as skipped.
 // MARK: Duration
     @State private var isRepeating: Bool = false // Reminders-list
+    @State private var isPlanned: Bool = false
     @State private var treatmentDurationEndDate: Date = Date.TwoWeeksLater(from: Date.now) // When prescription ends.*
     @State private var treatmentDurationEndReason: Care.Medicine.TreatmentDurationEndReason = .plannedStop // Why treatment stops. *
     @State private var treatmentDurationStartDate: Date = Date.now // When prescription starts.*
@@ -99,28 +102,77 @@ struct AddPreScriptionView: View {
             isSkipped.toggle()
         }
     }
-    
+    private func makeMedicine(with date: Date) -> Medicine {
+        Medicine(
+            name: medicineName,
+            activeSubstance: medicineActiveSubstance,
+            form: medicineForm.rawValue,
+            strengthValue: medicineStrengthValue,
+            strengthValueUnit: medicineStrengthValueUnit.rawValue,
+            amountValue: medicineAmountValue,
+            amountValueUnit: medicineAmountValueUnit,
+            isPlanned: isPlanned,
+            hasPlannedDate: date,
+            isGivenOrTaken: false,
+            hasGivenOrTakenDate: Date(),
+            isSkipped: false,
+            hasSkippedDate: Date(),
+            
+            context: viewContext)
+    }
+    private func makeADate() {
+        
+    }
     private func addPreScription() {
         withAnimation {
-//            patient.addToMedicine(
-//                Medicine(
-//                    datePrescriptionIsStarting: datePrescriptionIsStarting,
-//                    dateGiven: dateGiven,
-//                    datePrescriptionIsEnding: datePrescriptionIsEnding,
-//                    dateSkipped: dateSkipped,
-//                    name: name,
-//                    form: form.name,
-//                    frequency: frequency,
-//                    strength: strength,
-//                    unit: unit.rawValue,
-//                    amount: amount,
-//                    instruction: instruction,
-//                    isGiven: isGiven,
-//                    isPrescripted: isPrescripted,
-//                    isSkipped: isSkipped,
-//                    context: viewContext)) //_ = Medicine(date: date, name: name, context: viewContext)
+            let newPreScription = PreScription(
+                asNeeded: asNeeded,
+                asNeededMaxDoseAmount: asNeededMaxDoseAmount,
+                asNeededMaxDosePerDayDate: asNeededMaxDosePerDayDate,
+                asNeededMaxDoseStrengthValue: asNeededMaxDoseStrengthValue,
+                asNeededMaxDoseStrengthValueUnit: asNeededMaxDoseStrengthValueUnit.rawValue,
+                frequency: frequency,
+                givenDate: givenDate,
+                instruction: instruction,
+                isGiven: isGiven,
+                isPlanned: isPlanned,
+                isPrescripted: isPrescripted,
+                isSkipped: isSkipped,
+                medicineActiveSubstance: medicineActiveSubstance,
+                medicineDoseAmount: medicineDoseAmount,
+                medicineAmountValue: medicineAmountValue,
+                medicineAmountValueUnit: medicineAmountValueUnit,
+                medicineForm: medicineForm.rawValue,
+                medicineName: medicineName,
+                medicineStrengthValue: medicineStrengthValue,
+                medicineStrengthValueUnit: medicineStrengthValueUnit.rawValue,
+                modeOfAdministration: modeOfAdministration.rawValue,
+                reasonOfPrescribing: reasonOfPrescribing.rawValue,
+                shouldNotBeReplaced: shouldNotBeReplaced,
+                shouldNotBeReplacedReason: shouldNotBeReplacedReason,
+                skippedDate: skippedDate,
+                treatmentDurationEndDate: treatmentDurationEndDate,
+                treatmentDurationEndReason: treatmentDurationEndReason.rawValue,
+                treatmentDurationStartDate: treatmentDurationStartDate,
+                
+                context: viewContext)
             
-            PersistenceController.shared.save() // Saves the patient.
+            
+            var computedDate = treatmentDurationStartDate
+            var count = 0
+            while computedDate <= treatmentDurationEndDate {
+                print("The medicine add \(count) time(s).")
+                patient.addToMedicine(makeMedicine(with: computedDate))
+                computedDate = Date.nextDay(from: computedDate)
+                print(computedDate)
+                count += 1
+                
+            }
+            
+            
+            patient.addToPreScription(newPreScription)
+            
+             PersistenceController.shared.save() // Saves the patient.
            // print("Patient: \(name) \(familyName) \(swedishSocialSecurityNumber) adds on the list.")
            dismiss()
            // print("The AddLawView (.sheet) has been dismissed by pressing the 'Save'-button.")

@@ -15,15 +15,17 @@ extension PreScription {
                      asNeededMaxDosePerDayDate: Date,
                      asNeededMaxDoseStrengthValue: Double,
                      asNeededMaxDoseStrengthValueUnit: String,
-                     datesForAdministration: Date,
                      frequency: String,
                      givenDate: Date,
                      instruction: String,
                      isGiven: Bool,
+                     isPlanned: Bool,
                      isPrescripted: Bool,
                      isSkipped: Bool,
                      medicineActiveSubstance: String,
                      medicineDoseAmount: Double,
+                     medicineAmountValue: Double,
+                     medicineAmountValueUnit: String,
                      medicineForm: String,
                      medicineName: String,
                      medicineStrengthValue: Double,
@@ -44,15 +46,17 @@ extension PreScription {
         self.asNeededMaxDosePerDayDate_ = asNeededMaxDosePerDayDate
         self.asNeededMaxDoseStrengthValue_ = asNeededMaxDoseStrengthValue
         self.asNeededMaxDoseStrengthValueUnit_ = asNeededMaxDoseStrengthValueUnit
-        self.datesForAdministration_ = datesForAdministration
         self.frequency_ = frequency
         self.givenDate_ = givenDate
         self.instruction_ = instruction
         self.isGiven_ = isGiven
+        self.isPlanned_ = isPlanned
         self.isPrescripted_ = isPrescripted
         self.isSkipped_ = isSkipped
         self.medicineActiveSubstance_ = medicineActiveSubstance
         self.medicineDoseAmount_ = medicineDoseAmount
+        self.medicineAmountValue_ = medicineAmountValue
+        self.medicineAmountValueUnit_ = medicineAmountValueUnit
         self.medicineForm_ = medicineForm
         self.medicineName_ = medicineName
         self.medicineStrengthValue_ = medicineStrengthValue
@@ -190,6 +194,15 @@ extension PreScription {
             isGiven_ = newValue
         }
     }
+    /// Is the medicine given to the patient?
+    public var isPlanned: Bool {
+        get {
+            isPlanned_
+        }
+        set {
+            isPlanned_ = newValue
+        }
+    }
     /// Is the medicine prescripted?
     public var isPrescripted: Bool {
         get {
@@ -242,6 +255,22 @@ extension PreScription {
         }
         set {
             medicineName_ = newValue
+        }
+    }
+    public var medicineAmountValue: Double {
+        get {
+            medicineAmountValue_
+        }
+        set {
+            medicineAmountValue_ = newValue
+        }
+    }
+    public var medicineAmountValueUnit: String {
+        get {
+            medicineAmountValueUnit_ ?? ""
+        }
+        set {
+            medicineAmountValueUnit_ = newValue
         }
     }
     /// The strength of the medicine.
@@ -351,15 +380,17 @@ extension PreScription {
         static let asNeededMaxDosePerDayDate = "asNeededMaxDosePerDayDate_"
         static let asNeededMaxDoseStrengthValue = "asNeededMaxDoseStrengthValue_"
         static let asNeededMaxDoseStrengthValueUnit = "asNeededMaxDoseStrengthValueUnit_"
-        static let datesForAdministration = "datesForAdministration_"
         static let frequency = "frequency_"
         static let givenDate = "givenDate_"
         static let instruction = "instruction_"
         static let isGiven = "isGiven_"
+        static let isPlanned = "isPlanned_"
         static let isPrescripted = "isPrescripted_"
         static let isSkipped = "isSkipped_"
         static let medicineActiveSubstance = "medicineActiveSubstance_"
         static let medicineDoseAmount = "medicineDoseAmount_"
+        static let medicineAmountValue = "medicineAmountValue_"
+        static let medicineAmountValueUnit = "medicineAmountValueUnit_"
         static let medicineForm = "medicineForm_"
         static let medicineName = "medicineName_"
         static let medicineStrengthValue = "medicineStrengthValue_"
@@ -381,15 +412,17 @@ extension PreScription {
         setPrimitiveValue(Date(), forKey: PreScriptionProperties.asNeededMaxDosePerDayDate)
         setPrimitiveValue(Double(), forKey: PreScriptionProperties.asNeededMaxDoseStrengthValue)
         setPrimitiveValue("", forKey: PreScriptionProperties.asNeededMaxDoseStrengthValueUnit)
-        setPrimitiveValue(Date(), forKey: PreScriptionProperties.datesForAdministration)
         setPrimitiveValue("", forKey: PreScriptionProperties.frequency)
         setPrimitiveValue(Date(), forKey: PreScriptionProperties.givenDate)
         setPrimitiveValue("", forKey: PreScriptionProperties.instruction)
         setPrimitiveValue(Bool(), forKey: PreScriptionProperties.isGiven)
+        setPrimitiveValue(Bool(), forKey: PreScriptionProperties.isPlanned)
         setPrimitiveValue(Bool(), forKey: PreScriptionProperties.isPrescripted)
         setPrimitiveValue(Bool(), forKey: PreScriptionProperties.isSkipped)
         setPrimitiveValue("", forKey: PreScriptionProperties.medicineActiveSubstance)
         setPrimitiveValue(Double(), forKey: PreScriptionProperties.medicineDoseAmount)
+        setPrimitiveValue(Double(), forKey: PreScriptionProperties.medicineAmountValue)
+        setPrimitiveValue("", forKey: PreScriptionProperties.medicineAmountValueUnit)
         setPrimitiveValue("", forKey: PreScriptionProperties.medicineForm)
         setPrimitiveValue("", forKey: PreScriptionProperties.medicineName)
         setPrimitiveValue(Double(), forKey: PreScriptionProperties.medicineStrengthValue)
@@ -422,9 +455,11 @@ extension PreScription {
     /// Used to create en example in the preview-canvas. Useful to create an example with an array or many relationships.
     static func example(context: NSManagedObjectContext) -> PreScription {
         
-        let medForCanvasCandesartan = Medicine(activeSubstance: "Candesartan", form: "Tablet", name: "Candesartan", context: context) // Medicine for CanvasExample.
-        let medForCanvasSertraline = Medicine(activeSubstance: "Sertraline", form: "Tablet", name: "Sertraline", context: context) // Medicine for CanvasExample.
-        let medForCanvasMelatonin = Medicine(activeSubstance: "Melatonin", form: "Tablet", name: "Melatonin", context: context) // Medicine for CanvasExample.
+        let medForCanvasCandesartan = Medicine(name: "Candesartan", activeSubstance: "Candesartan", form: "Tablet", strengthValue: 4.0, strengthValueUnit: "mg", amountValue: 1.0, amountValueUnit: "pieces", isPlanned: true, hasPlannedDate: Date.now, isGivenOrTaken: false, hasGivenOrTakenDate: Date.now, isSkipped: false, hasSkippedDate: Date.now, context: context) // Medicine for CanvasExample.
+        
+        let medForCanvasSertraline = Medicine(name: "Sertraline", activeSubstance: "Sertraline", form: "Tablet", strengthValue: 100.0, strengthValueUnit: "mg", amountValue: 1.0, amountValueUnit: "pieces", isPlanned: true, hasPlannedDate: Date.now, isGivenOrTaken: false, hasGivenOrTakenDate: Date.now, isSkipped: false, hasSkippedDate: Date.now, context: context) // Medicine for CanvasExample.
+        
+        let medForCanvasMelatonin =  Medicine(name: "Melatonin", activeSubstance: "Melatonin", form: "Tablet", strengthValue: 2.0, strengthValueUnit: "mg", amountValue: 1.0, amountValueUnit: "pieces", isPlanned: true, hasPlannedDate: Date.now, isGivenOrTaken: false, hasGivenOrTakenDate: Date.now, isSkipped: false, hasSkippedDate: Date.now, context: context) // Medicine for CanvasExample.
         
         
         
@@ -434,15 +469,17 @@ extension PreScription {
             asNeededMaxDosePerDayDate: Date.now,
             asNeededMaxDoseStrengthValue: 2.0,
             asNeededMaxDoseStrengthValueUnit: Care.Medicine.Unit.milliGram.rawValue,
-            datesForAdministration: Date.now,
             frequency: "ExFrequency",
             givenDate: Date.now,
             instruction: "ExInstruct",
             isGiven: false,
+            isPlanned: false,
             isPrescripted: false,
             isSkipped: false,
             medicineActiveSubstance: "Melatonin",
             medicineDoseAmount: 1.0,
+            medicineAmountValue: 1.0,
+            medicineAmountValueUnit: "st",
             medicineForm: Care.Medicine.Form.tablet.rawValue,
             medicineName: "Melatonin",
             medicineStrengthValue: 2.00,
@@ -452,7 +489,7 @@ extension PreScription {
             shouldNotBeReplaced: false,
             shouldNotBeReplacedReason: "ExReason",
             skippedDate: Date.now,
-            treatmentDurationEndDate: Date.now,
+            treatmentDurationEndDate: Date.TwoWeeksLater(from: Date.now),
             treatmentDurationEndReason: "ExReason",
             treatmentDurationStartDate: Date.now, context: context)
         

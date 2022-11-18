@@ -94,12 +94,12 @@ extension Patient {
         }
     }
     
-    //    public var medicineArray: [Medicine] {
-    //        let set = medicine as? Set<Medicine> ?? [ ]
-    //        return set.sorted {
-    //            $0.datePrescriptionIsStarting < $1.datePrescriptionIsStarting
-    //        }
-    //    } // returns the array asking for "[Medicine]"
+        public var medicineArray: [Medicine] {
+            let set = medicine as? Set<Medicine> ?? [ ]
+            return set.sorted {
+                $0.hasPlannedDate < $1.hasPlannedDate
+            }
+        } // returns the array asking for "[Medicine]"
     
     public var medicalTaskArray: [MedicalTask] {
         let set = medicalTask as? Set<MedicalTask> ?? [ ]
@@ -150,9 +150,15 @@ extension Patient {
             
             patientForCanvas.addToReading(Reading(amount: 60.0, date: Date.now, unit: "BPM", context: context))
             
-            let medForCanvasCandesartan = Medicine(activeSubstance: "Candesartan", form: "Tablet", name: "Candesartan", context: context) // Medicine for CanvasExample.
-            let medForCanvasSertraline = Medicine(activeSubstance: "Sertraline", form: "Tablet", name: "Sertraline", context: context) // Medicine for CanvasExample.
-            let medForCanvasMelatonin = Medicine(activeSubstance: "Melatonin", form: "Tablet", name: "Melatonin", context: context) // Medicine for CanvasExample.
+            
+            
+            
+            
+            let medForCanvasCandesartan = Medicine(name: "Candesartan", activeSubstance: "Candesartan", form: "Tablet", strengthValue: 4.0, strengthValueUnit: "mg", amountValue: 1.0, amountValueUnit: "pieces", isPlanned: true, hasPlannedDate: Date.now, isGivenOrTaken: false, hasGivenOrTakenDate: Date.now, isSkipped: false, hasSkippedDate: Date.now, context: context) // Medicine for CanvasExample.
+            
+            let medForCanvasSertraline = Medicine(name: "Sertraline", activeSubstance: "Sertraline", form: "Tablet", strengthValue: 100.0, strengthValueUnit: "mg", amountValue: 1.0, amountValueUnit: "pieces", isPlanned: true, hasPlannedDate: Date.now, isGivenOrTaken: false, hasGivenOrTakenDate: Date.now, isSkipped: false, hasSkippedDate: Date.now, context: context) // Medicine for CanvasExample.
+            
+            let medForCanvasMelatonin =  Medicine(name: "Melatonin", activeSubstance: "Melatonin", form: "Tablet", strengthValue: 2.0, strengthValueUnit: "mg", amountValue: 1.0, amountValueUnit: "pieces", isPlanned: true, hasPlannedDate: Date.now, isGivenOrTaken: false, hasGivenOrTakenDate: Date.now, isSkipped: false, hasSkippedDate: Date.now, context: context) // Medicine for CanvasExample.
             
             let preScriptionForCanvas = PreScription(
                 asNeeded: false,
@@ -160,15 +166,16 @@ extension Patient {
                 asNeededMaxDosePerDayDate: Date.now,
                 asNeededMaxDoseStrengthValue: 2.0,
                 asNeededMaxDoseStrengthValueUnit: Care.Medicine.Unit.milliGram.rawValue,
-                datesForAdministration: Date.now,
                 frequency: "ExFrequency",
                 givenDate: Date.now,
                 instruction: "ExInstruct",
-                isGiven: false,
+                isGiven: false, isPlanned: false,
                 isPrescripted: false,
                 isSkipped: false,
                 medicineActiveSubstance: "Melatonin",
                 medicineDoseAmount: 1.0,
+                medicineAmountValue: 1.0,
+                medicineAmountValueUnit: "st",
                 medicineForm: Care.Medicine.Form.tablet.rawValue,
                 medicineName: "Melatonin",
                 medicineStrengthValue: 2.00,
@@ -178,7 +185,7 @@ extension Patient {
                 shouldNotBeReplaced: false,
                 shouldNotBeReplacedReason: "ExReason",
                 skippedDate: Date.now,
-                treatmentDurationEndDate: Date.now,
+                treatmentDurationEndDate: Date.TwoWeeksLater(from: Date.now),
                 treatmentDurationEndReason: "ExReason",
                 treatmentDurationStartDate: Date.now, context: context)
             
@@ -187,6 +194,10 @@ extension Patient {
             preScriptionForCanvas.addToMedicine(medForCanvasMelatonin)
             
             patientForCanvas.addToPreScription(preScriptionForCanvas)
+            
+            patientForCanvas.addToMedicine(medForCanvasCandesartan)
+            patientForCanvas.addToMedicine(medForCanvasSertraline)
+            patientForCanvas.addToMedicine(medForCanvasMelatonin)
             //            patientForCanvas.addToMedicine(
             //                Medicine(
             //                    datePrescriptionIsStarting: Date.now,

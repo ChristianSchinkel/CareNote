@@ -15,4 +15,9 @@ extension Date {
         let twoWeeksInSeconds = 60 * 60 * 24 * 14
         return referenceDate.addingTimeInterval(TimeInterval(twoWeeksInSeconds))
     }
+    /// Returns the date after adding one day in seconds to it.
+    static func nextDay (from date: Date) -> Date {
+        let oneDayInSeconds = 60 * 60 * 24
+        return date.addingTimeInterval(TimeInterval(oneDayInSeconds))
+    }
 }

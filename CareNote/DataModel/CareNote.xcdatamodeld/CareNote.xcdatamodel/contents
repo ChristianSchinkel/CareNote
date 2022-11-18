@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AdmissionTime" representedClassName="AdmissionTime" syncable="YES" codeGenerationType="class">
-        <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-    </entity>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Building" representedClassName="Building" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="building" inverseEntity="Department"/>
     </entity>
     <entity name="Department" representedClassName="Department" syncable="YES" codeGenerationType="class">
         <attribute name="city_" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
         <attribute name="state_" optional="YES" attributeType="String"/>
         <attribute name="street_" optional="YES" attributeType="String"/>
@@ -16,6 +15,7 @@
         <relationship name="building" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Building" inverseName="department" inverseEntity="Building"/>
     </entity>
     <entity name="Hospital" representedClassName="Hospital" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
@@ -24,24 +24,39 @@
     </entity>
     <entity name="Journal" representedClassName="Journal" syncable="YES" codeGenerationType="class">
         <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="text_" optional="YES" attributeType="String"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="journal" inverseEntity="Patient"/>
     </entity>
     <entity name="Law" representedClassName="Law" syncable="YES" codeGenerationType="class">
         <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
         <attribute name="paragraph_" optional="YES" attributeType="String"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="law" inverseEntity="Patient"/>
     </entity>
     <entity name="MedicalTask" representedClassName="MedicalTask" syncable="YES" codeGenerationType="class">
         <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="medicalTask" inverseEntity="Patient"/>
     </entity>
     <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
         <attribute name="activeSubstance_" optional="YES" attributeType="String"/>
+        <attribute name="amountValue_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="amountValueUnit_" optional="YES" attributeType="String"/>
         <attribute name="form_" optional="YES" attributeType="String"/>
+        <attribute name="hasGivenOrTakenDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hasPlannedDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hasSkippedDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isGivenOrTaken_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isPlanned_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSkipped_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
+        <attribute name="strengthValue_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="strengthValueUnit_" optional="YES" attributeType="String"/>
+        <relationship name="medicine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="medicine" inverseEntity="Patient"/>
         <relationship name="preScription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PreScription" inverseName="medicine" inverseEntity="PreScription"/>
     </entity>
     <entity name="Patient" representedClassName="Patient" syncable="YES" codeGenerationType="class">
@@ -52,6 +67,7 @@
         <relationship name="journal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Journal" inverseName="patient" inverseEntity="Journal"/>
         <relationship name="law" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Law" inverseName="patient" inverseEntity="Law"/>
         <relationship name="medicalTask" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedicalTask" inverseName="patient" inverseEntity="MedicalTask"/>
+        <relationship name="medicine" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="medicine" inverseEntity="Medicine"/>
         <relationship name="preScription" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PreScription" inverseName="patient" inverseEntity="PreScription"/>
         <relationship name="reading" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reading" inverseName="patient" inverseEntity="Reading"/>
     </entity>
@@ -64,11 +80,16 @@
         <attribute name="datesForAdministration_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="frequency_" optional="YES" attributeType="String"/>
         <attribute name="givenDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hasPlannedDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="instruction_" optional="YES" attributeType="String"/>
         <attribute name="isGiven_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isPlanned_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isPrescripted_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isSkipped_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="medicineActiveSubstance_" optional="YES" attributeType="String"/>
+        <attribute name="medicineAmountValue_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="medicineAmountValueUnit_" optional="YES" attributeType="String"/>
         <attribute name="medicineDoseAmount_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="medicineForm_" optional="YES" attributeType="String"/>
         <attribute name="medicineName_" optional="YES" attributeType="String"/>
@@ -88,6 +109,7 @@
     <entity name="Reading" representedClassName="Reading" syncable="YES" codeGenerationType="class">
         <attribute name="amount_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="unit_" optional="YES" attributeType="String"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="reading" inverseEntity="Patient"/>
     </entity>

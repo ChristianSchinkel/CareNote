@@ -19,22 +19,23 @@ struct PersistenceController {
             _ = Journal(date: Date.now, text: "Example for journal-entry", context: viewContext) // Journal-entryEntity.
             _ = Law(date: Date.now, name: "ExampleLaw", paragraph: "§ 19a", context: viewContext) // LawEntity.
             _ = Reading(amount: 0.0, date: Date.now, unit: "IU", context: viewContext) // ReadingEntity.
-            _ = Medicine(activeSubstance: "Diazepam", form: "Tablet", name: "Stesolid", context: viewContext) // MedicineEntity.
+            _ = Medicine(name: "Stesolid", activeSubstance: "Diazepam", form: "Tablet", strengthValue: 10.0, strengthValueUnit: "mg", amountValue: 1.0, amountValueUnit: "pieces", isPlanned: true, hasPlannedDate: Date.now, isGivenOrTaken: false, hasGivenOrTakenDate: Date.now, isSkipped: false, hasSkippedDate: Date.now, context: viewContext) // MedicineEntity.
             _ = PreScription(
                 asNeeded: false,
                 asNeededMaxDoseAmount: 1.0,
                 asNeededMaxDosePerDayDate: Date.now,
                 asNeededMaxDoseStrengthValue: 2.0,
                 asNeededMaxDoseStrengthValueUnit: Care.Medicine.Unit.milliGram.rawValue,
-                datesForAdministration: Date.now,
                 frequency: "ExFrequency",
                 givenDate: Date.now,
                 instruction: "ExInstruct",
-                isGiven: false,
+                isGiven: false, isPlanned: false,
                 isPrescripted: false,
                 isSkipped: false,
                 medicineActiveSubstance: "Melatonin",
                 medicineDoseAmount: 1.0,
+                medicineAmountValue: 1.0,
+                medicineAmountValueUnit: "st",
                 medicineForm: Care.Medicine.Form.tablet.rawValue,
                 medicineName: "Melatonin",
                 medicineStrengthValue: 2.00,
@@ -44,7 +45,7 @@ struct PersistenceController {
                 shouldNotBeReplaced: false,
                 shouldNotBeReplacedReason: "ExReason",
                 skippedDate: Date.now,
-                treatmentDurationEndDate: Date.now,
+                treatmentDurationEndDate: Date.TwoWeeksLater(from: Date.now),
                 treatmentDurationEndReason: "ExReason",
                 treatmentDurationStartDate: Date.now, context: viewContext) // PreScription-Entity.
             _ = MedicalTask(date: Date.now, name: "ExampleMedicalTask", context: viewContext) // MedicalTaskEntity.

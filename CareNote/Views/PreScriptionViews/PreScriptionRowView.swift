@@ -17,10 +17,17 @@ struct PreScriptionRowView: View {
                 .font(.headline)
                 .padding(.trailing)
             
-            Text("\(preScription.treatmentDurationStartDate, format: .dateTime)")
-                .font(.caption)
-                .foregroundColor(.secondary)
+            HStack {
+                Text("\(preScription.treatmentDurationStartDate, format: .dateTime)")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
                 .padding(.trailing)
+                
+                Text("\(preScription.treatmentDurationEndDate, format: .dateTime)")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                .padding(.trailing)
+            }
         }
     }
 // MARK: - Functions for this View:
