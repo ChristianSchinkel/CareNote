@@ -21,7 +21,6 @@
 		AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBBE28D6D9D700B6BC92 /* CareData.swift */; };
 		AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */; };
 		AA6B4D1D29264E2D0090C22E /* MedicineRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B4D1C29264E2D0090C22E /* MedicineRowView.swift */; };
-		AA6B4D2029264E8A0090C22E /* AdministrationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B4D1F29264E8A0090C22E /* AdministrationRowView.swift */; };
 		AA6B4D2229264EA80090C22E /* AdministrationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B4D2129264EA80090C22E /* AdministrationListView.swift */; };
 		AA6B4D2429264EB80090C22E /* AdministrationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B4D2329264EB80090C22E /* AdministrationDetailView.swift */; };
 		AA707D2828F21F1F009C124E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA707D2728F21F1F009C124E /* SettingsView.swift */; };
@@ -33,10 +32,10 @@
 		AA94768028D718B900BCB990 /* SuicidalRiskPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94767F28D718B900BCB990 /* SuicidalRiskPickerView.swift */; };
 		AA94768228D71B0900BCB990 /* ViolenceRiskPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94768128D71B0900BCB990 /* ViolenceRiskPickerView.swift */; };
 		AA94768428D71C6600BCB990 /* TypeOfObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94768328D71C6600BCB990 /* TypeOfObservationView.swift */; };
+		AAB1D4B029281B1400592CBC /* AdministrationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB1D4AF29281B1400592CBC /* AdministrationRowView.swift */; };
 		AABCC15928EA17BD00B8199C /* Hospital+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCC15828EA17BD00B8199C /* Hospital+Extension.swift */; };
 		AABCC15C28EA1AA800B8199C /* Ward+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCC15B28EA1AA800B8199C /* Ward+Extension.swift */; };
 		AABCC15E28EA1E8400B8199C /* Room+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCC15D28EA1E8400B8199C /* Room+Extension.swift */; };
-		AACFCA21291825C700083704 /* AdministrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFCA20291825C700083704 /* AdministrationView.swift */; };
 		AAD59F7F28CF9AAA00F8C5C7 /* LawPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD59F7E28CF9AAA00F8C5C7 /* LawPickerView.swift */; };
 		AAD69B9B28CD2CCA00F63AD6 /* MedicalTask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD69B9A28CD2CCA00F63AD6 /* MedicalTask+Extension.swift */; };
 		AAD69B9D28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD69B9C28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift */; };
@@ -107,7 +106,6 @@
 		AA53FBBE28D6D9D700B6BC92 /* CareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareData.swift; sourceTree = "<group>"; };
 		AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPatientComeInView.swift; sourceTree = "<group>"; };
 		AA6B4D1C29264E2D0090C22E /* MedicineRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineRowView.swift; sourceTree = "<group>"; };
-		AA6B4D1F29264E8A0090C22E /* AdministrationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrationRowView.swift; sourceTree = "<group>"; };
 		AA6B4D2129264EA80090C22E /* AdministrationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrationListView.swift; sourceTree = "<group>"; };
 		AA6B4D2329264EB80090C22E /* AdministrationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrationDetailView.swift; sourceTree = "<group>"; };
 		AA707D2728F21F1F009C124E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -121,10 +119,10 @@
 		AA94767F28D718B900BCB990 /* SuicidalRiskPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuicidalRiskPickerView.swift; sourceTree = "<group>"; };
 		AA94768128D71B0900BCB990 /* ViolenceRiskPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolenceRiskPickerView.swift; sourceTree = "<group>"; };
 		AA94768328D71C6600BCB990 /* TypeOfObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfObservationView.swift; sourceTree = "<group>"; };
+		AAB1D4AF29281B1400592CBC /* AdministrationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrationRowView.swift; sourceTree = "<group>"; };
 		AABCC15828EA17BD00B8199C /* Hospital+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hospital+Extension.swift"; sourceTree = "<group>"; };
 		AABCC15B28EA1AA800B8199C /* Ward+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ward+Extension.swift"; sourceTree = "<group>"; };
 		AABCC15D28EA1E8400B8199C /* Room+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+Extension.swift"; sourceTree = "<group>"; };
-		AACFCA20291825C700083704 /* AdministrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrationView.swift; sourceTree = "<group>"; };
 		AAD59F7E28CF9AAA00F8C5C7 /* LawPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawPickerView.swift; sourceTree = "<group>"; };
 		AAD69B9A28CD2CCA00F63AD6 /* MedicalTask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicalTask+Extension.swift"; sourceTree = "<group>"; };
 		AAD69B9C28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalTaskDetailView.swift; sourceTree = "<group>"; };
@@ -273,9 +271,8 @@
 		AACFCA1F2918258200083704 /* AdministrationViews */ = {
 			isa = PBXGroup;
 			children = (
-				AACFCA20291825C700083704 /* AdministrationView.swift */,
 				AA6B4D2129264EA80090C22E /* AdministrationListView.swift */,
-				AA6B4D1F29264E8A0090C22E /* AdministrationRowView.swift */,
+				AAB1D4AF29281B1400592CBC /* AdministrationRowView.swift */,
 				AA6B4D2329264EB80090C22E /* AdministrationDetailView.swift */,
 			);
 			path = AdministrationViews;
@@ -577,7 +574,6 @@
 			files = (
 				AAF46DD729279C9D009C7C9B /* MedicineJournalView.swift in Sources */,
 				AAE74337287AD20A003F68A8 /* ItemDetailView.swift in Sources */,
-				AA6B4D2029264E8A0090C22E /* AdministrationRowView.swift in Sources */,
 				AAF0508728CD1C7000DA286E /* Medicine+Extension.swift in Sources */,
 				AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */,
 				AAE0081A288053FB00378ABA /* MainMenuTabView.swift in Sources */,
@@ -611,12 +607,12 @@
 				AAE0081F2881A50400378ABA /* PatientDetailView.swift in Sources */,
 				AAE7430A287AC833003F68A8 /* CareNote.xcdatamodeld in Sources */,
 				AAF0508328CD1BD400DA286E /* AddPreScriptionView.swift in Sources */,
+				AAB1D4B029281B1400592CBC /* AdministrationRowView.swift in Sources */,
 				AAD69BA328CD2E7100F63AD6 /* AddMedicalTaskView.swift in Sources */,
 				AAE0081D288074C100378ABA /* AddPatientView.swift in Sources */,
 				AAE008282881C66A00378ABA /* AddJournalEntryView.swift in Sources */,
 				AAD69B9D28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift in Sources */,
 				AA2A2DFE28CB80C300C2D8DB /* LawDetailView.swift in Sources */,
-				AACFCA21291825C700083704 /* AdministrationView.swift in Sources */,
 				AAE742FE287AC831003F68A8 /* CareNoteApp.swift in Sources */,
 				AA2A2DF828CB778600C2D8DB /* LawListView.swift in Sources */,
 				AAD59F7F28CF9AAA00F8C5C7 /* LawPickerView.swift in Sources */,

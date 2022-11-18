@@ -49,7 +49,6 @@
         <attribute name="hasGivenOrTakenDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="hasPlannedDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="hasSkippedDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isGivenOrTaken_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isPlanned_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isSkipped_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

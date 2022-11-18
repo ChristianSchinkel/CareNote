@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MedicineRowView: View {
+    @ObservedObject var patient: Patient
     @ObservedObject var medicine: Medicine
     
     var body: some View {
@@ -42,6 +43,6 @@ struct MedicineRowView: View {
 
 struct MedicineRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MedicineRowView(medicine: Medicine.example(context: PersistenceController.preview.container.viewContext))
+        MedicineRowView(patient: Patient.example(context: PersistenceController.preview.container.viewContext), medicine: Medicine.example(context: PersistenceController.preview.container.viewContext))
     }
 }

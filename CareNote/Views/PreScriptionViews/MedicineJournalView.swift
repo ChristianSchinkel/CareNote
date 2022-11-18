@@ -28,7 +28,7 @@ struct MedicineJournalView: View {
             if selectedOption == "Prescription" {
                 PreScriptionListView(patient: patient)
             } else {
-                AdministrationView(patient: patient)//, medicine: medicine)
+                AdministrationListView(patient: patient)
             }
         }
     }

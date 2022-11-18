@@ -103,7 +103,7 @@ struct AddPreScriptionView: View {
         }
     }
     private func makeMedicine(with date: Date) -> Medicine {
-        Medicine(
+        let newMedicine = Medicine(
             name: medicineName,
             activeSubstance: medicineActiveSubstance,
             form: medicineForm.rawValue,
@@ -119,6 +119,8 @@ struct AddPreScriptionView: View {
             hasSkippedDate: Date(),
             
             context: viewContext)
+        print("THIS IS THE GIVEN DATE: \(date)")
+        return newMedicine
     }
     private func makeADate() {
         

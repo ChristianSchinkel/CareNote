@@ -11,11 +11,19 @@ struct AdministrationListView: View {
     @ObservedObject var patient: Patient
     
     var body: some View {
-        List {
-            ForEach(patient.medicineArray) { medicine in
-                AdministrationRowView(medicine: medicine)
+        VStack {
+            List {
+                ForEach(patient.medicineArray) { medicine in
+                    NavigationLink {
+                        AdministrationDetailView(medicine: medicine)
+                    } label: {
+                        AdministrationRowView(patient: patient, medicine: medicine)
+                    }
+                }
             }
         }
+        .navigationTitle("Administration")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
