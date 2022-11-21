@@ -40,7 +40,7 @@ struct PreScriptionListView: View {
             }
             
         } // MARK: Outer VStack
-        .navigationBarTitle("Prescription")
+        .navigationTitle("Medicine-Journal")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

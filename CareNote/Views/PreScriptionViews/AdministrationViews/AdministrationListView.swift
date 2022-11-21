@@ -22,7 +22,7 @@ struct AdministrationListView: View {
                 }
             }
         }
-        .navigationTitle("Administration")
+        .navigationTitle("Medicine-Journal")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

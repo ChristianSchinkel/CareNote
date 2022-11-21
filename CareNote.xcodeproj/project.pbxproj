@@ -20,7 +20,6 @@
 		AA3AB2E92915BCD3006952CB /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB2E82915BCD3006952CB /* RemindersView.swift */; };
 		AA53FBBF28D6D9D700B6BC92 /* CareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBBE28D6D9D700B6BC92 /* CareData.swift */; };
 		AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */; };
-		AA6B4D1D29264E2D0090C22E /* MedicineRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B4D1C29264E2D0090C22E /* MedicineRowView.swift */; };
 		AA6B4D2229264EA80090C22E /* AdministrationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B4D2129264EA80090C22E /* AdministrationListView.swift */; };
 		AA6B4D2429264EB80090C22E /* AdministrationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6B4D2329264EB80090C22E /* AdministrationDetailView.swift */; };
 		AA707D2828F21F1F009C124E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA707D2728F21F1F009C124E /* SettingsView.swift */; };
@@ -105,7 +104,6 @@
 		AA3AB2E82915BCD3006952CB /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
 		AA53FBBE28D6D9D700B6BC92 /* CareData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareData.swift; sourceTree = "<group>"; };
 		AA53FBC028D6E32900B6BC92 /* HowPatientComeInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowPatientComeInView.swift; sourceTree = "<group>"; };
-		AA6B4D1C29264E2D0090C22E /* MedicineRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineRowView.swift; sourceTree = "<group>"; };
 		AA6B4D2129264EA80090C22E /* AdministrationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrationListView.swift; sourceTree = "<group>"; };
 		AA6B4D2329264EB80090C22E /* AdministrationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrationDetailView.swift; sourceTree = "<group>"; };
 		AA707D2728F21F1F009C124E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 				AAF0507E28CD1B9200DA286E /* PreScriptionListView.swift */,
 				AAF0508028CD1BB500DA286E /* PreScriptionRowView.swift */,
 				AAF0508228CD1BD400DA286E /* AddPreScriptionView.swift */,
-				AA6B4D1E29264E4F0090C22E /* MedicineViews */,
 			);
 			path = PreScriptionViews;
 			sourceTree = "<group>";
@@ -250,14 +247,6 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		AA6B4D1E29264E4F0090C22E /* MedicineViews */ = {
-			isa = PBXGroup;
-			children = (
-				AA6B4D1C29264E2D0090C22E /* MedicineRowView.swift */,
-			);
-			path = MedicineViews;
-			sourceTree = "<group>";
-		};
 		AABCC15A28EA1A4F00B8199C /* HospitalExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,7 +262,6 @@
 			children = (
 				AA6B4D2129264EA80090C22E /* AdministrationListView.swift */,
 				AAB1D4AF29281B1400592CBC /* AdministrationRowView.swift */,
-				AA6B4D2329264EB80090C22E /* AdministrationDetailView.swift */,
 			);
 			path = AdministrationViews;
 			sourceTree = "<group>";
@@ -434,6 +422,7 @@
 				AA2A2DFD28CB80C300C2D8DB /* LawDetailView.swift */,
 				AAF0507C28CD0F8A00DA286E /* ReadingDetailView.swift */,
 				AAF0508428CD1BF500DA286E /* PreScriptionDetailView.swift */,
+				AA6B4D2329264EB80090C22E /* AdministrationDetailView.swift */,
 				AAD69B9C28CD2E2E00F63AD6 /* MedicalTaskDetailView.swift */,
 			);
 			path = DetailViews;
@@ -592,7 +581,6 @@
 				AAE008212881B11B00378ABA /* Journal+Extension.swift in Sources */,
 				AA3AB2E429156BAA006952CB /* PreScriptionAsNeededView.swift in Sources */,
 				AA6B4D2229264EA80090C22E /* AdministrationListView.swift in Sources */,
-				AA6B4D1D29264E2D0090C22E /* MedicineRowView.swift in Sources */,
 				AA94768028D718B900BCB990 /* SuicidalRiskPickerView.swift in Sources */,
 				AAD69BA128CD2E6000F63AD6 /* MedicalTaskRowView.swift in Sources */,
 				AA2A2DFA28CB77C200C2D8DB /* LawRowView.swift in Sources */,

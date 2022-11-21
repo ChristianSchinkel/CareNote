@@ -38,6 +38,17 @@ struct AdministrationDetailView: View {
             }
         }
     }
+// MARK: - Functions for this View:
+//    /// Toggles the bolean of the toggles "isSkipped" and "isGiven"
+//    private func changeToggle() {
+//        if isSkipped == false {
+//            if isGiven == true {
+//                isGiven.toggle()
+//            }
+//        } else if isGiven == false {
+//            isSkipped.toggle()
+//        }
+//    }
 }
 
 struct AdministrationDetailView_Previews: PreviewProvider {

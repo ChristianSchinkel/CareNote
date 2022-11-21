@@ -11,7 +11,6 @@ struct MedicineJournalView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @ObservedObject var patient: Patient
-//    @ObservedObject var medicine: Medicine
     
     var options = ["Prescription", "Administration"]
     @State private var selectedOption = "Prescription"

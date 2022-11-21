@@ -92,16 +92,6 @@ struct AddPreScriptionView: View {
         }
     }
 // MARK: - Functions for this View:
-    /// Toggles the bolean of the toggles "isSkipped" and "isGiven"
-    private func changeToggle() {
-        if isSkipped == false {
-            if isGiven == true {
-                isGiven.toggle()
-            }
-        } else if isGiven == false {
-            isSkipped.toggle()
-        }
-    }
     private func makeMedicine(with date: Date) -> Medicine {
         let newMedicine = Medicine(
             name: medicineName,

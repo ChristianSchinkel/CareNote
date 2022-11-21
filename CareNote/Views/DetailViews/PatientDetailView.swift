@@ -82,7 +82,7 @@ struct PatientDetailView: View {
                     NavigationLink {
                         MedicineJournalView(patient: patient)
                     } label: {
-                        Text("Medicine-list")
+                        Text("Medicine-Journal")
                     }
                     
                     NavigationLink {

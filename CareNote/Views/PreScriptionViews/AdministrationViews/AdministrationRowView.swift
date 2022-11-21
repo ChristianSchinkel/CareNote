@@ -13,29 +13,38 @@ struct AdministrationRowView: View {
     
     var body: some View {
         HStack {
-            Text("\(medicine.hasPlannedDate, format: .dateTime)")
+            medicine.isGivenOrTaken == false ? Image(systemName: "circle") : Image(systemName: "checkmark.circle")
             
             VStack(alignment: .leading) {
-                HStack {
-                    Text(medicine.name)
-                    Text(medicine.strengthValue, format: .number)
-                    Text(medicine.strengthValueUnit)
-                    
-                    Image(systemName: "multiply")
-                    
-                    Text(medicine.amountValue, format: .number)
-                    Text(medicine.amountValueUnit)
-                }
-                .font(.headline)
+                Text("\(medicine.hasPlannedDate, format: .dateTime)")
+                    .font(.callout)
+                    .bold()
+                    .foregroundColor(.secondary)
                 
-                HStack {
-                    Text(medicine.activeSubstance)
-                    Text(medicine.form)
-                        .font(.subheadline)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(medicine.name)
+                        Text(medicine.strengthValue, format: .number)
+                        Text(medicine.strengthValueUnit)
+                        
+                        Image(systemName: "multiply")
+                        
+                        Text(medicine.amountValue, format: .number)
+                        Text(medicine.amountValueUnit)
+                    }
+                    .font(.headline)
+                    
+                    HStack {
+                        Text(medicine.activeSubstance)
+                        Text(medicine.form)
+                            .font(.subheadline)
+                        
+                        medicine.isGivenOrTaken == false || medicine.isSkipped == false ? Text("No Date") : Text("\(medicine.hasGivenOrTakenDate, format: .dateTime)")
+                    }
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .padding(.leading)
                 }
-                .font(.caption)
-                .foregroundColor(.secondary)
-                .padding(.leading)
             }
         }
     }
