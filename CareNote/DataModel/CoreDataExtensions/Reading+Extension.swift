@@ -65,6 +65,7 @@ extension Reading {
     
     /// Adds a value of value-type Date() to the property with the stringly typed name.
     public override func awakeFromInsert() {
+        setPrimitiveValue(UUID(), forKey: "id")
         setPrimitiveValue(0.0, forKey: ReadingProperties.amount)
         setPrimitiveValue(Date.now, forKey: ReadingProperties.date)
         setPrimitiveValue("", forKey: ReadingProperties.unit)

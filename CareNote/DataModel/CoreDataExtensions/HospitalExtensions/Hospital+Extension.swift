@@ -41,6 +41,7 @@ extension Hospital {
     
     /// Adds a value of value-type Date() to the property with the stringly typed name.
     public override func awakeFromInsert() {
+        setPrimitiveValue(UUID(), forKey: "id")
         setPrimitiveValue("", forKey: HospitalProperties.name)
     }
     /// Deletes hospital from the list att the current position.

@@ -196,6 +196,7 @@ extension Medicine {
     
     /// Adds a value of value-type [Date(), String(), etc ] to the property with the stringly typed name.
     public override func awakeFromInsert() {
+        setPrimitiveValue(UUID(), forKey: "id")
         setPrimitiveValue("", forKey: MedicineProperties.name)
         setPrimitiveValue("", forKey: MedicineProperties.activeSubstance)
         setPrimitiveValue("", forKey: MedicineProperties.form)
@@ -230,5 +231,36 @@ extension Medicine {
     static func example(context: NSManagedObjectContext) -> Medicine {
         Medicine(name: "Stesolid", activeSubstance: "Diazepam", form: "Tablet", strengthValue: 10.0, strengthValueUnit: "mg", amountValue: 1.0, amountValueUnit: "pieces", isPlanned: true, hasPlannedDate: Date.now, isGivenOrTaken: false, hasGivenOrTakenDate: Date.now, isSkipped: false, hasSkippedDate: Date.now, context: context)
     }
-
+    /// Makes a new Medicine-object of the given parameters
+    /// - Parameters:
+    ///   - name: Medicine's Name
+    ///   - activeSubstance: Medicine's ActiveSubstance
+    ///   - form: Medicine's Form
+    ///   - strengthValue: Medicine's StrengthValue
+    ///   - strengthValueUnit: Medicine's strengthValueUnit
+    ///   - amountValue: Medicine's amountValue
+    ///   - amountValueUnit: Medicine's amountValueUnit
+    ///   - date: date the medicine gets placed in.
+    ///   - context: NSManagedObjectContext
+    /// - Returns: newMedicine
+    static func makeObject(name: String, activeSubstance: String, form: String, strengthValue: Double, strengthValueUnit: String, amountValue: Double, amountValueUnit: String, with date: Date, context: NSManagedObjectContext) -> Medicine {
+        let newMedicine = Medicine(context: context)
+        
+        newMedicine.name = name
+        newMedicine.activeSubstance = activeSubstance
+        newMedicine.form = form
+        newMedicine.strengthValue = strengthValue
+        newMedicine.strengthValueUnit = strengthValueUnit
+        newMedicine.amountValue = amountValue
+        newMedicine.amountValueUnit = amountValueUnit
+        newMedicine.isPlanned = true
+        newMedicine.hasPlannedDate = date
+        newMedicine.isGivenOrTaken = false
+        newMedicine.isGivenOrTaken = false
+        newMedicine.isSkipped = false
+        
+        print(newMedicine)
+        
+        return newMedicine
+    }
 }

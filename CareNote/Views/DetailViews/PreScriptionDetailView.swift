@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PreScriptionDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject var patient: Patient
     @ObservedObject var preScription: PreScription
     
     @State private var medicineActiveSubstance: String = "" // Name of the medicine's aktive substance.*
@@ -101,6 +102,6 @@ struct PreScriptionDetailView: View {
 
 struct PreScriptionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PreScriptionDetailView(preScription: PreScription.example(context: PersistenceController.preview.container.viewContext))
+        PreScriptionDetailView(patient: Patient.example(context: PersistenceController.preview.container.viewContext), preScription: PreScription.example(context: PersistenceController.preview.container.viewContext))
     }
 }

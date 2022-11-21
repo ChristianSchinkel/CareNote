@@ -31,7 +31,7 @@ struct PreScriptionListView: View {
             List {
                 ForEach(patient.preScriptionArray) { preScription in
                     NavigationLink {
-                        PreScriptionDetailView(preScription: preScription) // Destination.
+                        PreScriptionDetailView(patient: patient, preScription: preScription) // Destination.
                     } label: {
                         PreScriptionRowView(patient: patient, preScription: preScription) // Label in the List.
                     }

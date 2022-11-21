@@ -405,8 +405,9 @@ extension PreScription {
         static let treatmentDurationStartDate = "treatmentDurationStartDate_"
     }
     // MARK: - Functions in the extension
-    /// Adds a value of value-type [Date(), String(), etc ] to the property with the stringly typed name.
+    /// Adds a value of value-type [Date(), String(), etc ] to the property with the stringly typed name. Objects that initialise for the firs time get the values defined down below. If you don't want to set a default-value remove statement from this function.
     public override func awakeFromInsert() {
+        setPrimitiveValue(UUID(), forKey: "id")
         setPrimitiveValue(Bool(), forKey: PreScriptionProperties.asNeeded)
         setPrimitiveValue(Double(), forKey: PreScriptionProperties.asNeededMaxDoseAmount)
         setPrimitiveValue(Date(), forKey: PreScriptionProperties.asNeededMaxDosePerDayDate)

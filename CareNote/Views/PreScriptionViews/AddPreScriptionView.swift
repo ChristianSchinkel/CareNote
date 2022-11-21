@@ -92,26 +92,6 @@ struct AddPreScriptionView: View {
         }
     }
 // MARK: - Functions for this View:
-    private func makeMedicine(with date: Date) -> Medicine {
-        let newMedicine = Medicine(
-            name: medicineName,
-            activeSubstance: medicineActiveSubstance,
-            form: medicineForm.rawValue,
-            strengthValue: medicineStrengthValue,
-            strengthValueUnit: medicineStrengthValueUnit.rawValue,
-            amountValue: medicineAmountValue,
-            amountValueUnit: medicineAmountValueUnit,
-            isPlanned: isPlanned,
-            hasPlannedDate: date,
-            isGivenOrTaken: false,
-            hasGivenOrTakenDate: Date(),
-            isSkipped: false,
-            hasSkippedDate: Date(),
-            
-            context: viewContext)
-        print("THIS IS THE GIVEN DATE: \(date)")
-        return newMedicine
-    }
     private func makeADate() {
         
     }
@@ -154,7 +134,8 @@ struct AddPreScriptionView: View {
             var count = 0
             while computedDate <= treatmentDurationEndDate {
                 print("The medicine add \(count) time(s).")
-                patient.addToMedicine(makeMedicine(with: computedDate))
+                patient.addToMedicine(Medicine.makeObject(name: medicineName, activeSubstance: medicineActiveSubstance, form: medicineForm.rawValue, strengthValue: medicineStrengthValue, strengthValueUnit: medicineStrengthValueUnit.rawValue, amountValue: medicineAmountValue, amountValueUnit: medicineAmountValueUnit, with: computedDate, context: viewContext))
+//                patient.addToMedicine(makeMedicine(with: computedDate))
                 computedDate = Date.nextDay(from: computedDate)
                 print(computedDate)
                 count += 1

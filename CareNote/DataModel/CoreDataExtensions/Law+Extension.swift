@@ -65,6 +65,7 @@ extension Law {
     
     /// Adds a value of value-type Date() to the property with the stringly typed name.
     public override func awakeFromInsert() {
+        setPrimitiveValue(UUID(), forKey: "id")
         setPrimitiveValue(Date.now, forKey: LawProperties.date)
         setPrimitiveValue("", forKey: LawProperties.name)
         setPrimitiveValue("", forKey: LawProperties.paragraph)
