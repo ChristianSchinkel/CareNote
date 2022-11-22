@@ -13,11 +13,16 @@ struct PreScriptionDetailView: View {
     @ObservedObject var preScription: PreScription
     
     @State private var medicineActiveSubstance: String = "" // Name of the medicine's aktive substance.*
-    @State private var medicineDoseAmount: Double = 1.0 // Amount of t ex tablets.*
+//    @State private var medicineDoseAmount: Double = 1.0 // Amount of t ex tablets.*
     @State private var medicineForm: Care.Medicine.Form = .tablet // Form of the medicine.*
+    
     @State private var medicineName: String = "" // Name of the medicine.*
     @State private var medicineStrengthValue: Double = 1.0 // strength value.*
     @State private var medicineStrengthValueUnit: Care.Medicine.Unit = .milliGram // value's unit.*
+    
+    @State private var medicineAmountValue: Double = 1.0
+    @State private var medicineAmountValueUnit: String = "st"
+    
     @State private var modeOfAdministration: Care.Medicine.ModeOfAdministration = .oral // How the medicine gives to the patient.*
     
     @State private var isPrescripted: Bool = false // Is the medicine prescripted or not.*
@@ -41,7 +46,7 @@ struct PreScriptionDetailView: View {
         NavigationStack {
             VStack {
                 Form {
-                    MedicineDosageView(medicineActiveSubstance: $medicineActiveSubstance, medicineDoseAmount: $medicineDoseAmount, medicineForm: $medicineForm, medicineName: $medicineName, medicineStrengthValue: $medicineStrengthValue, medicineStrengthValueUnit: $medicineStrengthValueUnit, modeOfAdministration: $modeOfAdministration)
+                    MedicineDosageView(medicineName: $medicineName, medicineForm: $medicineForm, medicineActiveSubstance: $medicineActiveSubstance, medicineStrengthValue: $medicineStrengthValue, medicineStrengthValueUnit: $medicineStrengthValueUnit, medicineAmountValue: $medicineAmountValue, medicineAmountValueUnit: $medicineAmountValueUnit, modeOfAdministration: $modeOfAdministration)
                     
                     PreScriptionDurationView(isPrescripted: $isPrescripted, treatmentDurationEndDate: $treatmentDurationEndDate, reasonOfPrescribing: $reasonOfPrescribing, treatmentDurationEndReason: $treatmentDurationEndReason, treatmentDurationStartDate: $treatmentDurationStartDate)
                     
@@ -52,12 +57,16 @@ struct PreScriptionDetailView: View {
                     TextField("Instructions", text: $instruction)
                 }
                 .onAppear {
-                    medicineActiveSubstance = preScription.medicineActiveSubstance
-                    medicineDoseAmount = preScription.medicineDoseAmount
-                    medicineForm =  Care.Medicine.Form(rawValue: preScription.medicineForm) ?? Care.Medicine.Form.tablet
                     medicineName = preScription.medicineName
+                    medicineActiveSubstance = preScription.medicineActiveSubstance
+                    medicineForm =  Care.Medicine.Form(rawValue: preScription.medicineForm) ?? Care.Medicine.Form.tablet
+                    
                     medicineStrengthValue = preScription.medicineStrengthValue
                     medicineStrengthValueUnit = Care.Medicine.Unit(rawValue: preScription.medicineStrengthValueUnit) ?? Care.Medicine.Unit.mikroGram
+                    
+                    medicineAmountValue = preScription.medicineAmountValue
+                    medicineAmountValueUnit = preScription.medicineAmountValueUnit
+        
                     modeOfAdministration = Care.Medicine.ModeOfAdministration(rawValue: preScription.modeOfAdministration) ?? Care.Medicine.ModeOfAdministration.oral
                     
                     isPrescripted = preScription.isPrescripted
@@ -87,7 +96,7 @@ struct PreScriptionDetailView: View {
                         // recreate all elements in the list with new values until end of prescription.
                         
                         print("Edited medicine to \(preScription.medicineForm)")
-//                        PersistenceController.shared.save()
+                        PersistenceController.shared.save()
                         
                         dismiss()
                     }

@@ -61,7 +61,7 @@ struct AddPreScriptionView: View {
         NavigationStack {
             VStack {
                 Form {
-                    MedicineDosageView(medicineActiveSubstance: $medicineActiveSubstance, medicineDoseAmount: $medicineDoseAmount, medicineForm: $medicineForm, medicineName: $medicineName, medicineStrengthValue: $medicineStrengthValue, medicineStrengthValueUnit: $medicineStrengthValueUnit, modeOfAdministration: $modeOfAdministration)
+                    MedicineDosageView(medicineName: $medicineName, medicineForm: $medicineForm, medicineActiveSubstance: $medicineActiveSubstance, medicineStrengthValue: $medicineStrengthValue, medicineStrengthValueUnit: $medicineStrengthValueUnit, medicineAmountValue: $medicineAmountValue, medicineAmountValueUnit: $medicineAmountValueUnit, modeOfAdministration: $modeOfAdministration)
                     
                     PreScriptionDurationView(isPrescripted: $isPrescripted, treatmentDurationEndDate: $treatmentDurationEndDate, reasonOfPrescribing: $reasonOfPrescribing, treatmentDurationEndReason: $treatmentDurationEndReason, treatmentDurationStartDate: $treatmentDurationStartDate)
                     
@@ -92,9 +92,6 @@ struct AddPreScriptionView: View {
         }
     }
 // MARK: - Functions for this View:
-    private func makeADate() {
-        
-    }
     private func addPreScription() {
         withAnimation {
             let newPreScription = PreScription(
@@ -135,7 +132,6 @@ struct AddPreScriptionView: View {
             while computedDate <= treatmentDurationEndDate {
                 print("The medicine add \(count) time(s).")
                 patient.addToMedicine(Medicine.makeObject(name: medicineName, activeSubstance: medicineActiveSubstance, form: medicineForm.rawValue, strengthValue: medicineStrengthValue, strengthValueUnit: medicineStrengthValueUnit.rawValue, amountValue: medicineAmountValue, amountValueUnit: medicineAmountValueUnit, with: computedDate, context: viewContext))
-//                patient.addToMedicine(makeMedicine(with: computedDate))
                 computedDate = Date.nextDay(from: computedDate)
                 print(computedDate)
                 count += 1

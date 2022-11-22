@@ -205,11 +205,11 @@ extension Medicine {
         setPrimitiveValue(Double(), forKey: MedicineProperties.amountValue)
         setPrimitiveValue("", forKey: MedicineProperties.amountValueUnit)
         setPrimitiveValue(Bool(), forKey: MedicineProperties.isPlanned)
-        setPrimitiveValue(Date(), forKey: MedicineProperties.hasPlannedDate)
+//        setPrimitiveValue(Date(), forKey: MedicineProperties.hasPlannedDate)
         setPrimitiveValue(Bool(), forKey: MedicineProperties.isGivenOrTaken)
-        setPrimitiveValue(Date(), forKey: MedicineProperties.hasGivenOrTakenDate)
+//        setPrimitiveValue(Date(), forKey: MedicineProperties.hasGivenOrTakenDate)
         setPrimitiveValue(Bool(), forKey: MedicineProperties.isSkipped)
-        setPrimitiveValue(Date(), forKey: MedicineProperties.hasSkippedDate)
+//        setPrimitiveValue(Date(), forKey: MedicineProperties.hasSkippedDate)
     }
     /// Deletes law from the list att the current position.
     static func delete(at offsets: IndexSet, for medicine: [Medicine]) {
