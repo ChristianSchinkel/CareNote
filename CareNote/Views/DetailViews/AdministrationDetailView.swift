@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AdministrationDetailView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     /// Calls the environment to dismiss a view or the actual sheet.
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var medicine: Medicine
@@ -46,7 +47,7 @@ struct AdministrationDetailView: View {
             DatePicker(selection: $date, label: { Text("Time:") })
                 .onAppear {
                     amount = medicine.amountValue
-                    date = medicine.hasPlannedDate
+                    date = lastDateTimeStamp()!
                 }
             
             
@@ -85,34 +86,37 @@ struct AdministrationDetailView: View {
     private func skipp() {
         medicine.isSkipped = true
         medicine.hasSkippedDate = date
+        
+        medicine.amountValue = amount
+        medicine.addToDateTimeStamp(DateTimeStamp(date: date, isGivenOrTaken: false, isSkipped: true, context: viewContext))
+        
         if medicine.isGivenOrTaken {
             medicine.isGivenOrTaken = false
         }
-        
+        PersistenceController.shared.save() // Saves the DateTimeStamp.
         dismiss()
     }
     private func giveOrTake() {
         medicine.isGivenOrTaken = true
         medicine.hasGivenOrTakenDate = date
+        
+        medicine.amountValue = amount
+        medicine.addToDateTimeStamp(DateTimeStamp(date: date, isGivenOrTaken: true, isSkipped: false, context: viewContext))
+        
         if medicine.isSkipped {
             medicine.isSkipped = false
         }
-        
+        PersistenceController.shared.save() // Saves the DateTimeStamp.
         dismiss()
     }
-//    /// Toggles the bolean of the toggles "isSkipped" and "isGiven"
-//    private func changeToggle() {
-//        if isSkipped == false {
-//            if isGiven == true {
-//                isGiven.toggle()
-//            }
-//        } else if isGiven == false {
-//            isSkipped.toggle()
-//        }
-//    }
     
-    func te() {
+    private func lastDateTimeStamp() -> Date? {
+        guard !medicine.DateTimeStampArray.isEmpty else {
+            
+            return Date.now
+        }
         
+        return medicine.DateTimeStampArray.last?.date
     }
 }
 

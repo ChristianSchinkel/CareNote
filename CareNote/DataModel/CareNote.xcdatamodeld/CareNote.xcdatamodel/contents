@@ -5,6 +5,13 @@
         <attribute name="name_" optional="YES" attributeType="String"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="building" inverseEntity="Department"/>
     </entity>
+    <entity name="DateTimeStamp" representedClassName="DateTimeStamp" syncable="YES" codeGenerationType="class">
+        <attribute name="date_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id_" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isGivenOrTaken_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSkipped_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="medicine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicine" inverseName="dateTimeStamp" inverseEntity="Medicine"/>
+    </entity>
     <entity name="Department" representedClassName="Department" syncable="YES" codeGenerationType="class">
         <attribute name="city_" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -56,6 +63,7 @@
         <attribute name="name_" optional="YES" attributeType="String"/>
         <attribute name="strengthValue_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="strengthValueUnit_" optional="YES" attributeType="String"/>
+        <relationship name="dateTimeStamp" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DateTimeStamp" inverseName="medicine" inverseEntity="DateTimeStamp"/>
         <relationship name="medicine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="medicine" inverseEntity="Patient"/>
         <relationship name="preScription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PreScription" inverseName="medicine" inverseEntity="PreScription"/>
     </entity>

@@ -193,7 +193,13 @@ extension Medicine {
         
         
     }
-    
+    // MARK: - Convert Properties with NSSet to an Swift-array
+    public var DateTimeStampArray: [DateTimeStamp] { // will return an Array
+        let set = dateTimeStamp as? Set<DateTimeStamp> ?? [ ] // make a set called journal and store Journals in it otherwise make it empty.
+        return set.sorted { // Sort the set to make i an array.
+            $0.date < $1.date // sort the array by the first date against the second date.
+        } // Returns the array asking for "[DateTimeStamp]".
+    }
     /// Adds a value of value-type [Date(), String(), etc ] to the property with the stringly typed name.
     public override func awakeFromInsert() {
         setPrimitiveValue(UUID(), forKey: "id")

@@ -51,6 +51,7 @@
 		AAE008282881C66A00378ABA /* AddJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE008272881C66A00378ABA /* AddJournalEntryView.swift */; };
 		AAE0082A2881C98B00378ABA /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE008292881C98B00378ABA /* JournalDetailView.swift */; };
 		AAE159B6290449E300364E5E /* PreScription+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE159B5290449E300364E5E /* PreScription+Extension.swift */; };
+		AAE4CFE0292F9046008AA9D4 /* DateTimeStamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4CFDF292F9046008AA9D4 /* DateTimeStamp+Extension.swift */; };
 		AAE742FE287AC831003F68A8 /* CareNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE742FD287AC831003F68A8 /* CareNoteApp.swift */; };
 		AAE74300287AC831003F68A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE742FF287AC831003F68A8 /* ContentView.swift */; };
 		AAE74302287AC833003F68A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE74301287AC833003F68A8 /* Assets.xcassets */; };
@@ -137,6 +138,7 @@
 		AAE008272881C66A00378ABA /* AddJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryView.swift; sourceTree = "<group>"; };
 		AAE008292881C98B00378ABA /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
 		AAE159B5290449E300364E5E /* PreScription+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreScription+Extension.swift"; sourceTree = "<group>"; };
+		AAE4CFDF292F9046008AA9D4 /* DateTimeStamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateTimeStamp+Extension.swift"; sourceTree = "<group>"; };
 		AAE742FA287AC831003F68A8 /* CareNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE742FD287AC831003F68A8 /* CareNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareNoteApp.swift; sourceTree = "<group>"; };
 		AAE742FF287AC831003F68A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				AA2A2DFB28CB782E00C2D8DB /* Law+Extension.swift */,
 				AA8FD59228CBE3570045FC95 /* Reading+Extension.swift */,
 				AAF0508628CD1C7000DA286E /* Medicine+Extension.swift */,
+				AAE4CFDF292F9046008AA9D4 /* DateTimeStamp+Extension.swift */,
 				AAD69B9A28CD2CCA00F63AD6 /* MedicalTask+Extension.swift */,
 				AABCC15A28EA1A4F00B8199C /* HospitalExtensions */,
 			);
@@ -564,6 +567,7 @@
 				AAF46DD729279C9D009C7C9B /* MedicineJournalView.swift in Sources */,
 				AAE74337287AD20A003F68A8 /* ItemDetailView.swift in Sources */,
 				AAF0508728CD1C7000DA286E /* Medicine+Extension.swift in Sources */,
+				AAE4CFE0292F9046008AA9D4 /* DateTimeStamp+Extension.swift in Sources */,
 				AA53FBC128D6E32900B6BC92 /* HowPatientComeInView.swift in Sources */,
 				AAE0081A288053FB00378ABA /* MainMenuTabView.swift in Sources */,
 				AA6B4D2429264EB80090C22E /* AdministrationDetailView.swift in Sources */,

@@ -39,7 +39,7 @@ struct AdministrationRowView: View {
                         Text(medicine.form)
                             .font(.subheadline)
                         
-                        medicine.isGivenOrTaken == false || medicine.isSkipped == false ? Text("No Date") : Text("\(medicine.hasGivenOrTakenDate, format: .dateTime)")
+                        medicine.isGivenOrTaken == false && medicine.isSkipped == false ? Text("No Date") : Text("\(lastDateTimeStamp()!, format: .dateTime)")
                     }
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -47,6 +47,15 @@ struct AdministrationRowView: View {
                 }
             }
         }
+    }
+    // MARK: - Functions for this View:
+    private func lastDateTimeStamp() -> Date? {
+        guard !medicine.DateTimeStampArray.isEmpty else {
+            
+            return Date.now
+        }
+        
+        return medicine.DateTimeStampArray.last?.date
     }
 }
 
