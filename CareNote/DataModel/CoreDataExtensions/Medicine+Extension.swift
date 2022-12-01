@@ -236,28 +236,31 @@ extension Medicine {
     // TODO: function that removes all medicine tiles with date in future and has name -> use fetchrequest and a predicate that matches these conditions.
     static func fetchToDeleteInNearFuture(at offsets: IndexSet, for preScription: [PreScription], context: NSManagedObjectContext) {
         
-        if let first = preScription.first {
-            print("--> THIS IS THE FIRST OBJECT \(first.medicineName) <--")
-            let requestToDelete = NSFetchRequest<Medicine>(entityName: "Medicine")
-            requestToDelete.sortDescriptors = [NSSortDescriptor(keyPath: \Medicine.name_, ascending: false)]
-            // Create the component predicates
-            let datePredicate = NSPredicate(format: "\(MedicineProperties.hasPlannedDate) >= %@", Date.now as CVarArg)
-            let namePredicate = NSPredicate(format: "\(MedicineProperties.name) == %@", first.medicineName)
-            let activeSubstancePredicate = NSPredicate(format: "\(MedicineProperties.activeSubstance) == %@", first.medicineActiveSubstance)
-            let formPredicate = NSPredicate(format: "\(MedicineProperties.form) == %@", first.medicineForm)
-//            let strengthValuePredicate = NSPredicate(format: "\(MedicineProperties.strengthValue) == %@", first.medicineStrengthValue)
-//            let strengthValueUnitPredicate = NSPredicate(format: "\(MedicineProperties.strengthValueUnit) == %@", first.medicineStrengthValueUnit)
-//            let amountValuePredicate = NSPredicate(format: "\(MedicineProperties.amountValue) == %@", first.medicineAmountValue)
-//            let amountValueUnitPredicate = NSPredicate(format: "\(MedicineProperties.amountValueUnit) == %@", first.medicineAmountValueUnit)
-            
-            requestToDelete.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, namePredicate, activeSubstancePredicate, formPredicate])
-            
-            /* Create an "and" compound predicate, meaning the query requires all the predicates to be satisfied. In other words, for an object to be returned by an "and" compound predicate, all the component predicates must be true for the object.*/
-            
-            requestToDelete.includesPropertyValues = false /* Setting includesPropertyValues to false means the fetch request will only get the managed object ID for each object */
-            let medicinesToDelete = try! context.fetch(requestToDelete)
-            print("--> THIS ARE THE OBJECTS TO DELETE \(medicinesToDelete) <--")
-            medicinesToDelete.forEach(context.delete)
+        if let first = preScription.first, let viewContext = first.managedObjectContext {
+            offsets.map { preScription[$0] }.forEach { preScription in
+                
+                print("--> THIS IS THE FIRST OBJECT \(preScription.medicineName) <--")
+                let requestToDelete = NSFetchRequest<Medicine>(entityName: "Medicine")
+                requestToDelete.sortDescriptors = [NSSortDescriptor(keyPath: \Medicine.name_, ascending: false)]
+                // Create the component predicates
+                let datePredicate = NSPredicate(format: "\(MedicineProperties.hasPlannedDate) >= %@", Date.now as CVarArg)
+                let namePredicate = NSPredicate(format: "\(MedicineProperties.name) == %@", preScription.medicineName)
+                let activeSubstancePredicate = NSPredicate(format: "\(MedicineProperties.activeSubstance) == %@", preScription.medicineActiveSubstance)
+                let formPredicate = NSPredicate(format: "\(MedicineProperties.form) == %@", preScription.medicineForm)
+                //            let strengthValuePredicate = NSPredicate(format: "\(MedicineProperties.strengthValue) == %@", preScription.medicineStrengthValue)
+                //            let strengthValueUnitPredicate = NSPredicate(format: "\(MedicineProperties.strengthValueUnit) == %@", preScription.medicineStrengthValueUnit)
+                //            let amountValuePredicate = NSPredicate(format: "\(MedicineProperties.amountValue) == %@", preScription.medicineAmountValue)
+                //            let amountValueUnitPredicate = NSPredicate(format: "\(MedicineProperties.amountValueUnit) == %@", preScription.medicineAmountValueUnit)
+                
+                requestToDelete.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, namePredicate, activeSubstancePredicate, formPredicate])
+                
+                /* Create an "and" compound predicate, meaning the query requires all the predicates to be satisfied. In other words, for an object to be returned by an "and" compound predicate, all the component predicates must be true for the object.*/
+                
+                requestToDelete.includesPropertyValues = false /* Setting includesPropertyValues to false means the fetch request will only get the managed object ID for each object */
+                let medicinesToDelete = try! viewContext.fetch(requestToDelete)
+                print("--> THIS ARE THE OBJECTS TO DELETE \(medicinesToDelete) <--")
+                medicinesToDelete.forEach(context.delete)
+            }
             
         }
     }

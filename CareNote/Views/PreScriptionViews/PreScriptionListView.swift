@@ -68,6 +68,7 @@ struct PreScriptionListView: View {
     
     private func deletePreScription(offsets: IndexSet) {
         withAnimation {
+            // TODO: function that removes all medicine tiles with date in future and has name -> use fetchrequest and a predicate that matches these conditions.
             Medicine.fetchToDeleteInNearFuture(at: offsets, for: Array(patient.preScriptionArray), context: viewContext) // Function that removes all medicine tiles with date in future and has name.
             PreScription.delete(at: offsets, for: Array(patient.preScriptionArray))
             
