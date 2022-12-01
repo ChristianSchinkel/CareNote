@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct PreScriptionListView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var patient: Patient
+    
+    
     
     // MARK: - Boolean: showingLawAddView
     @State private var showingAddPreScriptionView = false // by default the AddMedicineView isn't presented.
@@ -65,7 +68,9 @@ struct PreScriptionListView: View {
     
     private func deletePreScription(offsets: IndexSet) {
         withAnimation {
+            Medicine.fetchToDeleteInNearFuture(at: offsets, for: Array(patient.preScriptionArray), context: viewContext) // Function that removes all medicine tiles with date in future and has name.
             PreScription.delete(at: offsets, for: Array(patient.preScriptionArray))
+            
             PersistenceController.shared.save()
         }
     }

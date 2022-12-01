@@ -43,12 +43,12 @@ extension Medicine {
             self.hasSkippedDate_ = hasSkippedDate
             
             
-    } // <- It's a priority fast lane.
+        } // <- It's a priority fast lane.
     
     
     
     
-// MARK: - Properties for easier coding
+    // MARK: - Properties for easier coding
     /*
      name: String,
      activeSubstance: String,
@@ -64,7 +64,7 @@ extension Medicine {
      isSkipped: Bool,
      hasSkippedDate: Date,
      */
-// MARK: Medicine-information here
+    // MARK: Medicine-information here
     /// The name of medicine.
     public var name: String {
         get {
@@ -211,13 +211,13 @@ extension Medicine {
         setPrimitiveValue(Double(), forKey: MedicineProperties.amountValue)
         setPrimitiveValue("", forKey: MedicineProperties.amountValueUnit)
         setPrimitiveValue(Bool(), forKey: MedicineProperties.isPlanned)
-//        setPrimitiveValue(Date(), forKey: MedicineProperties.hasPlannedDate)
+        //        setPrimitiveValue(Date(), forKey: MedicineProperties.hasPlannedDate)
         setPrimitiveValue(Bool(), forKey: MedicineProperties.isGivenOrTaken)
-//        setPrimitiveValue(Date(), forKey: MedicineProperties.hasGivenOrTakenDate)
+        //        setPrimitiveValue(Date(), forKey: MedicineProperties.hasGivenOrTakenDate)
         setPrimitiveValue(Bool(), forKey: MedicineProperties.isSkipped)
-//        setPrimitiveValue(Date(), forKey: MedicineProperties.hasSkippedDate)
+        //        setPrimitiveValue(Date(), forKey: MedicineProperties.hasSkippedDate)
     }
-    /// Deletes law from the list att the current position.
+    /// Deletes medicine from the list att the current position.
     static func delete(at offsets: IndexSet, for medicine: [Medicine]) {
         
         if let first = medicine.first, let viewContext = first.managedObjectContext {
@@ -233,6 +233,35 @@ extension Medicine {
         
         return request
     }
+    // TODO: function that removes all medicine tiles with date in future and has name -> use fetchrequest and a predicate that matches these conditions.
+    static func fetchToDeleteInNearFuture(at offsets: IndexSet, for preScription: [PreScription], context: NSManagedObjectContext) {
+        
+        if let first = preScription.first {
+            print("--> THIS IS THE FIRST OBJECT \(first.medicineName) <--")
+            let requestToDelete = NSFetchRequest<Medicine>(entityName: "Medicine")
+            requestToDelete.sortDescriptors = [NSSortDescriptor(keyPath: \Medicine.name_, ascending: false)]
+            // Create the component predicates
+            let datePredicate = NSPredicate(format: "\(MedicineProperties.hasPlannedDate) >= %@", Date.now as CVarArg)
+            let namePredicate = NSPredicate(format: "\(MedicineProperties.name) == %@", first.medicineName)
+            let activeSubstancePredicate = NSPredicate(format: "\(MedicineProperties.activeSubstance) == %@", first.medicineActiveSubstance)
+            let formPredicate = NSPredicate(format: "\(MedicineProperties.form) == %@", first.medicineForm)
+//            let strengthValuePredicate = NSPredicate(format: "\(MedicineProperties.strengthValue) == %@", first.medicineStrengthValue)
+//            let strengthValueUnitPredicate = NSPredicate(format: "\(MedicineProperties.strengthValueUnit) == %@", first.medicineStrengthValueUnit)
+//            let amountValuePredicate = NSPredicate(format: "\(MedicineProperties.amountValue) == %@", first.medicineAmountValue)
+//            let amountValueUnitPredicate = NSPredicate(format: "\(MedicineProperties.amountValueUnit) == %@", first.medicineAmountValueUnit)
+            
+            requestToDelete.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, namePredicate, activeSubstancePredicate, formPredicate])
+            
+            /* Create an "and" compound predicate, meaning the query requires all the predicates to be satisfied. In other words, for an object to be returned by an "and" compound predicate, all the component predicates must be true for the object.*/
+            
+            requestToDelete.includesPropertyValues = false /* Setting includesPropertyValues to false means the fetch request will only get the managed object ID for each object */
+            let medicinesToDelete = try! context.fetch(requestToDelete)
+            print("--> THIS ARE THE OBJECTS TO DELETE \(medicinesToDelete) <--")
+            medicinesToDelete.forEach(context.delete)
+            
+        }
+    }
+    
     /// Used to create en example in the preview-canvas. Useful to create an example with an array or many relationships.
     static func example(context: NSManagedObjectContext) -> Medicine {
         Medicine(name: "Stesolid", activeSubstance: "Diazepam", form: "Tablet", strengthValue: 10.0, strengthValueUnit: "mg", amountValue: 1.0, amountValueUnit: "pieces", isPlanned: true, hasPlannedDate: Date.now, isGivenOrTaken: false, hasGivenOrTakenDate: Date.now, isSkipped: false, hasSkippedDate: Date.now, context: context)
