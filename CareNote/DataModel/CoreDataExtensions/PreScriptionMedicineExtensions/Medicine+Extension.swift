@@ -233,7 +233,11 @@ extension Medicine {
         
         return request
     }
-    // TODO: function that removes all medicine tiles with date in future and has name -> use fetchrequest and a predicate that matches these conditions.
+    /// Function that removes all medicine tiles with date in future and has the same name, active substance and form as the PreScription -> use fetch request and a predicate with components  that matches these conditions and deletes them from the context.
+    /// - Parameters:
+    ///   - offsets: as IndexSet from the view that indicates the position in the dynamical View.
+    ///   - preScription: gets from an array containing PreScriptions.
+    ///   - context: NSManagedObjectContext
     static func fetchToDeleteInNearFuture(at offsets: IndexSet, for preScription: [PreScription], context: NSManagedObjectContext) {
         
         if let first = preScription.first, let viewContext = first.managedObjectContext {
@@ -247,9 +251,9 @@ extension Medicine {
                 let namePredicate = NSPredicate(format: "\(MedicineProperties.name) == %@", preScription.medicineName)
                 let activeSubstancePredicate = NSPredicate(format: "\(MedicineProperties.activeSubstance) == %@", preScription.medicineActiveSubstance)
                 let formPredicate = NSPredicate(format: "\(MedicineProperties.form) == %@", preScription.medicineForm)
-                //            let strengthValuePredicate = NSPredicate(format: "\(MedicineProperties.strengthValue) == %@", preScription.medicineStrengthValue)
+//                let strengthValuePredicate = NSPredicate(format: "\(MedicineProperties.strengthValue) == %@", preScription.medicineStrengthValue)
                 //            let strengthValueUnitPredicate = NSPredicate(format: "\(MedicineProperties.strengthValueUnit) == %@", preScription.medicineStrengthValueUnit)
-                //            let amountValuePredicate = NSPredicate(format: "\(MedicineProperties.amountValue) == %@", preScription.medicineAmountValue)
+//                let amountValuePredicate = NSPredicate(format: "\(MedicineProperties.amountValue) == %@", preScription.medicineAmountValue)
                 //            let amountValueUnitPredicate = NSPredicate(format: "\(MedicineProperties.amountValueUnit) == %@", preScription.medicineAmountValueUnit)
                 
                 requestToDelete.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, namePredicate, activeSubstancePredicate, formPredicate])

@@ -9,16 +9,30 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        VStack {
-            Text("GeneralSettingsPLACEHOLDER")
-            Text("BuildingAndRoomsPLACEHOLDER")
-            Text("FavoriteMedicinesPLACEHOLDER")
-            Text("SettingsPLACEHOLDER")
-            Text("SettingsPLACEHOLDER")
-            Text("SettingsPLACEHOLDER")
+        NavigationStack {
+            List {
+                NavigationLink {
+                    Text("General Settings")
+                } label: {
+                    Text("General settings")
+                }
+                
+                NavigationLink {
+                    ArchitectureView()
+                } label: {
+                    Text("Buildings & Rooms")
+                }
+                
+                NavigationLink {
+                    Text("Favorite PreScriptions")
+                } label: {
+                    Text("Favorite PreScriptions")
+                }
+            }
+            .navigationTitle("Settings")
         }
     }
-// MARK: - Functions for this View:
+    // MARK: - Functions for this View:
 }
 
 struct SettingsView_Previews: PreviewProvider {

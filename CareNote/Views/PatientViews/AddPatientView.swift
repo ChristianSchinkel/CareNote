@@ -105,7 +105,9 @@ struct AddPatientView: View {
     private func addPatient() {
         withAnimation {
             // let patient <-- insert this instead of "_" in line 103.
-            _ = Patient(familyName: familyName, name: name, swedishSocialSecurityNumber: swedishSocialSecurityNumber, context: viewContext) // Make an Instance of PatientEntity; vill Instance will be used by the folloing code.
+            let newPatient = Patient(familyName: familyName, name: name, swedishSocialSecurityNumber: swedishSocialSecurityNumber, context: viewContext) // Make an Instance of PatientEntity; vill Instance will be used by the folloing code.
+            newPatient.addToLaw(Law(date: date, name: law.rawValue, paragraph: "", context: viewContext))
+            newPatient.addToJournal(Journal(date: date, text: "Patiente arrived \(date) as/with \(arriving.rawValue) \n Details: \n (\(details)). \n ANAMNES: \n \(anamnes). \n DIAGNOSIS: \n \(diagnosis). \n Patient's s-risk: \(sRisk). \n Patient's v-risk: \(vRisk). \n Patient's Type of Observation: \(type). \n Patient has taken following drugs: \(drug). \n \n Patient has got medicine: \(medicine)", context: viewContext))
 //TODO: - Adding properties to the PatientEntity
             // Add more properties to the Instance of PatientEntity.
                 // patient.addToJournal(Journal(date: date, text: law, context: viewContext))

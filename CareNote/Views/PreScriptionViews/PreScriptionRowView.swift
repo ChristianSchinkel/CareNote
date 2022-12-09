@@ -13,7 +13,7 @@ struct PreScriptionRowView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(preScription.medicineName) \(preScription.medicineStrengthValue, format: .number) \(preScription.medicineStrengthValueUnit) x \(preScription.medicineDoseAmount, format: .number) \(preScription.medicineForm)")
+            Text("\(preScription.medicineName) \(preScription.medicineStrengthValue, format: .number) \(preScription.medicineStrengthValueUnit) x \(preScription.medicineAmountValue, format: .number) \(preScription.medicineAmountValueUnit) \(preScription.medicineForm)")
                 .font(.headline)
                 .padding(.trailing)
             

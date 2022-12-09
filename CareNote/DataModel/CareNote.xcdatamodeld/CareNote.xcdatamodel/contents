@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Building" representedClassName="Building" syncable="YES" codeGenerationType="class">
+    <entity name="Building" representedClassName="Building" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="building" inverseEntity="Department"/>
@@ -21,9 +21,11 @@
         <attribute name="zipCode_" optional="YES" attributeType="String"/>
         <relationship name="building" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Building" inverseName="department" inverseEntity="Building"/>
     </entity>
-    <entity name="Hospital" representedClassName="Hospital" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="name_" optional="YES" attributeType="String"/>
+    <entity name="FavoritePreScription" representedClassName="FavoritePreScription" parentEntity="PreScription" syncable="YES" codeGenerationType="class">
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Hospital" representedClassName="Hospital" parentEntity="Building" syncable="YES" codeGenerationType="class">
+        <relationship name="ward" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ward" inverseName="hospital" inverseEntity="Ward"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="name_" optional="YES" attributeType="String"/>
@@ -78,6 +80,7 @@
         <relationship name="medicine" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="medicine" inverseEntity="Medicine"/>
         <relationship name="preScription" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PreScription" inverseName="patient" inverseEntity="PreScription"/>
         <relationship name="reading" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reading" inverseName="patient" inverseEntity="Reading"/>
+        <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="patient" inverseEntity="Room"/>
     </entity>
     <entity name="PreScription" representedClassName="PreScription" syncable="YES" codeGenerationType="class">
         <attribute name="asNeeded_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -121,6 +124,12 @@
         <attribute name="unit_" optional="YES" attributeType="String"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="reading" inverseEntity="Patient"/>
     </entity>
-    <entity name="Room" representedClassName="Room" parentEntity="Ward" syncable="YES" codeGenerationType="class"/>
-    <entity name="Ward" representedClassName="Ward" parentEntity="Hospital" syncable="YES" codeGenerationType="class"/>
+    <entity name="Room" representedClassName="Room" parentEntity="Building" syncable="YES" codeGenerationType="class">
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="room" inverseEntity="Patient"/>
+        <relationship name="ward" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ward" inverseName="room" inverseEntity="Ward"/>
+    </entity>
+    <entity name="Ward" representedClassName="Ward" parentEntity="Building" syncable="YES" codeGenerationType="class">
+        <relationship name="hospital" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hospital" inverseName="ward" inverseEntity="Hospital"/>
+        <relationship name="room" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Room" inverseName="ward" inverseEntity="Room"/>
+    </entity>
 </model>

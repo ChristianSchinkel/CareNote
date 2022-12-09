@@ -86,7 +86,7 @@ struct AddPreScriptionView: View {
                         // Action
                         addPreScription() // Calls the addMedicine()
                     }
-                    .disabled(medicineName.isEmpty)
+                    .disabled(medicineName.isEmpty || isPrescripted == false)
                 }
             }
         }

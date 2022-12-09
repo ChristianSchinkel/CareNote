@@ -9,36 +9,10 @@ import Foundation
 import CoreData
 
 extension Hospital {
-    /// Is a faster way to initialise only properties that are needed. So you don't need to initialise all properties.
-    convenience init(name: String, context: NSManagedObjectContext) {
-        self.init(context: context)
-        self.name_ = name
-    } // <- It's a priority fast lane.
-    
-    
-    
-    
-// MARK: - Properties for easier coding
-    /*
-     name
-     */
-    
-    public var name: String {
-        get {
-            name_ ?? ""
-        }
-        set {
-            name_ = newValue
-        }
-    }
-    
-    
-    
     /// forKey Hospital-property names to reduce typing misstakes, when using i t for stringly typed names or properties.
     struct HospitalProperties {
         static let name = "name_"
     }
-    
     /// Adds a value of value-type Date() to the property with the stringly typed name.
     public override func awakeFromInsert() {
         setPrimitiveValue(UUID(), forKey: "id")
@@ -61,7 +35,7 @@ extension Hospital {
         return request
     }
     /// Used to create en example in the preview-canvas. Useful to create an example with an array or many relationships.
-    static func example(context: NSManagedObjectContext) -> Hospital {
+    static func exampleHospital(context: NSManagedObjectContext) -> Hospital {
         Hospital(name: "ExampleHospital", context: context)
     }
 

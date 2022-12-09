@@ -9,31 +9,6 @@ import Foundation
 import CoreData
 
 extension Ward {
-    /// Is a faster way to initialise only properties that are needed. So you don't need to initialise all properties.
-    /*convenience init(name: String, context: NSManagedObjectContext) {
-        self.init(context: context)
-        self.name_ = name
-    } // <- It's a priority fast lane.
-    */
-    
-    
-    
-// MARK: - Properties for easier coding
-    /*
-     name
-     */
-    
-    /*public var name: String {
-        get {
-            name_ ?? ""
-        }
-        set {
-            name_ = newValue
-        }
-    }*/
-    
-    
-    
     /// forKey Ward-property names to reduce typing misstakes, when using i t for stringly typed names or properties.
     struct WardProperties {
         static let name = "name_"
@@ -41,6 +16,7 @@ extension Ward {
     
     /// Adds a value of value-type Date() to the property with the stringly typed name.
     public override func awakeFromInsert() {
+        setPrimitiveValue(UUID(), forKey: "id")
         setPrimitiveValue("", forKey: WardProperties.name)
     }
     /// Deletes ward from the list att the current position.
@@ -60,8 +36,8 @@ extension Ward {
         return request
     }
     /// Used to create en example in the preview-canvas. Useful to create an example with an array or many relationships.
-    /*static func example(context: NSManagedObjectContext) -> Ward {
+    static func exampleWard(context: NSManagedObjectContext) -> Ward {
         Ward(name: "ExampleWard", context: context)
-    }*/
+    }
 
 }
